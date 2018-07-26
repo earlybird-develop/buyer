@@ -1,0 +1,210 @@
+{
+  "buyer": {
+    "components": {
+      "header": {
+        "loggedAs": "登录为",
+        "menu": {
+          "markets": "市场"
+        }
+      },
+      "market-header": {
+        "menu": {
+          "invoiceManage": "发票管理",
+          "currentMarket": "当前市场",
+          "historyMarket": "市场历史",
+          "supplierManage": "供应商管理"
+        }
+      },
+      "market-setting": {
+        "title": "市场设置",
+        "edit": "编辑",
+        "save": "保存",
+        "cancel": "取消",
+        "apr": "APR",
+        "apr-d": "期望 APR",
+        "apr-min": "成本 APR",
+        "cashpool": "现金池",
+        "npd": "下个付款日",
+        "reserve-p": "预留比例",
+        "date": "对账日",
+        "ok": "确定"
+      }
+    },
+    "pages": {
+      "account": {
+        "profile": "个人资料",
+        "change-pwd": "修改密码"
+      },
+      "change-pwd": {
+        "text": "要重置您的密码，我们将发送一封带有密码超链接的电子邮件给您的邮件 <a href=\"email: {{email}}\">{{email}}</a>。<br> 邮件内有关于如何安全重置密码的说明。",
+        "btn-text": "发送邮件"
+      },
+      "current": {
+        "clearing": {
+          "title": "清算数据",
+          "apr": "年化率",
+          "dpe": "提前天数",
+          "ap": "应付",
+          "market-total": "市场总值",
+          "clearing-total": "清算总值",
+          "non-clearing-total": "未清算总值",
+          "graph-income": "折扣收入",
+          "graph-apr": "年化率",
+          "table": {
+            "current-offers": "今日开价",
+            "income": "折扣收入",
+            "apr": "年化率",
+            "dpe": "提前天数",
+            "cash-deployed": "现金分配",
+            "amount": "金额",
+            "suppliers": "供应商数",
+            "invoices": "发票数",
+            "market-clearing": "市场清算",
+            "current": "今日分配",
+            "manual-award": "手工奖励",
+            "pending": "待分配",
+            "current-clearing": "今日清算",
+            "total": "共计"
+          }
+        },
+        "network": {
+          "title": "供应商参与情况",
+          "suppl-total": "总供应商",
+          "reg-suppl": "已注册供应商",
+          "part-suppl": "参与市场供应商",
+          "with-ap": "有应付",
+          "top5reg": "前五应付排名",
+          "top5inc": "前五折扣收入排名"
+        }
+      },
+      "history": {
+        "filter": {
+          "title": "历史",
+          "last7": "近7天",
+          "last30": "近30天",
+          "last60": "近60天",
+          "last90": "近90天",
+          "custom": "自定义时间",
+          "from": "从",
+          "to": "到",
+          "go": "查询",
+          "download-csv": "下载csv表格"
+        },
+        "history-market": "市场历史",
+        "last-days": "近 {{fromDays}} 天",
+        "to": "到",
+        "ap": "清算应付",
+        "income": "折扣收入",
+        "discount": "折扣率",
+        "ar": "清算应付",
+        "list": {
+          "download": "下载",
+          "date": "清算日期",
+          "inv-amount": "发票金额",
+          "payble": "新应付金额",
+          "discount-total": "折扣总计",
+          "discount-avr": "平均折扣率",
+          "apr": "平均年化率",
+          "dpe": "平均提交天数",
+          "csv": "CSV",
+          "excel": "Excel"
+        }
+      },
+      "invoices": {
+        "filter": {
+          "title": "发票",
+          "eligible": "有效发票",
+          "ineligible": "无效发票",
+          "adjustments": "调整发票",
+          "awarded": "早付发票",
+          "dpe": "提早天数",
+          "less15": "小于15天",
+          "more15": "15到30天",
+          "more30": "30到45天",
+          "more45": "45天以上",
+          "eia": "有效发票金额",
+          "less25k": "25,000以下",
+          "more25k": "25,000 到 50,000",
+          "more50k": "50,000 到 75,000",
+          "more75k": "75,000 以上",
+          "opd": "原定付款日",
+          "from": "从",
+          "to": "到",
+          "go": "查询"
+        },
+        "inv-status": "发票状态",
+        "sync": "同步发票",
+        "amount-ap": "应付金额",
+        "inv-num": "发票数",
+        "sup-num": "供应商数",
+        "set-adj": "设置为调整",
+        "set-el": "设置为有效",
+        "search": "搜索发票编号",
+        "list": {
+          "all": "所有",
+          "status": "状态",
+          "vendor-code": "供应商编号",
+          "suppl": "供应商",
+          "inv-id": "发票编号",
+          "inv-amount": "发票金额",
+          "pay-date": "原付款日"
+        }
+      },
+      "supplier": {
+        "title": "供应商参与情况",
+        "total-sup": "总供应商",
+        "reg-sup": "已注册供应商",
+        "part-sup": "参与市场供应商",
+        "with-ap": "有应付",
+        "list": {
+          "supplier": "供应商",
+          "vendor-code": "供应商编号",
+          "reg-user": "已注册用户数",
+          "sublist": {
+            "contact": "联系人",
+            "position": "职位",
+            "phone": "电话",
+            "email": "邮箱",
+            "register-status": "注册状态",
+            "registered-time": "注册时间"
+          }
+        }
+      },
+      "markets": {
+        "title": "市场机会",
+        "list": {
+          "setting": "市场设置",
+          "status": "状态",
+          "market": "市场",
+          "cash": "现金 <br> 可用/总计",
+          "ap": "应付 <br> 有效/总计",
+          "cash-dep": "现金分配",
+          "income": "折扣收入",
+          "apr": "年化率",
+          "pay-date": "下个付款日"
+        }
+      },
+      "profile": {
+        "title": "个人资料",
+        "labels": {
+          "name": "名字",
+          "job": "职位",
+          "email": "应付部门电邮",
+          "industry": "行业",
+          "country": "国家",
+          "submit": "提高",
+          "lastName": "姓氏",
+          "phone": "联系电放",
+          "year": "财年截止日"
+        }
+      },
+      "signin": {
+        "title": "买家登录",
+        "email": "邮箱",
+        "password": "密码",
+        "remember": "记录邮箱",
+        "forgot": "忘记密码"
+      }
+    }
+  }
+}

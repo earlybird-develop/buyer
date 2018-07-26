@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.sidebar-menu {
+  margin-left: 24px;
+
+  li {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #fff !important;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    &.active a {
+      color: #f0e4b6 !important;
+    }
+  }
+}

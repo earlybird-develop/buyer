@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.content {
+  padding: 153px 80px 150px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+@media(max-width: 1000px) {
+  .content {
+    padding: 153px 40px 100px;
+  }
+}
+
+@media(max-width: 768px) {
+  .content {
+    padding: 153px 20px 100px;
+  }
+}

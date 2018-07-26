@@ -1,0 +1,222 @@
+<eb-sidebarable-page>
+  <ng-container sidebar>
+    <div class="sidebar-menu-title">{{ 'buyer.pages.invoices.filter.title' | translate }}</div>
+    <ul class="sidebar-menu">
+      <li [class.active]="filter.invoiceStatus === 'eligible'">
+        <a (click)="setInvoiceType('eligible')">
+          {{ 'buyer.pages.invoices.filter.eligible' | translate }}
+        </a>
+      </li>
+      <li [class.active]="filter.invoiceStatus === 'ineligible'">
+        <a (click)="setInvoiceType('ineligible')">
+          {{ 'buyer.pages.invoices.filter.ineligible' | translate }}
+        </a>
+      </li>
+      <li [class.active]="filter.invoiceStatus === 'adjustments'">
+        <a (click)="setInvoiceType('adjustments')">
+          {{ 'buyer.pages.invoices.filter.adjustments' | translate }}
+        </a>
+      </li>
+      <li [class.active]="filter.invoiceStatus === 'awarded'">
+        <a (click)="setInvoiceType('awarded')">
+          {{ 'buyer.pages.invoices.filter.awarded' | translate }}
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-separator" *ngIf="filter.invoiceStatus === 'eligible'"></div>
+
+    <div class="filter-block" *ngIf="filter.invoiceStatus === 'eligible'">
+      <div class="filter-block-title">{{ 'buyer.pages.invoices.filter.dpe' | translate }}</div>
+      <ul>
+        <li>
+          <label>
+            <input type="checkbox"
+                   (change)="toggleDpe(1, $event)"
+                   [ngModel]="filter.dpe.indexOf(1) >= 0">
+            {{ 'buyer.pages.invoices.filter.less15' | translate }}
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox"
+                   (change)="toggleDpe(2, $event)"
+                   [ngModel]="filter.dpe.indexOf(2) >= 0">
+            {{ 'buyer.pages.invoices.filter.more15' | translate }}
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox"
+                   (change)="toggleDpe(3, $event)"
+                   [ngModel]="filter.dpe.indexOf(3) >= 0">
+            {{ 'buyer.pages.invoices.filter.more30' | translate }}
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox"
+                   (change)="toggleDpe(4, $event)"
+                   [ngModel]="filter.dpe.indexOf(4) >= 0">
+            {{ 'buyer.pages.invoices.filter.more45' | translate }}
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="filter-block" *ngIf="filter.invoiceStatus === 'eligible'">
+      <div class="filter-block-title">{{ 'buyer.pages.invoices.filter.eia' | translate }}</div>
+      <ul>
+        <li>
+          <label>
+            <input type="checkbox"
+                   (change)="toggleAmount(1, $event)"
+                   [ngModel]="filter.amount.indexOf(1) >= 0">
+            {{ 'buyer.pages.invoices.filter.less25k' | translate }}
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox"
+                   (change)="toggleAmount(2, $event)"
+                   [ngModel]="filter.amount.indexOf(2) >= 0">
+            {{ 'buyer.pages.invoices.filter.more25k' | translate }}
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox"
+                   (change)="toggleAmount(3, $event)"
+                   [ngModel]="filter.amount.indexOf(3) >= 0">
+            {{ 'buyer.pages.invoices.filter.more50k' | translate }}
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox"
+                   (change)="toggleAmount(4, $event)"
+                   [ngModel]="filter.amount.indexOf(4) >= 0">
+            {{ 'buyer.pages.invoices.filter.more75k' | translate }}
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-menu-title opd" *ngIf="filter.invoiceStatus === 'eligible'">
+      {{ 'buyer.pages.invoices.filter.opd' | translate }}
+    </div>
+    <div class="custom-range-filter" *ngIf="filter.invoiceStatus === 'eligible'">
+      <label class="from">
+        &nbsp; &nbsp; {{ 'buyer.pages.invoices.filter.from' | translate }}
+        <input type="text"
+               placeholder="dd/mm/yy"
+               class="form-control"
+               bsDatepicker
+               [(ngModel)]="startDate"
+               placement="right"
+               [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+      </label>
+      <label class="to">
+        &nbsp; &nbsp; {{ 'buyer.pages.invoices.filter.to' | translate }}
+        <input type="text"
+               placeholder="dd/mm/yy"
+               class="form-control"
+               bsDatepicker
+               [(ngModel)]="endDate"
+               placement="right"
+               [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+      </label>
+      <button class="btn btn-primary" (click)="goCustomRange()">
+        {{ 'buyer.pages.invoices.filter.go' | translate }}
+      </button>
+    </div>
+  </ng-container>
+
+  <div class="filter-range">
+    {{ 'buyer.pages.invoices.inv-status' | translate }}
+
+    <a class="btn btn-default sync-btn" (click)="syncInvoices()">
+      {{ 'buyer.pages.invoices.sync' | translate }}
+    </a>
+    <div class="sub-line"></div>
+  </div>
+
+  <div class="market-stats">
+    <div class="awarded">
+      <div class="title">{{ 'buyer.pages.invoices.amount-ap' | translate }}</div>
+      <div class="amount">{{ marketStat?.availableAmount | currency: marketStat?.currencySign }}&nbsp;</div>
+    </div>
+    <div class="total-discount">
+      <div class="title">{{ 'buyer.pages.invoices.inv-num' | translate }}</div>
+      <div class="amount">{{ marketStat?.invoiceCount }}&nbsp;</div>
+    </div>
+    <div class="average-discount">
+      <div class="title">{{ 'buyer.pages.invoices.sup-num' | translate }}</div>
+      <div class="amount">{{ marketStat?.suppliersCount }}&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="buttons">
+      <a *ngIf="filter.invoiceStatus === 'eligible'"
+         (click)="changeStatus(-1)"
+         class="btn btn-secondary">
+        {{ 'buyer.pages.invoices.set-adj' | translate }}
+      </a>
+      <a *ngIf="filter.invoiceStatus === 'adjustments'"
+         (click)="changeStatus(1)"
+         class="btn btn-secondary">
+        {{ 'buyer.pages.invoices.set-el' | translate }}
+
+      </a>
+    </div>
+    <div class="search">
+      <div class="search-group">
+        <img class="search-icon" src="assets/icons/search.svg" alt="{{ 'buyer.pages.invoices.search' | translate }}">
+        <input class="search-input"
+               [(ngModel)]="invoicesSearch"
+               type="text"
+               placeholder="{{ 'buyer.pages.invoices.search' | translate }}">
+      </div>
+    </div>
+  </div>
+
+  <div class="invoices-table">
+    <div class="list">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>
+            <label>
+              <input type="checkbox"
+                     [(ngModel)]="checkbox"
+                     (click)="setCheckedInvoices($event)">
+              {{ 'buyer.pages.invoices.list.all' | translate }}
+            </label>
+          </th>
+          <th class="text-center">{{ 'buyer.pages.invoices.list.status' | translate }}</th>
+          <th>{{ 'buyer.pages.invoices.list.vendor-code' | translate }}</th>
+          <th>{{ 'buyer.pages.invoices.list.suppl' | translate }}</th>
+          <th>{{ 'buyer.pages.invoices.list.inv-id' | translate }}</th>
+          <th>{{ 'buyer.pages.invoices.list.inv-amount' | translate }}</th>
+          <th>{{ 'buyer.pages.invoices.list.pay-date' | translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--searchFilter: 'invoiceId' : search-->
+        <tr *ngFor="let invoice of invoices | searchFilter: 'invoiceId' : invoicesSearch">
+          <td><input type="checkbox" [(ngModel)]="invoice._checked"></td>
+          <td class="text-center {{invoice.invoiceStatus}}">
+            {{ 'buyer.pages.invoices.filter.' + invoice.invoiceStatus | translate }}
+          </td>
+          <td>{{ invoice.vendorCode }}</td>
+          <td>{{ invoice.supplierName }}</td>
+          <td>{{ invoice.invoiceId }}</td>
+          <td>{{ invoice.invoiceAmount | currency: marketStat?.currency }}</td>
+          <td>{{ invoice.originalPaydate }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</eb-sidebarable-page>

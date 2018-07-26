@@ -1,0 +1,391 @@
+.filter-range {
+  background-color: #f5f6f7;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 35px;
+  padding: 40px 50px 5px;
+
+  .sub-line {
+    margin: 0 -5px;
+    border-bottom: 1px solid rgba(149, 152, 154, 0.36);
+  }
+
+  .sync-btn {
+    float: right;
+    font-size: 13px;
+    font-weight: 400;
+    height: 32px;
+    line-height: 32px;
+    margin-top: -18px;
+  }
+}
+
+.market-stats {
+  background-color: #f5f6f7;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 74px;
+
+  .title {
+    color: rgba(26, 26, 26, .8);
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .amount {
+    color: #4d4f5c;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .total-discount {
+    .amount {
+      color: #95b953;
+    }
+  }
+}
+
+.sidebar-menu-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.sidebar-menu {
+  margin-left: 24px;
+
+  li {
+    margin-bottom: 10px;
+
+    &.active a {
+      color: #fada61 !important;
+      text-decoration: underline;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #f0e4b6 !important;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+}
+
+.sidebar-separator {
+  background-color: rgba(222, 222, 222, .2);
+  display: block;
+  height: 1px;
+  margin: 20px 0;
+}
+
+.filter-block {
+  margin-left: 20px;
+  margin-bottom: 27px;
+
+  .filter-block-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+
+    &.first {
+      font-weight: 400;
+    }
+  }
+
+  ul li {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+
+    * {
+      cursor: pointer;
+    }
+  }
+}
+
+.custom-range-filter {
+  margin: 20px 16px 0 15px;
+
+  label {
+    color: #cecfd0;
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+
+    &.to {
+      margin-top: 10px;
+    }
+
+    input {
+      border: 1px solid #E8E9EC;
+      border-radius: 4px;
+      color: #acad90;
+      padding: 0 16px;
+      box-sizing: border-box;
+      display: block;
+      margin-top: 7px;
+      height: 30px;
+      outline: none;
+      width: 100%;
+    }
+  }
+
+  button {
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    width: 69px;
+    //margin-left: 10px;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    margin-top: 20px;
+    outline: none;
+  }
+}
+
+.opd {
+  margin-top: 20px;
+}
+
+.controls {
+  padding: 20px 75px;
+  display: flex;
+
+  .buttons {
+    height: 38px;
+    width: 50%;
+
+    .btn {
+      font-size: 12px;
+      margin: 0 10px;
+      width: 130px;
+      padding: 0;
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+
+  .search {
+    .export-btn {
+      font-size: 12px;
+      margin-left: 34px;
+      padding: 0 25px;
+    }
+
+    text-align: center;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .search-icon {
+        height: 23px;
+        width: 23px;
+      }
+
+      .search-input {
+        color: #888585;
+        margin-left: 25px;
+        width: 146px;
+        border: 0;
+        font-size: 12px;
+        outline: none;
+        border-bottom: 1px solid rgba(149, 152, 154, .36);
+        height: 23px;
+        line-height: 23px;
+      }
+    }
+  }
+}
+
+.invoices-table {
+  padding: 0 75px 50px;
+
+  .list-header {
+    .title {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 17px;
+      color: rgba(23, 23, 23, .7);
+
+      span {
+        color: rgba(149, 185, 83, .7);
+      }
+    }
+
+    .controls {
+      display: flex;
+
+      .buttons {
+        width: 50%;
+
+        .btn {
+          font-size: 12px;
+          margin: 0 10px;
+          width: 114px;
+          padding: 0;
+          text-align: center;
+          font-weight: 700;
+        }
+      }
+
+      .search {
+        .export-btn {
+          font-size: 12px;
+          margin-left: 34px;
+          padding: 0 25px;
+        }
+
+        text-align: center;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .search-group {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          .search-icon {
+            height: 23px;
+            width: 23px;
+          }
+
+          .search-input {
+            color: #888585;
+            margin-left: 25px;
+            width: 146px;
+            border: 0;
+            font-size: 12px;
+            outline: none;
+            border-bottom: 1px solid rgba(149, 152, 154, .36);
+            height: 23px;
+            line-height: 23px;
+          }
+        }
+      }
+    }
+  }
+
+  .list {
+    //margin-top: 70px;
+    margin-bottom: 110px;
+
+    .eligible {
+      font-weight: 700;
+      color: #95b953;
+    }
+
+    .ineligible {
+      font-weight: 700;
+      color: #24457c;
+    }
+
+    .adjustment {
+      font-weight: 700;
+      color: #1a1b3c;
+    }
+
+    .awarded {
+      font-weight: 700;
+      color: #f0e4b6;
+    }
+
+    table {
+      * {
+        text-align: left;
+      }
+
+      tbody * {
+        font-size: 13px;
+      }
+    }
+
+    .included {
+      background-color: #8ed8f8;
+      border-radius: 50%;
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+    }
+  }
+}
+
+@media(max-width: 1000px) {
+}
+
+@media(max-width: 768px) {
+  .filter-range {
+    padding: 20px 20px 5px;
+
+    .sync-btn {
+      display: none;
+    }
+  }
+
+  .market-stats {
+    padding: 20px 20px 5px;
+    display: block;
+  }
+
+  .controls {
+    display: block;
+    padding: 20px 20px 5px;
+
+    .buttons {
+      display: block;
+      margin: 0;
+      margin-bottom: 10px;
+      width: auto;
+
+      .btn {
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .search {
+      width: 100%;
+
+      .search-group {
+        display: block;
+        width: 100%;
+      }
+
+      .search-icon {
+        display: none;
+      }
+
+      input {
+        margin: 0 !important;
+        width: 100% !important;
+      }
+    }
+  }
+
+  .invoices-table {
+    margin: 20px 20px 5px;
+    padding: 0;
+    overflow-y: scroll;
+
+    .list {
+      margin-top: 10px;
+      min-width: 700px;
+    }
+  }
+}

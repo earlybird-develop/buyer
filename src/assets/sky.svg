@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 520.346 296.959">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.399;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #7ac5e0;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-4 {
+        fill: #61a5be;
+        font-size: 32px;
+        font-family: Lato-Bold, Lato;
+        font-weight: 700;
+        letter-spacing: 0.7em;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e5f8ff"/>
+      <stop offset="1" stop-color="#45bee6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e5f8ff"/>
+      <stop offset="1" stop-color="#a9e1f4"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1414" data-name="Group 1414" transform="translate(-734.5 -1605.706)">
+    <g id="Group_1410" data-name="Group 1410" class="cls-1" transform="translate(725 1598.571)">
+      <path id="Path_6477" data-name="Path 6477" class="cls-2" d="M542.051,204.842a107.039,107.039,0,0,0-137.37-102.675,121.888,121.888,0,0,0-217.3-31.394,55.536,55.536,0,0,0-84,47.7c0,1.489.08,2.938.2,4.387a95.053,95.053,0,0,0,5.434,188.567l.04.443H445.735l.04-.523A107.006,107.006,0,0,0,542.051,204.842Z" transform="translate(-12.705 -9.365)"/>
+      <path id="Path_6478" data-name="Path 6478" class="cls-3" d="M509.683,187.842c0-59.126-47.071-107.062-105.13-107.062a102.458,102.458,0,0,0-29.76,4.387C359.537,35.781,314.2,0,260.691,0,219.35,0,182.91,21.332,161.41,53.773a53.476,53.476,0,0,0-27.942-7.849c-30.116,0-54.541,24.874-54.541,55.544,0,1.489.079,2.938.2,4.387C34.306,112.818,0,152.262,0,199.8c0,49.466,37.072,90.077,84.46,94.625l.04.443H415.106l.04-.523C468.224,288.988,509.683,243.345,509.683,187.842Z" transform="translate(10 7.635)"/>
+    </g>
+    <text id="EBCF" class="cls-4" transform="translate(759.503 1769.665)"><tspan x="159.526" y="32">EBCF</tspan></text>
+  </g>
+</svg>

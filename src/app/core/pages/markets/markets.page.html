@@ -1,0 +1,57 @@
+<!--<div class="title">{{ 'buyer.pages.markets.title' | translate }}</div>-->
+
+<div class="table-markets">
+  <table>
+    <thead>
+      <tr>
+        <th>{{ 'buyer.pages.markets.list.setting' | translate }}</th>
+        <th class="text-center">{{ 'buyer.pages.markets.list.status' | translate }}</th>
+        <th>{{ 'buyer.pages.markets.list.market' | translate }}</th>
+        <th class="text-center" [innerHTML]="'buyer.pages.markets.list.cash' | translate"></th>
+        <th class="text-center" [innerHTML]="'buyer.pages.markets.list.ap' | translate">A/P <br> ELIGIBLE/TOTAL</th>
+        <th class="text-center">{{ 'buyer.pages.markets.list.cash-dep' | translate }}</th>
+        <th class="text-center">{{ 'buyer.pages.markets.list.income' | translate }}</th>
+        <th class="text-center">{{ 'buyer.pages.markets.list.apr' | translate }}</th>
+        <th class="text-center">{{ 'buyer.pages.markets.list.pay-date' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let market of markets">
+        <td class="settings">
+          <a class="pointer"
+             (click)="openSettings(market)"
+             [popover]="marketSetting"
+             placement="auto">
+            <img src="assets/icons/settings.svg">
+          </a>
+        </td>
+        <td class="text-center">
+          <eb-checkbox [ngModel]="market.status === 1"
+                       (change)="setMarketStatus($event, market)"
+                       confirmable>
+          </eb-checkbox>
+        </td>
+        <td>
+          <a [routerLink]="[ market.id, 'invoice-manage']">{{ market.name }}</a>
+          <div>({{ market.currency }})</div>
+        </td>
+        <td class="text-center">
+          {{ market.cashAvailable | currency: market.currencySign }} / {{ market.cashTotal | currency: market.currencySign }}
+        </td>
+        <td class="text-center">
+          {{ market.paidEligible | currency: market.currencySign }} / {{ market.paidTotal | currency: market.currencySign }}
+        </td>
+        <td class="text-center">{{ market.cashDeployed | currency: market.currency }}</td>
+        <td class="text-center">{{ market.income | currency: market.currencySign }}</td>
+        <td class="text-center">{{ market.averageApr }}%</td>
+        <td class="text-center">{{ market.payDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="pages" hidden>
+  <pagination [totalItems]="40" nextText=" " previousText=" "></pagination>
+</div>
+<ng-template #marketSetting>
+  <eb-market-setting [popoverHandler]="marketSetting" [marketOrig]="currentMarket"></eb-market-setting>
+</ng-template>

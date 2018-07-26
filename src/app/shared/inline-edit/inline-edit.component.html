@@ -1,0 +1,11 @@
+<div *ngIf="isOpen">
+  <input type="text" [placeholder]="placeholder" [(ngModel)]="value">
+  <a class="action-btn" (click)="apply()">
+    <img src="./assets/icons/save.svg" *ngIf="!black">
+    <img src="./assets/icons/save-black.svg" *ngIf="black">
+  </a>
+  <a class="action-btn" (click)="cancel()">
+    <img src="./assets/icons/close.svg" *ngIf="!black">
+    <img src="./assets/icons/close-black.svg" *ngIf="black">
+  </a>
+</div>

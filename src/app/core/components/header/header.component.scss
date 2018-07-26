@@ -1,0 +1,142 @@
+:host {
+  display: block;
+}
+
+header {
+  background: linear-gradient(135deg, #24457c, #24457c, #3D7AB3, #3D79B2);
+  box-shadow: 0 0 4px #000;
+  height: 153px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10000;
+
+  .container {
+    border-bottom: 1px solid rgba(255, 255, 255, .25);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 62px;
+    height: 95px;
+
+    .logo {
+      box-sizing: border-box;
+      float: left;
+      height: 100%;
+      padding-top: 12px;
+      width: 25%;
+
+      img {
+        width: 65px;
+      }
+    }
+  }
+
+  .controls {
+    position: relative;
+    width: 75%;
+
+    .user-menu {
+      align-items: center;
+      display: flex;
+      height: 28px;
+      padding-top: 19px;
+      justify-content: flex-end;
+
+      > * {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-end;
+      }
+
+      .lang-select {
+        position: relative;
+        display: block;
+
+        a {
+          color: #fff !important;
+          cursor: pointer;
+          font-size: 13px;
+          text-decoration: none;
+
+          .small-down {
+            width: 11px;
+            margin-left: 7px;
+          }
+        }
+      }
+
+      .logged-as {
+        color: #fff;
+        font-weight: 400;
+        font-size: 14px;
+        margin-right: 30px;
+
+        .username {
+          cursor: pointer;
+          font-weight: 700;
+          color: #fff !important;
+        }
+      }
+
+      .logout {
+        width: 16px;
+      }
+
+      .separator {
+        background-color: #ebebf2;
+        height: 28px;
+        width: 1px;
+        margin: 0 20px
+      }
+    }
+
+    .header-menu {
+      align-items: flex-end;
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      top: 18px;
+
+      li {
+        display: block;
+
+        &:not(:first-child) {
+          margin-left: 25px;
+        }
+
+        a {
+          color: #fff !important;
+          font-size: 13px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.subheader {
+  height: 57px;
+}
+
+@media(max-width: 768px) {
+  header {
+    .container {
+      padding: 0 20px;
+
+      .user-menu {
+        .logout {
+          display: none;
+        }
+
+        .separator {
+          margin: 0 10px;
+        }
+
+        .logged-as {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+}

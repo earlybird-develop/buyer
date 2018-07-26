@@ -1,0 +1,26 @@
+:host {
+  color: #fff;
+  display: inline-block;
+  font-size: 10px;
+  line-height: 57px;
+}
+
+.icon {
+  height: 11px;
+  line-height: 57px;
+  width: 11px;
+}
+
+.market-close {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 6px;
+  line-height: 57px;
+}
+
+@media(max-width: 1000px) {
+  span {
+    display: none;
+  }
+}

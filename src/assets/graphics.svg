@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1922.729 645.394">
+  <defs>
+    <style>
+      .cls-1, .cls-12, .cls-5, .cls-8, .cls-9 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke: #707070;
+      }
+
+      .cls-4, .cls-6 {
+        stroke: rgba(199,199,199,0.31);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-5 {
+        stroke: #fff;
+      }
+
+      .cls-6 {
+        opacity: 0.847;
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-7 {
+        stroke: rgba(255,255,255,0.7);
+        opacity: 0.267;
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-8 {
+        stroke: #e2e2e2;
+        opacity: 0.536;
+      }
+
+      .cls-9 {
+        stroke: #c4c4c4;
+      }
+
+      .cls-10 {
+        opacity: 0.708;
+        clip-path: url(#clip-path);
+      }
+
+      .cls-11 {
+        clip-path: url(#clip-path-2);
+      }
+
+      .cls-12 {
+        stroke: #89b3c1;
+      }
+
+      .cls-13 {
+        stroke: none;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3971aa" stop-opacity="0.149"/>
+      <stop offset="0.383" stop-color="#2e5c89" stop-opacity="0.149"/>
+      <stop offset="0.675" stop-color="#12477c" stop-opacity="0.149"/>
+      <stop offset="1" stop-color="#262626" stop-opacity="0.231"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3971aa" stop-opacity="0.149"/>
+      <stop offset="0.383" stop-color="#2e5c89" stop-opacity="0.149"/>
+      <stop offset="0.675" stop-color="#12477c" stop-opacity="0.149"/>
+      <stop offset="1" stop-color="#1d3955" stop-opacity="0.149"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3971aa" stop-opacity="0.149"/>
+      <stop offset="0.409" stop-color="#14447b" stop-opacity="0.243"/>
+      <stop offset="1" stop-color="#102039" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect class="cls-1" width="22" height="23"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect class="cls-1" width="22" height="22"/>
+    </clipPath>
+  </defs>
+  <g id="Symbol_1_1" data-name="Symbol 1 – 1" transform="translate(0.55 -278.03)">
+    <g id="if_clock_2411792" transform="translate(1161 616)">
+      <path id="Path_6323" data-name="Path 6323" class="cls-2" d="M10.028,0A10.028,10.028,0,1,0,20.056,10.028,10.039,10.039,0,0,0,10.028,0Zm0,19.215a9.187,9.187,0,1,1,9.187-9.187A9.2,9.2,0,0,1,10.028,19.215Z"/>
+      <rect id="Rectangle_906" data-name="Rectangle 906" class="cls-2" width="1.757" height="0.855" transform="translate(3.587 9.483)"/>
+      <rect id="Rectangle_907" data-name="Rectangle 907" class="cls-2" width="0.855" height="1.756" transform="translate(9.6 3.587)"/>
+      <rect id="Rectangle_908" data-name="Rectangle 908" class="cls-2" width="0.855" height="1.755" transform="translate(9.6 14.713)"/>
+      <path id="Path_6324" data-name="Path 6324" class="cls-2" d="M350.441,315.905a1.088,1.088,0,0,0-1.51-1l-2.2-2.831-.528.411,2.226,2.861a1.067,1.067,0,0,0-.159.558,1.087,1.087,0,0,0,1.086,1.086,1.07,1.07,0,0,0,.615-.193l3.266,1.823.325-.584-3.183-1.776A1.1,1.1,0,0,0,350.441,315.905Zm-1.087.587a.586.586,0,1,1,.586-.587A.587.587,0,0,1,349.354,316.492Z" transform="translate(-339.327 -305.877)"/>
+      <rect id="Rectangle_909" data-name="Rectangle 909" class="cls-2" width="1.757" height="0.855" transform="translate(14.712 9.483)"/>
+      <g id="Ellipse_5345" data-name="Ellipse 5345" class="cls-3" transform="translate(243 128)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="Ellipse_5331" data-name="Ellipse 5331" class="cls-3" transform="translate(-133 -27)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="Ellipse_5332" data-name="Ellipse 5332" class="cls-3" transform="translate(-184 -2)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="Ellipse_5336" data-name="Ellipse 5336" class="cls-3" transform="translate(36 45)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="Ellipse_5337" data-name="Ellipse 5337" class="cls-3" transform="translate(-126 105)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="Ellipse_5339" data-name="Ellipse 5339" class="cls-3" transform="translate(-126 105)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="Ellipse_5343" data-name="Ellipse 5343" class="cls-3" transform="translate(-104 186)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="Ellipse_5344" data-name="Ellipse 5344" class="cls-3" transform="translate(60 130)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <path id="Path_6322" data-name="Path 6322" class="cls-4" d="M5347.092,5055.278l150.545.153,655.824-51.538,254.331-40.524,164.065-56.071h178.057l516.4-95.861V5078.56H5347.092Z" transform="translate(-6507.593 -4771.635)"/>
+      <g id="Ellipse_5329" data-name="Ellipse 5329" class="cls-5" transform="translate(479 -176)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="Ellipse_5330" data-name="Ellipse 5330" class="cls-3" transform="translate(86 -52)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <path id="Path_6321" data-name="Path 6321" class="cls-6" d="M5411.5,5127.064l758.764-109.328,108.973-41.128,105.232-11.048,64.64,24.271,162.973-60.206,118.846-14.134,599.816-190.015v191.361L6814.1,5013.667H6637.739l-161.279,56.182-259.233,40.332-654.048,51.159H5411.946Z" transform="translate(-6572.448 -4880.566)"/>
+      <path id="Path_6319" data-name="Path 6319" class="cls-7" d="M5486.95,5067.286,6074.3,4960.638l168.27-36.385,110.271-58.3,109.611,11.97,50.216-25.067,222.563-26.646,391.952-122.171,281.49-166.639-.661,181.36-606.272,192.44-114.086,13.058-165.39,59.206-59.812-22.821-109.611,10.851-110.271,40.747L5486.95,5121.154Z" transform="translate(-6648 -4874.485)"/>
+      <g id="Ellipse_5349" data-name="Ellipse 5349" class="cls-8" transform="translate(428 -236)">
+        <circle class="cls-13" cx="24" cy="24" r="24"/>
+        <circle class="cls-1" cx="24" cy="24" r="23.5"/>
+      </g>
+      <line id="Line_98" data-name="Line 98" class="cls-9" x1="17" y1="17" transform="translate(463.5 -191.5)"/>
+      <g id="Repeat_Grid_1" data-name="Repeat Grid 1" class="cls-10" transform="translate(472 -182)">
+        <g transform="translate(-9117 -4764)">
+          <g id="Repeat_Grid_2" data-name="Repeat Grid 2" class="cls-11" transform="translate(9117 4764)">
+            <g transform="translate(-9117 -4764)">
+              <g id="Ellipse_5350" data-name="Ellipse 5350" class="cls-12" transform="translate(9117 4764)">
+                <circle class="cls-13" cx="10.5" cy="10.5" r="10.5"/>
+                <circle class="cls-1" cx="10.5" cy="10.5" r="10"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g id="Ellipse_5351" data-name="Ellipse 5351" class="cls-3" transform="translate(479 -176)">
+        <circle class="cls-13" cx="4" cy="4" r="4"/>
+        <circle class="cls-1" cx="4" cy="4" r="3.5"/>
+      </g>
+      <g id="if_icon-ios7-person-outline_211794" transform="translate(346 -319)">
+        <path id="Path_6327" data-name="Path 6327" class="cls-2" d="M202.4,201.7Z" transform="translate(-99.731 -99.075)"/>
+        <path id="Path_6328" data-name="Path 6328" class="cls-2" d="M112.753,112.79a23.339,23.339,0,0,0-2.708-.552,2.807,2.807,0,0,1-1.253-.577,11.006,11.006,0,0,1-.081-2.563,7.975,7.975,0,0,0,.589-1.128,14.563,14.563,0,0,0,.432-1.968s.426,0,.577-.746a7.368,7.368,0,0,0,.382-1.761c-.031-.564-.326-.6-.357-.6h0a9.346,9.346,0,0,0,.351-2.657c.05-2.137-1.586-4.243-4.657-4.243s-4.7,2.1-4.657,4.237a9.118,9.118,0,0,0,.351,2.657h0c-.031,0-.326.031-.357.6a7.6,7.6,0,0,0,.382,1.749c.15.746.577.752.577.752a14.6,14.6,0,0,0,.432,1.974,7.592,7.592,0,0,0,.589,1.128,11.007,11.007,0,0,1-.081,2.563,2.742,2.742,0,0,1-1.253.577,23.138,23.138,0,0,0-2.708.558c-.808.288-3.3,1.26-3.3,3.265h20.056C116.056,114.05,113.561,113.079,112.753,112.79Zm-6.725,2.263H97.423a1.9,1.9,0,0,1,.514-.476,6.5,6.5,0,0,1,1.7-.852,9.6,9.6,0,0,1,1.592-.332c.357-.056.7-.107,1-.175a3.715,3.715,0,0,0,1.805-.915c.282-.338.364-.8.351-2.024-.006-.627-.038-1.21-.038-1.235l-.013-.263-.144-.219a6.093,6.093,0,0,1-.5-.959,13.464,13.464,0,0,1-.376-1.761s.025.063-.031-.232-.526-.27-.589-.5-.113-.432-.269-1.141.175-.7.244-1.015a1,1,0,0,0,0-.364h0a9.274,9.274,0,0,1-.295-2.363,2.986,2.986,0,0,1,.865-2.187,4.286,4.286,0,0,1,5.584,0,2.986,2.986,0,0,1,.865,2.187,8.739,8.739,0,0,1-.295,2.363h0a.953.953,0,0,0-.025.326c.013.338.426.345.269,1.053s-.213.915-.269,1.141-.533.207-.589.5-.031.232-.031.232a13.466,13.466,0,0,1-.376,1.761,7.39,7.39,0,0,1-.5.959l-.144.219-.013.263c0,.025-.031.608-.038,1.235-.013,1.228.069,1.686.351,2.024a3.773,3.773,0,0,0,1.805.915c.3.069.639.119,1,.175a9.6,9.6,0,0,1,1.592.332,6.591,6.591,0,0,1,1.7.859,1.9,1.9,0,0,1,.514.476l-8.6-.006Z"/>
+      </g>
+      <g id="Ellipse_5352" data-name="Ellipse 5352" class="cls-8" transform="translate(-14 -14)">
+        <circle class="cls-13" cx="24" cy="24" r="24"/>
+        <circle class="cls-1" cx="24" cy="24" r="23.5"/>
+      </g>
+      <g id="Repeat_Grid_3" data-name="Repeat Grid 3" class="cls-10" transform="translate(29 38)">
+        <g transform="translate(-9117 -4764)">
+          <g id="Repeat_Grid_2-2" data-name="Repeat Grid 2" class="cls-11" transform="translate(9117 4764)">
+            <g transform="translate(-9117 -4764)">
+              <g id="Ellipse_5350-2" data-name="Ellipse 5350" class="cls-12" transform="translate(9117 4764)">
+                <circle class="cls-13" cx="10.5" cy="10.5" r="10.5"/>
+                <circle class="cls-1" cx="10.5" cy="10.5" r="10"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <line id="Line_99" data-name="Line 99" class="cls-9" x1="15" y1="16" transform="translate(22.5 30.5)"/>
+      <g id="Repeat_Grid_4" data-name="Repeat Grid 4" class="cls-10" transform="translate(236 121)">
+        <g transform="translate(-9117 -4764)">
+          <g id="Repeat_Grid_2-3" data-name="Repeat Grid 2" class="cls-11" transform="translate(9117 4764)">
+            <g transform="translate(-9117 -4764)">
+              <g id="Ellipse_5350-3" data-name="Ellipse 5350" class="cls-12" transform="translate(9117 4764)">
+                <circle class="cls-13" cx="10.5" cy="10.5" r="10.5"/>
+                <circle class="cls-1" cx="10.5" cy="10.5" r="10"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <line id="Line_100" data-name="Line 100" class="cls-9" x1="15" y1="16" transform="translate(252.5 140.5)"/>
+      <g id="Ellipse_5353" data-name="Ellipse 5353" class="cls-8" transform="translate(259 151)">
+        <circle class="cls-13" cx="24" cy="24" r="24"/>
+        <circle class="cls-1" cx="24" cy="24" r="23.5"/>
+      </g>
+      <g id="if_chat_461369" transform="translate(276 169)">
+        <path id="Path_6329" data-name="Path 6329" class="cls-2" d="M0,12.589l2.147-4.5a4.668,4.668,0,0,1-.986-2.934,4.461,4.461,0,0,1,2.356-3.9A9.7,9.7,0,0,1,8.5,0a8.693,8.693,0,0,1,6.058,2.085,4.208,4.208,0,0,1,1.284,3.075,4.842,4.842,0,0,1-2.349,4.166A9.192,9.192,0,0,1,8.5,10.671a10.273,10.273,0,0,1-3.272-.52c-1.661.638-4.22,1.928-4.246,1.941ZM8.5.752A8.951,8.951,0,0,0,3.908,1.891a3.787,3.787,0,0,0-2,3.261,3.939,3.939,0,0,0,.961,2.636l.159.186L1.619,10.94c.95-.46,2.4-1.141,3.473-1.541l.129-.048.129.047a9.451,9.451,0,0,0,3.15.522A8.437,8.437,0,0,0,13.079,8.7a4.149,4.149,0,0,0,2.01-3.538,3.481,3.481,0,0,0-1.064-2.542A7.944,7.944,0,0,0,8.5.752Z" transform="translate(0 0)"/>
+      </g>
+    </g>
+  </g>
+</svg>

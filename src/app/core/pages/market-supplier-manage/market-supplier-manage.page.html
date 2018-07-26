@@ -1,0 +1,96 @@
+<div class="header">{{ 'buyer.pages.supplier.title' | translate }}</div>
+
+<div class="statistic-block">
+  <div class="stat">
+    <div class="title">{{ 'buyer.pages.supplier.total-sup' | translate }}</div>
+    <div class="value">{{ stat?.totalCount }}&nbsp;</div>
+    <div class="progress">
+      <div class="progress-bar"
+           *ngIf="stat"
+           [style.width]="calculatePersentage(stat?.totalApCount, stat?.totalCount)">
+      </div>
+    </div>
+    <div class="summary">{{ stat?.totalApCount }} {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
+  </div>
+  <div class="stat blue">
+    <div class="title">{{ 'buyer.pages.supplier.reg-sup' | translate }}</div>
+    <div class="value">{{ stat?.registeredCount }}&nbsp;</div>
+    <div class="progress">
+      <div class="progress-bar"
+           *ngIf="stat"
+           [style.width]="calculatePersentage(stat?.registeredApCount, stat?.registeredCount )">
+      </div>
+    </div>
+    <div class="summary">{{ stat?.registeredApCount }} {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
+  </div>
+  <div class="stat green">
+    <div class="title">{{ 'buyer.pages.supplier.part-sup' | translate }}</div>
+    <div class="value">{{ stat?.participatedCount }}&nbsp;</div>
+    <div class="progress">
+      <div class="progress-bar"
+           *ngIf="stat"
+           [style.width]="calculatePersentage(stat?.participatedApCount, stat?.participatedCount )">
+      </div>
+    </div>
+    <div class="summary">{{ stat?.participatedApCount }} {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
+  </div>
+</div>
+
+<div class="list">
+  <table class="table table-hovered">
+    <thead>
+      <tr>
+        <!--<th>ID</th>-->
+        <th>{{ 'buyer.pages.supplier.list.supplier' | translate }}SUPPLIER</th>
+        <th>{{ 'buyer.pages.supplier.list.vendor-code' | translate }}</th>
+        <th>{{ 'buyer.pages.supplier.list.reg-user' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let supplier of suppliers">
+        <tr [class.detailed]="supplier._showDetails" (click)="setSupplierUsers(supplier)">
+          <!--<td>{{ supplier.id }}</td>-->
+          <td>{{ supplier.name }}</td>
+          <td>{{ supplier.vendorCode }}</td>
+          <td class="arrow">{{ supplier.usersCount }}</td>
+        </tr>
+        <tr class="details" *ngIf="supplier._showDetails">
+          <td colspan="4"
+              class="users-table-container"
+              [class.expand]="supplier.hasUserRegisterEvent()">
+            <table class="table users-table">
+              <thead>
+                <tr>
+                  <th>{{ 'buyer.pages.supplier.list.sublist.contact' | translate }}</th>
+                  <th>{{ 'buyer.pages.supplier.list.sublist.position' | translate }}</th>
+                  <th>{{ 'buyer.pages.supplier.list.sublist.phone' | translate }}</th>
+                  <th>{{ 'buyer.pages.supplier.list.sublist.email' | translate }}</th>
+                  <th>{{ 'buyer.pages.supplier.list.sublist.register-status' | translate }}</th>
+                  <th>{{ 'buyer.pages.supplier.list.sublist.registered-time' | translate }}</th>
+                  <th class="invite-column"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of supplier.users">
+                  <td>{{ user.contactName }}</td>
+                  <td>{{ user.position }}</td>
+                  <td>{{ user.contactPhone }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.registeredStatus }}</td>
+                  <td>{{ user.registeredTime }}</td>
+                  <td class="invite-column">
+                    <a class="btn btn-primary invite-btn"
+                       *ngIf="user.hasRegisterEvent()"
+                       (click)="setUserAction(user, supplier.id)">
+                      {{ user.registeredEvent.label }}
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

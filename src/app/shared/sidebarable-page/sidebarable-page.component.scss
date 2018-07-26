@@ -1,0 +1,45 @@
+:host {
+  display: flex;
+  margin: 0 -80px -150px;
+}
+
+.sidebar {
+  background: linear-gradient(-45deg, #24457c, #24457c, #24457c, #4c6791, #4c6791);
+  box-shadow: 0 0 4px #000;
+  z-index: 1;
+  max-width: 229px;
+  min-width: 229px;
+  //overflow-y: scroll;
+  width: 229px;
+  padding: 25px 10px 25px 33px;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  top: 153px;
+  left: 0;
+}
+
+.main {
+  margin-left: 229px;
+  width: 100%;
+}
+
+@media(max-width: 1000px) {
+  :host {
+    margin: 0 -40px -100px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+}
+
+@media(max-width: 768px) {
+  :host {
+    margin: 0 -20px -100px;
+  }
+}

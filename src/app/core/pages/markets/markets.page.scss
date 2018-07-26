@@ -1,0 +1,34 @@
+.title {
+  margin: 45px 0;
+  font-size: 17px;
+}
+
+.settings a {
+  margin-left: 28px;
+}
+
+.table-markets {
+  .settings img {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.pages {
+  margin-top: 95px;
+  text-align: right;
+}
+
+@media(max-width: 768px) {
+  .table-markets {
+    overflow-x: scroll;
+
+    table {
+      min-width: 750px;
+    }
+  }
+
+  .pages {
+    text-align: center;
+  }
+}

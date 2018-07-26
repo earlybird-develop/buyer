@@ -1,0 +1,35 @@
+<div class="left-bar"></div>
+
+<ul class="menu">
+  <li routerLinkActive="active">
+    <a [routerLink]="['/markets',buyId, 'invoice-manage']">
+      {{ 'buyer.components.market-header.menu.invoiceManage' | translate }}
+    </a>
+  </li>
+  <li routerLinkActive="active">
+    <a [routerLink]="['/markets',buyId, 'current']">
+      {{ 'buyer.components.market-header.menu.currentMarket' | translate }}
+    </a>
+  </li>
+
+  <li routerLinkActive="active">
+    <a [routerLink]="['/markets',buyId, 'history']">
+      {{ 'buyer.components.market-header.menu.historyMarket' | translate }}
+    </a>
+  </li>
+
+  <li routerLinkActive="active">
+    <a [routerLink]="['/markets',buyId, 'supplier-manage']">
+      {{ 'buyer.components.market-header.menu.supplierManage' | translate }}
+    </a>
+  </li>
+</ul>
+
+<!--<div class="info">-->
+  <!--<eb-timer></eb-timer>-->
+<!---->
+  <!--<div class="pay-date" tooltip="Next pay date : {{ payDate }}" placement="left">-->
+    <!--<img class="pointer" src="./assets/icons/calendar.svg">-->
+    <!--<span>Next pay date : {{ payDate }}</span>-->
+  <!--</div>-->
+<!--</div>-->

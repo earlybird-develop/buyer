@@ -1,0 +1,55 @@
+<div class="heading"> {{ 'buyer.pages.profile.title' | translate }} - {{ user?.email }} </div>
+
+<form class="profile-form" #profileForm="ngForm" novalidate *ngIf="user" (ngSubmit)="saveProfile(profileForm)">
+  <div>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.name' | translate }}
+      <input type="text" [(ngModel)]="user.name" name="username">
+    </label>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.job' | translate }} <span class="required">*</span>
+      <input type="text" [(ngModel)]="user.job" name="job">
+    </label>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.email' | translate }} <span class="required">*</span>
+      <input type="text" [(ngModel)]="user.departmentEmail" name="departmentEmail">
+    </label>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.industry' | translate }} <span class="required">*</span>
+      <input type="text" [(ngModel)]="user.industry" name="industry">
+    </label>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.country' | translate }} <span class="required">*</span>
+      <input type="text" [(ngModel)]="user.country" name="country">
+    </label>
+    <button type="submit" class="btn btn-primary internal-submit-btn" *ngIf="user">
+      {{ 'buyer.pages.profile.labels.submit' | translate }}
+    </button>
+  </div>
+
+  <div>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.lastName' | translate }} <span class="required">*</span>
+      <input type="text" [(ngModel)]="user.lastname" name="lastname">
+    </label>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.phone' | translate }} <span class="required">*</span>
+      <input type="text" [(ngModel)]="user.phone" name="phone">
+    </label>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.year' | translate }} <span class="required">*</span>
+      <input type="text" [(ngModel)]="user.fiscalyear" name="fiscalyear">
+    </label>
+    <!--<label>-->
+    <!--&nbsp;&nbsp;&nbsp;Company Website <span class="required">*</span>-->
+    <!--<input type="text">-->
+    <!--</label>-->
+  </div>
+</form>
+
+<button type="submit"
+        class="btn btn-primary submit-btn"
+        (click)="profileForm.submit()"
+        *ngIf="user">
+  {{ 'buyer.pages.profile.labels.submit' | translate }}
+</button>

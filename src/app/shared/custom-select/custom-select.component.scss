@@ -1,0 +1,80 @@
+:host[offerSelector] span {
+  background-color: #fff;
+  display: block;
+  padding: 4px;
+  border-radius: 5px;
+  width: 70px;
+}
+
+[dropdown] {
+  position: relative;
+
+  &.open {
+    .dropdown {
+      display: block !important;
+    }
+  }
+
+  &:after {
+    background-image: url('../../../assets/icons/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: left 54%;
+    background-size: 10px;
+    content: '';
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    position: absolute;
+  }
+}
+
+span {
+  background-color: #eaf0f4;
+  border: none;
+  padding: 0;
+  padding-left: 10px;
+  border: 1px solid #dedede; //-bottom
+  color: #777;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  font-size: 11px;
+  line-height: 25px;
+  outline: none;
+  width: 100%;
+}
+
+label {
+  color: #3971aa;
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+.dropdown {
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  cursor: pointer;
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  list-style: none;
+  min-width: 160px;
+  padding: 5px 0;
+  top: 100%;
+  width: 100%;
+  z-index: 1000;
+
+  li {
+    padding: 10px 10px;
+
+    &.selected {
+      font-weight: 700;
+    }
+  }
+}

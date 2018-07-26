@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="right-side">
+    <img src="./assets/logo.svg" alt="Early Bird">
+  </div>
+  <div class="content">
+    <div class="title">{{ 'buyer.pages.signin.title' | translate }}</div>
+
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)" novalidate>
+      <label class="email" for="email">{{ 'buyer.pages.signin.email' | translate }}</label>
+      <input id="email"
+             type="text"
+             name="email"
+             ngModel
+             #email="ngModel"
+             spellcheck="false">
+
+      <label class="password" for="password">{{ 'buyer.pages.signin.password' | translate }}</label>
+      <input id="password"
+             type="password"
+             name="password"
+             ngModel
+             #password="ngModel"
+             spellcheck="false">
+
+      <div class="remember-check">
+        <input id="remember" type="checkbox">
+        <label for="remember">
+          <span class="box"></span>
+          {{ 'buyer.pages.signin.remember' | translate }}
+        </label>
+      </div>
+
+      <div class="forgot">
+        <a href="javascript:void(0);">{{ 'buyer.pages.signin.forgot' | translate }}</a>
+      </div>
+
+      <button type="submit" class="submit"></button>
+    </form>
+  </div>
+</div>

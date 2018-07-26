@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 624.749 448.802">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.538;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.073" y1="0.748" x2="0.579" y2="0.333" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d4eef5"/>
+      <stop offset="1" stop-color="#6cc1db"/>
+    </linearGradient>
+  </defs>
+  <g id="if_129_ArrowRight_183254" class="cls-1" transform="matrix(0.974, -0.225, 0.225, 0.974, -7.765, 125.801)">
+    <g id="Group" transform="translate(0 3)">
+      <path id="Shape" class="cls-2" d="M668.232,504.089,453.645,339v99.053c-160.94,0-292.773,68.222-350.368,218.031,67.595-52,118.391-87.689,195.085-91.409,59.83-10.1,102.351-6.768,155.283,5.449v99.053L668.232,504.089Zm0,0" transform="translate(-96 -339)"/>
+    </g>
+  </g>
+</svg>

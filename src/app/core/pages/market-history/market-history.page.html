@@ -1,0 +1,138 @@
+<eb-sidebarable-page>
+  <ng-container sidebar>
+    <div class="sidebar-menu-title">
+      <img src="./assets/icons/calendar.svg"> {{ 'buyer.pages.history.filter.title' | translate }}
+    </div>
+    <ul class="sidebar-menu">
+      <li [class.active]="fromDays === 7">
+        <a (click)="setDays(7)">
+          {{ 'buyer.pages.history.filter.last7' | translate }}
+        </a>
+      </li>
+      <li [class.active]="fromDays === 30">
+        <a (click)="setDays(30)">
+          {{ 'buyer.pages.history.filter.last30' | translate }}
+        </a>
+      </li>
+      <li [class.active]="fromDays === 60">
+        <a (click)="setDays(60)">
+          {{ 'buyer.pages.history.filter.last60' | translate }}
+        </a>
+      </li>
+      <li [class.active]="fromDays === 90">
+        <a (click)="setDays(90)">
+          {{ 'buyer.pages.history.filter.last90' | translate }}
+        </a>
+      </li>
+      <li [class.active]="isCustomRange" (click)="setCustomRange()">
+        <a>{{ 'buyer.pages.history.filter.custom' | translate }}</a>
+      </li>
+    </ul>
+    <div class="custom-range-filter" *ngIf="isCustomRange">
+      <label class="from">
+        &nbsp; &nbsp; {{ 'buyer.pages.history.filter.from' | translate }}
+        <input type="text"
+               placeholder="dd/mm/yy"
+               class="form-control"
+               bsDatepicker
+               [(ngModel)]="customFrom"
+               placement="right"
+               [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+      </label>
+      <label class="to">
+        &nbsp; &nbsp; {{ 'buyer.pages.history.filter.to' | translate }}
+        <input type="text"
+               placeholder="dd/mm/yy"
+               class="form-control"
+               bsDatepicker
+               [(ngModel)]="customTo"
+               placement="right"
+               [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+      </label>
+      <button class="btn btn-primary" (click)="goCustomRange()">
+        {{ 'buyer.pages.history.filter.go' | translate }}
+      </button>
+    </div>
+    <a class="sidebar-menu-title second pointer" (click)="exportToCsv()">
+      <img src="./assets/icons/download.svg"> {{ 'buyer.pages.history.filter.download-csv' | translate }}
+    </a>
+  </ng-container>
+
+  <div class="filter-range">
+    <div class="range-title">{{ 'buyer.pages.history.history-market' | translate }}</div>
+    <div class="range-container">
+      <ng-container *ngIf="!isCustomRange">
+        {{ 'buyer.pages.history.history-market' | translate: { fromDays: fromDays } }} >
+      </ng-container>
+      <span>{{ filter.startdate }} {{ 'buyer.pages.history.to' | translate }} {{ filter.enddate }}</span>
+    </div>
+    <div class="sub-line"></div>
+  </div>
+
+  <div class="market-stats">
+    <div class="awarded">
+      <div class="title">{{ 'buyer.pages.history.ap' | translate }}</div>
+      <div class="amount">{{ market?.awardedAmount | currency: market?.currency }}</div>
+    </div>
+    <div class="total-discount">
+      <div class="title">{{ 'buyer.pages.history.income' | translate }}</div>
+      <div class="amount">{{ market?.discountAmount | currency: market?.currency }}</div>
+    </div>
+    <div class="average-discount">
+      <div class="title">{{ 'buyer.pages.history.discount' | translate }}</div>
+      <div class="amount">{{ market?.averageDiscount }}%</div>
+    </div>
+  </div>
+
+  <div class="chart" *ngIf="barChartData">
+    <div class="title">{{ 'buyer.pages.history.ar' | translate }}</div>
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [colors]="[{ backgroundColor: '#4f7dc9' }, { backgroundColor: '#e6f0ff' }]"
+            [chartType]="barChartType"></canvas>
+  </div>
+
+  <div class="list">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>{{ 'buyer.pages.history.list.download' | translate }}</th>
+        <th>{{ 'buyer.pages.history.list.date' | translate }}</th>
+        <th>{{ 'buyer.pages.history.list.inv-amount' | translate }}</th>
+        <th>{{ 'buyer.pages.history.list.payble' | translate }}</th>
+        <th>{{ 'buyer.pages.history.list.discount-total' | translate }}</th>
+        <th class="text-center">{{ 'buyer.pages.history.list.discount-avr' | translate }}</th>
+        <th>{{ 'buyer.pages.history.list.apr' | translate }}</th>
+        <th>{{ 'buyer.pages.history.list.dpe' | translate }}</th>
+        <!--<th class="text-center">INVOICES COUNT</th>-->
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let award of awards">
+        <td>
+          <a class="pointer" (click)="downloadAwardedDetailsCsv(award.id)">
+            {{ 'buyer.pages.history.list.csv' | translate }}
+          </a>
+          <span class="separator">|</span>
+          <a class="pointer" (click)="downloadAwardedDetailsExcel(award.id)">
+            {{ 'buyer.pages.history.list.excel' | translate }}
+          </a>
+        </td>
+        <td>{{ award.awardDate }}</td>
+        <td>{{ award.invoiceAmount | currency: market.currency }}</td>
+        <td>{{ award.paidAmount | currency: market.currency }}</td>
+        <td>{{ award.discountAmount | currency: market.currency }}</td>
+        <td class="text-center">{{ award.averageDiscount }}%</td>
+        <td>{{ award.averageApr }}</td>
+        <td>{{ award.averageDpe }}</td>
+        <!--<td class="text-center">{{ award.invoiceCount }}</td>-->
+      </tr>
+      </tbody>
+    </table>
+    <div class="pages" hidden>
+      <pagination [totalItems]="40" nextText=" " previousText=" "></pagination>
+    </div>
+  </div>
+</eb-sidebarable-page>

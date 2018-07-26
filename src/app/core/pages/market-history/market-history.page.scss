@@ -1,0 +1,216 @@
+// Filter
+.sidebar-menu-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 20px;
+  margin-bottom: 15px;
+
+  img {
+    margin-right: 12px;
+    height: 16px;
+    width: 16px;
+  }
+
+  &.second {
+    margin-top: 32px;
+    font-weight: 500;
+  }
+}
+
+.sidebar-menu {
+  margin-left: 24px;
+
+  li {
+    margin-bottom: 15px;
+
+    &.active a {
+      font-weight: 700;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #fff;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+}
+
+.custom-range-filter {
+  margin: 20px 16px 0 15px;
+
+  label {
+    color: #cecfd0;
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+
+    &.to {
+      margin-top: 10px;
+    }
+
+    input {
+      border: 1px solid #E8E9EC;
+      border-radius: 4px;
+      color: #acad90;
+      padding: 0 16px;
+      box-sizing: border-box;
+      display: block;
+      margin-top: 7px;
+      height: 40px;
+      outline: none;
+      width: 100%;
+    }
+  }
+
+  button {
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    width: 69px;
+    margin-left: 10px;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    margin-top: 38px;
+    outline: none;
+  }
+}
+
+// Page
+.chart {
+  margin: 31px 19px 0 44px;
+  padding: 9px 31px 13px 23px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+
+  .title {
+    margin-bottom: 25px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+.filter-range {
+  background-color: #f5f6f7;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 25px;
+  padding: 63px 50px 5px;
+
+  .range-title {
+    float: left;
+    font-weight: 400;
+    font-size: 17px;
+  }
+
+  .range-container {
+    float: right;
+
+    span {
+      color: #284e85;
+      font-weight: 700;
+    }
+  }
+
+  .sub-line {
+    margin: 0 -5px;
+    clear: both;
+    border-bottom: 1px solid rgba(149, 152, 154, 0.36);
+  }
+}
+
+.market-stats {
+  background-color: #f5f6f7;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 74px;
+
+  .title {
+    color: rgba(26, 26, 26, .8);
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .amount {
+    color: #4d4f5c;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .total-discount {
+    .amount {
+      color: #95b953;
+    }
+  }
+}
+
+.separator {
+  color: #dde7ee !important;
+}
+
+.list {
+  margin: 66px 57px 66px;
+
+  .pages {
+    margin: 95px 0 190px 0;
+    text-align: right;
+  }
+}
+
+@media(max-width: 1200px) {
+  .filter-range,
+  .market-stats {
+    padding: 10px 20px;
+
+    .amount {
+      text-align: center;
+    }
+  }
+}
+
+@media(max-width: 1000px) {
+  .list {
+    overflow-x: scroll;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px 20px;
+
+    .table {
+      min-width: 700px;
+    }
+  }
+
+  .chart {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px 20px;
+  }
+}
+
+@media(max-width: 768px) {
+  .market-stats {
+    display: block;
+
+    > * {
+      margin-bottom: 10px;
+    }
+  }
+
+  .invoices-table {
+    margin: 0;
+    padding: 10px 20px;
+  }
+
+  .pages {
+    text-align: center !important;
+  }
+}

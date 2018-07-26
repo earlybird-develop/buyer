@@ -1,0 +1,90 @@
+.heading {
+  color: #000;
+  font-size: 22px;
+  padding: 20px 50px;
+}
+
+.submit-btn {
+  display: none;
+}
+
+.submit-btn,
+.internal-submit-btn {
+  margin-top: 5px;
+  outline: none;
+  width: 114px;
+}
+
+.profile-form {
+  display: flex;
+  padding: 50px 50px 120px;
+  margin: 0 auto;
+  justify-content: space-between;
+  width: 582px;
+
+  & > div {
+    width: 246px;
+  }
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 20px;
+
+  .required {
+    color: #f73f3f;
+  }
+
+  input {
+    border: 0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 12px;
+    height: 36px;
+    margin-top: 8px;
+    outline: 0;
+    padding: 0;
+    padding-left: 15px;
+    width: 244px;
+  }
+}
+
+
+@media(max-width: 1000px) {
+}
+
+@media(max-width: 768px) {
+  :host {
+    display: block;
+    padding-bottom: 70px;
+  }
+
+  .heading {
+    padding: 10px 20px;
+  }
+
+  .profile-form {
+    display: block;
+    padding: 10px 20px;
+    width: auto;
+
+    & > div {
+      width: auto;
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .internal-submit-btn {
+    display: none;
+  }
+
+  .submit-btn {
+    display: block;
+    margin-left: 20px;
+  }
+}

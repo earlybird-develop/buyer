@@ -1,0 +1,17 @@
+<eb-sidebarable-page>
+  <ng-container sidebar>
+    <ul class="sidebar-menu">
+      <li routerLinkActive="active">
+        <a [routerLink]="['/buyer', 'account', 'profile']">
+          {{ 'buyer.pages.account.profile' | translate }}
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/buyer', 'account', 'change-password']">
+          {{ 'buyer.pages.account.change-pwd' | translate }}
+        </a>
+      </li>
+    </ul>
+  </ng-container>
+  <router-outlet></router-outlet>
+</eb-sidebarable-page>

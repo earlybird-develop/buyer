@@ -1,0 +1,10 @@
+{
+  "/market/get_market_list": "/markets",
+  "/invoice/get_market_stat?buy-id=*": "/market-invoices",
+  "/invoice/get_invoices_with_eligible?buy-id=*": "/market-invoices-eligible",
+  "/invoice/get_invoices_with_ineligible?buy-id=*": "/market-invoices-ineligible",
+  "/invoice/get_invoices_with_adjust?buy-id=*": "/market-invoices-adjust",
+  "/invoice/get_invoices_with_awarded?buy-id=*": "/market-invoices-awarded",
+
+  "/rest/buyer/market/get_market_list?access_token=*": "/buyer-markets"
+}

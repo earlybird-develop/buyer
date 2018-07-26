@@ -1,0 +1,201 @@
+:host {
+  align-items: center;
+  background-color: #3d7ab3;
+  bottom: 0;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  justify-content: center;
+}
+
+.container {
+  box-shadow: 0 4px 12px -4px #000;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  height: 394px;
+  margin: 0 auto;
+  position: relative;
+  width: 612px;
+
+  .right-side {
+    background: linear-gradient(0, #3d7ab3, #24457C);
+    text-align: center;
+    min-width: 242px;
+    width: 242px;
+
+    img {
+      display: inline-block;
+      margin-top: 92px;
+      width: 75px;
+    }
+  }
+
+  label {
+    display: inline;
+  }
+
+  .regular-checkbox {
+    display: none;
+  }
+
+  .regular-checkbox + label {
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .content {
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 54px 46px 0;
+    position: relative;
+    width: 100%;
+
+    .title {
+      font-size: 30px;
+      font-weight: 700;
+    }
+  }
+}
+
+.login-form {
+  margin-top: 20px;
+
+  label.email,
+  label.password {
+    color: #3971aa;
+    display: block;
+    font-size: 9px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  label.password {
+    margin-top: 30px;
+  }
+
+  input#email,
+  input#password {
+    border: none;
+    border-bottom: 1px solid #dedede;
+    display: block;
+    margin: 0;
+    line-height: 25px;
+    padding: 0;
+    outline: none;
+    width: 100%;
+  }
+}
+
+.remember-check {
+  line-height: 20px;
+  margin-top: 25px;
+  user-select: none;
+
+  input {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+    color: #2b2b2b;
+    font-size: 13px;
+  }
+
+  .box {
+    border: 1px solid #626262;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    margin-top: 1px;
+    margin-right: 10px;
+    position: relative;
+    height: 20px;
+    width: 20px;
+  }
+
+  input:checked + label {
+    .box:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url('/assets/icons/ok.svg');
+      background-size: 18px;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.forgot {
+  margin-top: 25px;
+
+  a {
+    color: #3971aa;
+    font-size: 14px;
+  }
+}
+
+.submit {
+  background-color: #fd8080;
+  background-image: url('/assets/icons/submit-arrow.svg');
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  bottom: -27.5px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  height: 55px;
+  right: 40px;
+  width: 55px;
+  transition: box-shadow .2s;
+
+  &:hover {
+    box-shadow: 0 1px 3px #222;
+  }
+}
+
+@media(max-width: 767px) {
+  :host {
+    display: block;
+  }
+
+  .right-side {
+    display: none;
+  }
+
+  .container {
+    width: 100%;
+    min-height: 100%;
+
+    .content {
+      border-radius: 0 !important;
+      padding: 30px 20px;
+    }
+
+    .submit {
+      display: block;
+      border-radius: 0;
+      bottom: 0;
+      position: static;
+      margin-top: 25px;
+      height: 40px;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "markets": {
+    "code": "1",
+    "data": {
+      "close_time": 1523767917,
+      "list": [
+        {
+          "buy-id": "xxxx-1-xxx",
+          "currency": "USD",
+          "currency_sign":"$",
+          "buyer": "Buyer",
+          "vendorcode": "1.24794-294",
+          "supplier":"Generic Company",
+          "avaibale_amount":4542343.00,
+          "paydate":"Mar 19,2017",
+          "offer_apr":4.5,
+          "is_participation":1,
+          "discount":0,
+          "avg_dpe": 4
+        },
+        {
+          "buy-id": "xxxx-2-xxx",
+          "currency": "USD",
+          "currency_sign":"$",
+          "buyer": "Costco",
+          "vendorcode": "1.24794-294",
+          "supplier":"AUTO BODY PAINT DEPO",
+          "avaibale_amount":128623.74,
+          "paydate":"Mar 19,2017",
+          "offer_apr":4.5,
+          "is_participation":0,
+          "discount":0,
+          "avg_dpe": 4
+        },
+        {
+          "buy-id": "xxxx-3-xxx",
+          "currency": "USD",
+          "currency_sign":"$",
+          "buyer": "Buyer",
+          "vendorcode": "1.24794-294",
+          "supplier":"Generic Company",
+          "avaibale_amount":4542343.00,
+          "paydate":"Mar 19,2017",
+          "offer_apr":4.5,
+          "is_participation":1,
+          "discount":1,
+          "avg_dpe": 4
+        },
+        {
+          "buy-id": "xxxx-4-xxx",
+          "currency": "USD",
+          "currency_sign":"$",
+          "buyer": "Buyer",
+          "vendorcode": "1.24794-294",
+          "supplier":"Generic Company",
+          "avaibale_amount":4542343.00,
+          "paydate":"Mar 19,2017",
+          "offer_apr":4.5,
+          "is_participation":1,
+          "discount":0,
+          "dpe": 4
+        },
+        {
+          "buy-id": "xxxx-5-xxx",
+          "currency": "USD",
+          "currency_sign":"$",
+          "buyer": "Buyer",
+          "vendorcode": "1.24794-294",
+          "supplier":"Generic Company",
+          "avaibale_amount":4542343.00,
+          "paydate":"Mar 19,2017",
+          "offer_apr":4.5,
+          "is_participation":1,
+          "discount":0,
+          "dpe": 4
+        }
+      ]
+    }
+  },
+  "market-invoices": {
+    "code": 1,
+    "data": {
+      "currency": "USD",
+      "currency_sign": "$",
+      "next_paydate": "2018-3-24",
+      "offer_apr": 4.50,
+      "min_payment": 3578,
+      "total_amount": 106233.21,
+      "is_participation": 1,
+      "total": {
+        "available_amount": 39462.84,
+        "average_apr": 4.84
+      },
+      "clearing": {
+        "available_amount": 39462.84,
+        "average_dpe": 27.8
+      },
+      "non-clearing": {
+        "available_amount": 0,
+        "average_dpe": 0
+      },
+      "discount":{
+        "amount": 983.65,
+        "average_discount": 0.93,
+        "average_apr": 12
+      }
+    }
+  },
+  "market-invoices-eligible": {
+    "code": 1,
+    "data":
+    {
+      "currency": "USD",
+      "currency_sign": "$",
+      "list": [
+        {
+
+          "inv-id": "xxxx-1-xxx",
+          "is_included": 1,
+          "is_clearing": 0,
+          "invoice_id": "098763456",
+          "original_paydate": "2018-05-14",
+          "inv_dpe": 59,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0,
+          "discount": 0
+        },
+        {
+          "inv-id": "xxxx-2-xxx",
+          "is_included": 1,
+          "is_clearing": 0,
+          "invoice_id": "098763457",
+          "original_paydate": "2018-05-18",
+          "inv_dpe": 63,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0,
+          "discount": 0
+        },
+        {
+          "inv-id": "xxxx-3-xxx",
+          "is_included": 1,
+          "is_clearing": 0,
+          "invoice_id": "098763458",
+          "original_paydate": "2018-05-21",
+          "inv_dpe": 66,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0,
+          "discount": 0
+        },
+        {
+          "inv-id": "xxxx-4-xxx",
+          "is_included": 1,
+          "is_clearing": 0,
+          "invoice_id": "098763459",
+          "original_paydate": "2018-05-12",
+          "inv_dpe": 57,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0,
+          "discount": 0
+        },
+        {
+          "inv-id": "xxxx-5-xxx",
+          "is_included": 1,
+          "is_clearing": 0,
+          "invoice_id": "098763460",
+          "original_paydate": "2018-05-01",
+          "inv_dpe": 45,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0,
+          "discount": 0
+        },
+        {
+          "inv-id": "xxxx-6-xxx",
+          "is_included": 1,
+          "is_clearing": 0,
+          "invoice_id": "098763461",
+          "original_paydate": "2018-06-01",
+          "inv_dpe": 76,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0,
+          "discount": 0
+        },
+        {
+          "inv-id": "xxxx-7-xxx",
+          "is_included": 1,
+          "is_clearing": 0,
+          "invoice_id": "098763462",
+          "original_paydate": "2018-04-24",
+          "inv_dpe": 39,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0,
+          "discount": 0
+        }
+      ]
+    }
+  },
+  "market-invoices-ineligible": {
+    "code": 1,
+    "data":
+    {
+      "currency": "USD",
+      "currency_sign": "$",
+      "total_amount": 6233.21,
+      "list": [
+        {
+          "inv-id": "xxxx-10-xxx",
+          "invoice_id": "198763456",
+          "original_paydate": "2018-05-14",
+          "inv_dpe": 59,
+          "invoice_amount": 3422.00,
+          "discount_rate": 0,
+          "discount": 0
+        },
+        {
+          "inv-id": "xxxx-11-xxx",
+          "invoice_id": "198763457",
+          "original_paydate": "2018-05-14",
+          "inv_dpe": 59,
+          "invoice_amount": 1911.21,
+          "discount_rate": 0,
+          "discount": 111.3
+        }
+      ]
+    }
+  },
+  "market-invoices-adjust": {
+    "code": 1,
+    "data":
+    {
+      "currency": "USD",
+      "currency_sign": "$",
+      "total_amount": 6233.21,
+      "list": [
+        {
+          "inv-id": "xxxx-12-xxx",
+          "invoice_id": "198763456",
+          "original_paydate": "2018-05-14",
+          "inv_dpe": 59,
+          "invoice_amount": 3422.00,
+          "discount_rate": 0,
+          "discount": 0
+        },
+        {
+          "inv-id": "xxxx-13-xxx",
+          "invoice_id": "198763457",
+          "original_paydate": "2018-05-14",
+          "inv_dpe": 59,
+          "invoice_amount": 1911.21,
+          "discount_rate": 0,
+          "discount": 0
+        }
+      ]
+    }
+  },
+  "market-invoices-awarded": {
+    "code": 1,
+    "data":
+    {
+      "currency": "USD",
+      "currency_sign": "$",
+      "total_amount": 106233.21,
+      "list": [
+        {
+
+          "inv-id": "xxxx-16-xxx",
+          "invoice_id": "398763456",
+          "original_paydate": "2018-05-14",
+          "inv_dpe": 59,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0.9,
+          "discount": 1910
+        },
+        {
+
+          "inv-id": "xxxx-17-xxx",
+          "invoice_id": "398763457",
+          "original_paydate": "2018-05-18",
+          "inv_dpe": 63,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0.9,
+          "discount": 1910
+        },
+        {
+
+          "inv-id": "xxxx-18-xxx",
+          "invoice_id": "398763458",
+          "original_paydate": "2018-05-21",
+          "inv_dpe": 66,
+          "invoice_amount": 206671.00,
+          "discount_rate": 0.9,
+          "discount": 1910
+        }
+      ]
+    }
+  },
+  "buyer-markets": {
+    "code": 1,
+    "data": {
+      "close_time": 1522667917,
+      "list":
+      [
+        {
+          "market-id": "xxxx-1-xxx",
+          "market_status": 1,
+          "market_name": "Generic Company",
+          "active_status": 1,
+          "currency": "USD",
+          "currency_sign":"$",
+          "avaibale_amount":100000,
+          "market_cash":100000,
+          "expect_apr":10,
+          "min_apr":6,
+          "paydate":"2018/04/20",
+          "depolyed_amount":50000,
+          "discount_amount":10000,
+          "average_apr":12.5,
+          "average_dpe":30
+        },
+        {
+          "market-id": "xxxx-2-xxx",
+          "market_status": 1,
+          "market_name": "Generic Company",
+          "currency": "USD",
+          "currency_sign":"$",
+          "avaibale_amount":100000,
+          "market_cash":100000,
+          "expect_apr":10,
+          "min_apr":6,
+          "paydate":"2018/04/20",
+          "depolyed_amount":50000,
+          "discount_amount":10000,
+          "average_apr":12.5,
+          "average_dpe":30
+        },
+        {
+          "market-id": "xxxx-3-xxx",
+          "market_status": 1,
+          "market_name": "Generic Company",
+          "currency": "USD",
+          "currency_sign":"$",
+          "avaibale_amount":100000,
+          "market_cash":100000,
+          "expect_apr":10,
+          "min_apr":6,
+          "paydate":"2018/04/20",
+          "depolyed_amount":50000,
+          "discount_amount":10000,
+          "average_apr":12.5,
+          "average_dpe":30
+        },
+        {
+          "market-id": "xxxx-4-xxx",
+          "market_status": 1,
+          "market_name": "Generic Company",
+          "currency": "USD",
+          "currency_sign":"$",
+          "avaibale_amount":100000,
+          "market_cash":100000,
+          "expect_apr":10,
+          "min_apr":6,
+          "paydate":"2018/04/20",
+          "depolyed_amount":50000,
+          "discount_amount":10000,
+          "average_apr":12.5,
+          "average_dpe":30
+        },
+        {
+          "market-id": "xxxx-5-xxx",
+          "market_status": 1,
+          "market_name": "Generic Company",
+          "currency": "USD",
+          "currency_sign":"$",
+          "avaibale_amount":100000,
+          "market_cash":100000,
+          "expect_apr":10,
+          "min_apr":6,
+          "paydate":"2018/04/20",
+          "depolyed_amount":50000,
+          "discount_amount":10000,
+          "average_apr":12.5,
+          "average_dpe":30
+        }
+      ]
+    }
+  }
+}

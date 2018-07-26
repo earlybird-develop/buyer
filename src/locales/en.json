@@ -1,0 +1,210 @@
+{
+  "buyer": {
+    "components": {
+      "header": {
+        "loggedAs": "Logged as",
+        "menu": {
+          "markets": "Markets"
+        }
+      },
+      "market-header": {
+        "menu": {
+          "invoiceManage": "Invoice Manage",
+          "currentMarket": "Current Market",
+          "historyMarket": "History Market",
+          "supplierManage": "Supplier Manage"
+        }
+      },
+      "market-setting": {
+        "title": "Market Setting",
+        "edit": "Edit",
+        "save": "Save",
+        "cancel": "Cancel",
+        "apr": "APR",
+        "apr-d": "Desired APR",
+        "apr-min": "Minimum APR",
+        "cashpoll": "CASHPOLL",
+        "npd": "NEXT PAYMENT DATE",
+        "reserve-p": "RESERVE PERCENTAGE",
+        "date": "DATE",
+        "ok": "OK"
+      }
+    },
+    "pages": {
+      "account": {
+        "profile": "Profile",
+        "change-pwd": "Change password"
+      },
+      "change-pwd": {
+        "text": "To reset your password we will send an email with a password rest link to <a href=\"email: {{email}}\">{{email}}</a>.<br>The email has instructions on how to securely reset your password.",
+        "btn-text": "SEND EMAIL"
+      },
+      "current": {
+        "clearing": {
+          "title": "Clearing Stats",
+          "apr": "APR",
+          "dpe": "DPE",
+          "ap": "AP",
+          "market-total": "Market Total",
+          "clearing-total": "Clearing Total",
+          "non-clearing-total": "Non-Clearing Total",
+          "graph-income": "Income",
+          "graph-apr": "APR",
+          "table": {
+            "current-offers": "CURRENT OFFERS",
+            "income": "INCOME",
+            "apr": "APR",
+            "dpe": "DPE",
+            "cash-deployed": "CASH DEPLOYED",
+            "amount": "AMOUNT",
+            "suppliers": "SUPPLIERS",
+            "invoices": "INVOICES",
+            "market-clearing": "Market Clearing",
+            "current": "Current",
+            "manual-award": "Manual Award",
+            "pending": "Pending",
+            "current-clearing": "Current Clearing",
+            "total": "Total"
+          }
+        },
+        "network": {
+          "title": "Suppliers Network",
+          "suppl-total": "Total Suppliers",
+          "reg-suppl": "Registered Suppliers",
+          "part-suppl": "Participated Suppliers",
+          "with-ap": "with AP",
+          "top5reg": "Top 5 Registered with AP",
+          "top5inc": "Top 5 by Income"
+        }
+      },
+      "history": {
+        "filter": {
+          "title": "History",
+          "last7": "Last 7 Days",
+          "last30": "Last 30 Days",
+          "last60": "Last 60 Days",
+          "last90": "Last 90 Days",
+          "custom": "Custom Range",
+          "from": "From",
+          "to": "To",
+          "go": "GO",
+          "download-csv": "Download CSV"
+        },
+        "history-market": "History Market",
+        "last-days": "Last {{fromDays}} days",
+        "to": "to",
+        "ap": "Awarded A/P",
+        "income": "Total Income",
+        "discount": "Average Discount",
+        "ar": "Awarded A/R",
+        "list": {
+          "download": "DOWNLOAD",
+          "date": "DATE",
+          "inv-amount": "INVOICES AMOUNT",
+          "payble": "NEW PAYABLE",
+          "discount-total": "TOTAL DISCOUNT",
+          "discount-avr": "AVERAGE DISCOUNT",
+          "apr": "AVERAGE APR",
+          "dpe": "AVERAGE DPE",
+          "csv": "CSV",
+          "excel": "Excel"
+        }
+      },
+      "invoices": {
+        "filter": {
+          "title": "Invoices",
+          "eligible": "Eligible",
+          "ineligible": "Ineligible",
+          "adjustments": "Adjustments",
+          "awarded": "Awarded",
+          "dpe": "Days Paid Early (DPE)",
+          "less15": "Less than 15 days",
+          "more15": "15 days to 30 days",
+          "more30": "30 to 45 days",
+          "more45": "45 days or more",
+          "eia": "Eligible Invoice Amount",
+          "less25k": "Less than 25,000",
+          "more25k": "25,000 to 50,000",
+          "more50k": "50,000 to 75,000",
+          "more75k": "75,000 or more",
+          "opd": "Original Pay Date",
+          "from": "From",
+          "to": "To",
+          "go": "GO"
+        },
+        "inv-status": "Invoice Status",
+        "sync": "Synchronous Invoices",
+        "amount-ap": "AP Amount",
+        "inv-num": "Invoice Num",
+        "sup-num": "SUPPLIER Num",
+        "set-adj": "SET ADJUSTMENT",
+        "set-el": "SET ELIGIBLE",
+        "search": "Search Invoice Id’s",
+        "list": {
+          "all": "All",
+          "status": "STATUS",
+          "vendor-code": "VENDOR CODE",
+          "suppl": "SUPPLIER",
+          "inv-id": "INVOICE ID",
+          "inv-amount": "INVOICE AMOUNT",
+          "pay-date": "ORIGINAL PAY DATE"
+        }
+      },
+      "supplier": {
+        "title": "Suppliers Status",
+        "total-sup": "Total Suppliers",
+        "reg-sup": "Registered Suppliers",
+        "part-sup": "Participated Suppliers",
+        "with-ap": "with AP",
+        "list": {
+          "supplier": "SUPPLIER",
+          "vendor-code": "VENDOR CODE",
+          "reg-user": "REGISTERED USER",
+          "sublist": {
+            "contact": "CONTACT",
+            "position": "POSITION",
+            "phone": "PHONE",
+            "email": "EMAIL",
+            "register-status": "REGISTER STATUS",
+            "registered-time": "REGISTERED TIME"
+          }
+        }
+      },
+      "markets": {
+        "title": "Market Opportunities",
+        "list": {
+          "setting": "MARKET SETTING",
+          "status": "STATUS",
+          "market": "MARKET",
+          "cash": "CASH <br> AVAILABLE/TOTAL",
+          "ap": "A/P <br> ELIGIBLE/TOTAL",
+          "cash-dep": "CASH DEPLOYED",
+          "income": "INCOME",
+          "apr": "APR",
+          "pay-date": "NEXT PAY DATE"
+        }
+      },
+      "profile": {
+        "title": "Profile",
+        "labels": {
+          "name": "Name",
+          "job": "Job Title",
+          "email": "A/P Department Email Address",
+          "industry": "Industry",
+          "country": "Country",
+          "submit": "SUBMIT",
+          "lastName": "Last Name",
+          "phone": "Primary Phone Number",
+          "year": "Fiscal Year End"
+        }
+      },
+      "signin": {
+        "title": "Buyer Sign in",
+        "email": "EMAIL",
+        "password": "PASSWORD",
+        "remember": "Remember email",
+        "forgot": "Forgot your password"
+      }
+    }
+  }
+}

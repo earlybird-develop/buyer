@@ -1,0 +1,18 @@
+<div dropdown>
+  <label class="email">{{ title }}</label>
+  <span dropdownToggle>{{selectedOption?.value || placeholder}}</span>
+  <!--<input id="role"-->
+         <!--type="text"-->
+         <!--[placeholder]="placeholder"-->
+         <!--[ngModel]=""-->
+         <!--dropdownToggle-->
+         <!--onkeypress="return false;">-->
+
+  <ul class="dropdown" *dropdownMenu>
+    <li *ngFor="let option of options"
+        (click)="selectOption(option)"
+        [class.selected]="selectedOption === option">
+      {{ option.value }}
+    </li>
+  </ul>
+</div>

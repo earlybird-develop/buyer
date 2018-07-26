@@ -1,0 +1,7 @@
+<div class="dialog-container">
+  <div class="dialog-body" [innerHTML]="text"></div>
+  <div class="dialog-footer">
+    <button class="btn submit-btn" (click)="submit()">Yes</button>
+    <button class="btn cancel-btn" (click)="cancel()" *ngIf="type === 'confirm'">No</button>
+  </div>
+</div>
