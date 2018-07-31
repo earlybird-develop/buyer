@@ -27,12 +27,12 @@
       <div class="title">APR</div>
       <label>
         <span class="label">{{ 'buyer.components.market-setting.apr-d' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="value" [class.hidden]="editMode">{{ market.expectApr | number: '.2' }}%</span>
+        <span class="value" [class.hidden]="editMode">{{ market.expectApr | number: '.2' }}</span>
         <input type="text" class="control" [class.hidden]="!editMode" [(ngModel)]="market.expectApr"> %
       </label>
       <label>
         <span class="label">{{ 'buyer.components.market-setting.apr-min' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="value" [class.hidden]="editMode">{{ market.minApr | number: '.2'}}%</span>
+        <span class="value" [class.hidden]="editMode">{{ market.minApr | number: '.2'}}</span>
         <input type="text" class="control" [class.hidden]="!editMode" [(ngModel)]="market.minApr"> %
       </label>
     </div>

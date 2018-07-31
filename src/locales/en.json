@@ -23,7 +23,7 @@
         "apr": "APR",
         "apr-d": "Desired APR",
         "apr-min": "Minimum APR",
-        "cashpoll": "CASHPOLL",
+        "cashpool": "CASHPOOL",
         "npd": "NEXT PAYMENT DATE",
         "reserve-p": "RESERVE PERCENTAGE",
         "date": "DATE",
