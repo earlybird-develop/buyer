@@ -1,6 +1,11 @@
 {
   "buyer": {
     "components": {
+      "language": {
+        "en" : "English",
+        "cn" : "Simplified Chinese",
+        "tw" : "Traditional Chinese"
+      },
       "header": {
         "loggedAs": "Logged as",
         "menu": {
