@@ -18,6 +18,8 @@ export class MarketInvoicesManagePage implements OnInit {
 
   public invoicesSearch = '';
 
+  public visibleInvoice: boolean = false;
+
   public startDate: string;
   public endDate: string;
 
