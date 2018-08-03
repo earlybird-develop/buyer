@@ -12,3 +12,7 @@ export class UserProfile extends Model {
   @Alias() public industry: string;
   @Alias() public country: string;
 }
+
+export class ForegtPasswordEmail {
+  public email: string;
+}

@@ -38,7 +38,8 @@ import {
   AccountPage,
   ChangePasswordPage,
   ProfilePage,
-  SigninPage
+  SigninPage,
+  ForgetPasswordPage
 } from './pages';
 
 import {
@@ -88,7 +89,8 @@ import {
     AccountPage,
     ChangePasswordPage,
     ProfilePage,
-    SigninPage
+    SigninPage,
+    ForgetPasswordPage
   ],
   entryComponents: [
     MarketHeaderComponent

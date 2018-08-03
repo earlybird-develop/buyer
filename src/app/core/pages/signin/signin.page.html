@@ -29,9 +29,9 @@
           {{ 'buyer.pages.signin.remember' | translate }}
         </label>
       </div>
-
+      
       <div class="forgot">
-        <a href="javascript:void(0);">{{ 'buyer.pages.signin.forgot' | translate }}</a>
+        <a [routerLink]="['/forget-password']" href="javascript:void(0);">{{ 'buyer.pages.signin.forgot' | translate }}</a>
       </div>
 
       <button type="submit" class="submit"></button>

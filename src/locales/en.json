@@ -209,6 +209,20 @@
         "password": "PASSWORD",
         "remember": "Remember email",
         "forgot": "Forgot your password"
+      },
+      "forget": {
+        "title": "Get help signing in to your account",
+        "instructions": "Please enter your email and we will send you a link with instructions to change your password.",
+        "label" : {
+          "email" : "Email Address"
+        },
+        "back-to-login":"Back to Log In", 
+        "continue":"CONTINUE"
+      },
+      "forget-password-message": {
+        "title": "Check your email",
+        "message": "If we have an account on file linked to <a class='emailLink' href=\"forgetmail: {{forgetmail}}\">{{forgetmail}}</a>, we have sent an email with instructions to reset your password. Please contact <a class='emailLink' href=\"email: {{email}}\">{{email}}</a> for any additional questions.",
+        "back-to-login":"Back to Log In"
       }
     }
   }

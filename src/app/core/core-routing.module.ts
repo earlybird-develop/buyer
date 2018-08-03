@@ -8,7 +8,8 @@ import {
   MarketInvoicesManagePage,
   MarketHistoryPage,
   MarketCurrentPage,
-  SigninPage
+  SigninPage,
+  ForgetPasswordPage
 } from './pages';
 
 import {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'signin',
         component: SigninPage
+      },
+      {
+        path:'forget-password',
+        component : ForgetPasswordPage
       },
       {
         path: '',

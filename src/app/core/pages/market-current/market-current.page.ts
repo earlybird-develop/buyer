@@ -98,7 +98,7 @@ export class MarketCurrentPage implements OnInit {
   }
 
   public calculatePersentage(val1: number, val2: number): string {
-    return val1 / val2 * 100 + '%';
+    return val2 / val1 * 100 + '%';
   }
 
   public chartHandler(data: Object[]): void {

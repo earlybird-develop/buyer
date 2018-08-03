@@ -6,11 +6,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 
-import { UserProfile } from '../models';
+import { UserProfile, ForegtPasswordEmail } from '../models';
 
 const GET_ACCESS_TOKEN_PATH = '/oauth2/get_access_token';
 const GET_PROFILE_PATH = '/account/get_profile';
 const UPDATE_PROFILE_PATH = '/account/update_profile';
+const FORGET_PASSWORD_EMAIL_SEND = '/service/reset_password';
 
 @Injectable()
 export class AccountService {
@@ -70,4 +71,19 @@ export class AccountService {
         );
     });
   }
+
+  public postForgetPasswordMail(email): Observable<ForegtPasswordEmail>{
+    return Observable.create((observer : Observer<ForegtPasswordEmail>) => {
+      this._http
+        .post(FORGET_PASSWORD_EMAIL_SEND, email)
+        .subscribe(
+          resp => {
+            observer.next(<ForegtPasswordEmail>{});
+            observer.complete();
+          },
+          errors => observer.error(errors)
+        )
+    });
+  }
+
 }
