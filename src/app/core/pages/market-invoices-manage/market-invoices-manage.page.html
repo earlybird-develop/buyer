@@ -1,7 +1,7 @@
 <eb-sidebarable-page>
   <ng-container sidebar>
-    <div class="sidebar-menu-title">{{ 'buyer.pages.invoices.filter.title' | translate }}</div>
-    <ul class="sidebar-menu">
+    <div class="sidebar-menu-title visible-invoice" (click)="visibleInvoice = !visibleInvoice">{{ 'buyer.pages.invoices.filter.title' | translate }}</div>
+    <ul class="sidebar-menu" *ngIf="visibleInvoice">
       <li [class.active]="filter.invoiceStatus === 'eligible'">
         <a (click)="setInvoiceType('eligible')">
           {{ 'buyer.pages.invoices.filter.eligible' | translate }}

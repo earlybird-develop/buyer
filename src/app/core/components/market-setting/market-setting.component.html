@@ -65,4 +65,7 @@
   </div>
 </ng-container>
 
-<a class="btn btn-primary ok-btn" (click)="close()">{{ 'buyer.components.market-setting.ok' | translate }}</a>
+<div class="text-center">
+  <a class="btn btn-primary ok-cancel-btns" (click)="save()">{{ 'buyer.components.market-setting.ok' | translate }}</a>
+  <a class="btn btn-secondary ok-cancel-btns" (click)="close()">{{ 'buyer.components.market-setting.cancel' | translate }}</a>
+</div>
