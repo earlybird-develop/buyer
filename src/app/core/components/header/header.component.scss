@@ -5,7 +5,7 @@
 header {
   background: linear-gradient(135deg, #24457c, #24457c, #3D7AB3, #3D79B2);
   box-shadow: 0 0 4px #000;
-  height: 153px;
+  height: 102px;
   position: fixed;
   top: 0;
   right: 0;
@@ -13,18 +13,18 @@ header {
   z-index: 10000;
 
   .container {
-    border-bottom: 1px solid rgba(255, 255, 255, .25);
+    //border-bottom: 1px solid rgba(255, 255, 255, .25);
     display: flex;
     justify-content: space-between;
     padding: 0 62px;
-    height: 95px;
+    //height: 108px;
 
     .logo {
       box-sizing: border-box;
       float: left;
       height: 100%;
       padding-top: 12px;
-      width: 25%;
+      width: 75px;
 
       img {
         width: 65px;
@@ -38,8 +38,9 @@ header {
 
     .user-menu {
       align-items: center;
-      display: flex;
+      display: inline-flex;
       height: 28px;
+      width: 70%;
       padding-top: 19px;
       justify-content: flex-end;
 
@@ -93,10 +94,12 @@ header {
 
     .header-menu {
       align-items: flex-end;
-      display: flex;
+      display: inline-flex;
       justify-content: flex-start;
       position: relative;
-      top: 18px;
+      width: 20%;
+      //top: 19px;
+      margin-left:45px;
 
       li {
         display: block;
@@ -116,7 +119,8 @@ header {
 }
 
 .subheader {
-  height: 57px;
+  height: 50px;
+  margin-top:10px;
 }
 
 @media(max-width: 768px) {
