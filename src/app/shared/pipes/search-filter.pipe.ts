@@ -11,7 +11,7 @@ export class SearchFilterPipe implements PipeTransform {
     }
 
     return items.filter(
-      it => it[field].toString().indexOf(value) >= 0
+      it => it[field].toString().toLowerCase().indexOf(value.toString().toLowerCase()) >= 0
     );
   }
 }

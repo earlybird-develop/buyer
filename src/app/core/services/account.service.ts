@@ -12,6 +12,7 @@ const GET_ACCESS_TOKEN_PATH = '/oauth2/get_access_token';
 const GET_PROFILE_PATH = '/account/get_profile';
 const UPDATE_PROFILE_PATH = '/account/update_profile';
 const FORGET_PASSWORD_EMAIL_SEND = '/service/reset_password';
+const CHANGE_PASSWORD = '/account/change_password';
 
 @Injectable()
 export class AccountService {
@@ -72,6 +73,21 @@ export class AccountService {
     });
   }
 
+  public changePassword(): Observable<boolean> {
+
+    return Observable.create((observer: Observer<boolean>) => {
+      this._http
+        .get(CHANGE_PASSWORD)
+        .subscribe(
+          resp => {
+            observer.next(true);
+            observer.complete();
+          },
+          error => observer.error(error)
+        );
+    })
+  }
+
   public postForgetPasswordMail(email): Observable<ForegtPasswordEmail>{
     return Observable.create((observer : Observer<ForegtPasswordEmail>) => {
       this._http
@@ -85,5 +101,4 @@ export class AccountService {
         )
     });
   }
-
 }
