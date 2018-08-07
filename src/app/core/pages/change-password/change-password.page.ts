@@ -24,9 +24,9 @@ export class ChangePasswordPage implements OnInit{
   }
 
   public changePassword(): void {
-    // this._accountService
-    //   .changePassword()
-    //   .subscribe(() => this._toastr.success('Reset Password Email had seen!'));
-
+    this._accountService
+      .getProfile()
+      .subscribe(x => this.user = x);
   }
+
 }
