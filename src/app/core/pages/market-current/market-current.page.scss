@@ -296,6 +296,11 @@ sub {
   }
 }
 
+canvas.chartjs-render-monitor.income-apr-chart {
+  width: 100% !important;
+  height: 300px !important;
+}
+
 @media(max-width: 1300px) {
   .statistic {
     .value .amount {
@@ -347,6 +352,12 @@ sub {
 
   .mg-55 {
     margin-left: 10px !important
+  }
+
+  canvas.chartjs-render-monitor.income-apr-chart {
+    width: 100% !important;
+    height: 200px !important;
+    margin-left: 0;
   }
 }
 

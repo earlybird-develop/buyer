@@ -29,39 +29,47 @@ export class MarketCurrentPage implements OnInit {
   // Chart configuration
   public barChartType = 'bar';
   public barChartLabels: string[] = [];
-  public barChartData: Object[];
+  public barChartData: any[] = [{}, {}];
   public barChartOptions: any = {
     responsive: true,
     legend: false,
     scales: {
       xAxes: [{
-        barPercentage: 0.4,
+        barPercentage: 1.0,
+        ticks: {
+          fontSize: 18,
+          callback: value => value >= 1000 ? value / 1000 + 'K' : value
+        },
         gridLines: {
           drawOnChartArea: false
         }
       }],
-      yAxes: [{
-        position: 'left',
-        ticks: {
-          fontSize: 9,
-          callback: value => value >= 1000 ? value / 1000 + 'K' : value
+      yAxes: [
+        {
+          id: 'yAxis1',
+          position: 'left',
+          ticks: {
+            min: 0,
+            fontSize: 18,
+            callback: value => value >= 1000 ? value / 1000 + 'K' : value
+          }
+        },
+        {
+          id: 'yAxis2',
+          position: 'right',
+          ticks: {
+            min: 0,
+            fontSize: 18,
+            callback: value => value ? value + '%' : value
+          }
         }
-      }
-      // {
-      //   position: 'left',
-      //   ticks: {
-      //     fontSize: 9,
-      //     beginAtZero: true,
-      //     fontColor: '43425D'
-      //   }
-      // }
       ]
     }
   };
 
   constructor(private _currentMarketService: CurrentMarketService,
-              private _route: ActivatedRoute,
-              private _toastr: ToastrService) {
+    private _route: ActivatedRoute,
+    private _toastr: ToastrService) {
     this._marketId = this._route.parent.snapshot.params.id;
   }
 
@@ -105,19 +113,21 @@ export class MarketCurrentPage implements OnInit {
     this.graphData = data;
     this.barChartLabels = this.graphData.map(x => x['date']);
 
-    this.barChartData = [
-      {
-        data: this.graphData.map(x => x['average_apr']),
-        // label: 'APR',
-        hoverBackgroundColor: '#e6f0ff',
-        type: 'line',
-        borderColor: '#000'
-      },
+    this.barChartData.push(
       {
         data: this.graphData.map(x => x['discount_amount']),
-        // label: 'Income',
-        hoverBackgroundColor: '#4f7dc9'
-      }
-    ];
+        label: 'Income',
+        yAxisID: 'yAxis1',
+        backgroundColor: '#4c73c8'
+      });
+
+    this.barChartData.push({
+      data: this.graphData.map(x => x['average_apr']),
+      label: 'APR',
+      yAxisID: 'yAxis2',
+      hoverBackgroundColor: '#e6f0ff',
+      type: 'line',
+      borderColor: '#000'
+    });
   }
 }
