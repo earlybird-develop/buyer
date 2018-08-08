@@ -50,8 +50,12 @@ export class MarketCurrentPage implements OnInit {
           position: 'left',
           ticks: {
             min: 0,
+            max: 250000,
             fontSize: 18,
-            callback: value => value >= 1000 ? value / 1000 + 'K' : value
+            callback: function (dataLabel, index) {
+              let dataValue = dataLabel / 1000;
+              return dataLabel % 50000 === 0 ? (dataValue === 0 ? 0 : dataValue + 'k') : '';
+            }
           }
         },
         {
@@ -59,8 +63,11 @@ export class MarketCurrentPage implements OnInit {
           position: 'right',
           ticks: {
             min: 0,
+            max: 45,
             fontSize: 18,
-            callback: value => value ? value + '%' : value
+            callback: function (dataLabel, index) {
+              return dataLabel % 5 === 0 ? (dataLabel === 0 ? 0 : dataLabel + '%') : '';
+            }
           }
         }
       ]
