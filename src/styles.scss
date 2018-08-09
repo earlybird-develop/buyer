@@ -544,7 +544,42 @@ body.dialog-open {
   }
 }
 
+@media(max-width: 730px) {
+  .initial-clear{
+    max-width: 50%!important;
+  }
+  .clearing{
+    max-width: 50%!important;
+  }
+  .non-clearing{
+    max-width: 100%;
+    // padding-left: 30%!important;
+  }
+}
+
+@media(max-width: 480px) {
+  .initial-clear{
+    max-width: 100%!important;
+  }
+  .clearing{
+    max-width: 100%!important;
+  }
+  .non-clearing{
+    max-width: 100%;
+    // padding-left: 30%!important;
+  }
+}
 
 a.emailLink {
   text-decoration: underline;
+}
+
+.table-markets .popover-arrow {
+  display: none !important;
+}
+
+.container {
+  .popover{
+      top: 0!important;
+  }
 }

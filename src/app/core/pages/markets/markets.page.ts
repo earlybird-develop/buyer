@@ -47,7 +47,7 @@ export class MarketsPage implements OnInit {
     if (pop) {
       pop.hide();
     }
-
+    
     this.currentMarket = market;
   }
 
