@@ -26,16 +26,13 @@
 .container {
   box-sizing: border-box;
   border: 1px solid #e8e8e8;
-  margin-top: 41px;
-  margin-left: 76px;
-  margin-right: 78px;
   padding: 19px 25px 27px 31px;
   width: 375px;
 
   .name {
     font-size: 17px;
     font-weight: 700;
-    margin-left: 35px;
+    padding-left: 26px;
     position: relative;
 
     div {
@@ -59,7 +56,7 @@
   }
 
   .data.apr {
-    padding-left: 35px;
+    padding-left: 26px;
     padding-bottom: 23px;
 
     input.control {
@@ -80,6 +77,10 @@
         color: #24457c;
         font-size: 13px;
         font-weight: 700;
+      }
+
+      p{
+        margin-bottom: 4px;
       }
 
       span {
@@ -136,7 +137,6 @@ input.control {
   }
 }
 
-
 @media(max-width: 1000px) {
 }
 
@@ -164,4 +164,27 @@ input.control {
   .container {
     margin: 0;
   }
+}
+.fa-question-circle{
+  color: white;
+  margin: 0px 0px -1px 5px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  width: 14px;
+  background-color: green;
+  height: 14px;
+}
+
+.fa-question-circle::before{
+  position: absolute;
+  content: "?";
+  top: -3px;
+  font-size: 14px;
+  left: 4px;
+}
+
+p .title{
+  margin-bottom: 4px!important;
 }

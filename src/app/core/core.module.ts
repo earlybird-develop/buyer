@@ -14,6 +14,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -64,7 +65,8 @@ import {
     BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
     ToastrModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [
     MarketsService,
@@ -93,7 +95,8 @@ import {
     ForgetPasswordPage
   ],
   entryComponents: [
-    MarketHeaderComponent
+    MarketHeaderComponent,
+    MarketSettingComponent
   ]
 })
 export class CoreModule { }

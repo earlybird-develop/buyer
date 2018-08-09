@@ -540,7 +540,6 @@ body.dialog-open {
     right: 5px !important;
     bottom: 5px !important;
     left: -5px !important;
-
   }
 }
 
@@ -553,7 +552,6 @@ body.dialog-open {
   }
   .non-clearing{
     max-width: 100%;
-    // padding-left: 30%!important;
   }
 }
 
@@ -582,4 +580,8 @@ a.emailLink {
   .popover{
       top: 0!important;
   }
+}
+
+.setting-modal{
+  top:90px!important;
 }

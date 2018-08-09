@@ -20,7 +20,7 @@
         <td class="settings">
           <a class="pointer"
              (click)="openSettings(market)"
-             [popover]="marketSetting"
+             
              placement="auto">
             <img src="assets/icons/settings.svg">
           </a>
@@ -52,6 +52,6 @@
 <div class="pages" hidden>
   <pagination [totalItems]="40" nextText=" " previousText=" "></pagination>
 </div>
-<ng-template #marketSetting>
+<!-- <ng-template #marketSetting>
   <eb-market-setting [popoverHandler]="marketSetting" [marketOrig]="currentMarket"></eb-market-setting>
-</ng-template>
+</ng-template> -->

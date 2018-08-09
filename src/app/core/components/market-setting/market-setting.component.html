@@ -2,9 +2,9 @@
 
 <ng-container *ngIf="market">
   <div class="container">
+      <div class="name">({{market.currency}})</div>
     <div class="name">
       {{ market.name }}
-      <div>({{market.currency}})</div>
       <a class="btn btn-secondary pointer edit"
          *ngIf="!editMode"
          (click)="enableEditMode()">
@@ -26,22 +26,22 @@
     <div class="data apr">
       <div class="title">APR</div>
       <label>
-        <span class="label">{{ 'buyer.components.market-setting.apr-d' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <p class="label">{{ 'buyer.components.market-setting.apr-d' | translate }}<i class="fas fa-question-circle"></i></p>
         <span class="value" [class.hidden]="editMode">{{ market.expectApr | number: '.2' }}</span>
         <input type="text" class="control" [class.hidden]="!editMode" [(ngModel)]="market.expectApr"> %
       </label>
       <label>
-        <span class="label">{{ 'buyer.components.market-setting.apr-min' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <p class="label">{{ 'buyer.components.market-setting.apr-min' | translate }}<i class="fas fa-question-circle"></i></p>
         <span class="value" [class.hidden]="editMode">{{ market.minApr | number: '.2'}}</span>
         <input type="text" class="control" [class.hidden]="!editMode" [(ngModel)]="market.minApr"> %
       </label>
     </div>
     <div class="field-group">
-      <div class="title">{{ 'buyer.components.market-setting.cashpool' | translate }}</div>
+      <p class="title">{{ 'buyer.components.market-setting.cashpool' | translate }}<i class="fas fa-question-circle"></i></p>
       <div class="value" [class.hidden]="editMode">{{ market.currencySign }}{{ market.cash | number }}</div>
       <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.cash">
     </div>
-    <div class="field-group">
+    <!-- <div class="field-group">
       <div class="title">{{ 'buyer.components.market-setting.npd' | translate }}</div>
       <div class="value" [class.hidden]="editMode">{{ market.payDate }}</div>
       <input type="text"
@@ -51,7 +51,7 @@
              [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
              [class.hidden]="!editMode"
              [(ngModel)]="market.payDate">
-    </div>
+    </div> -->
     <div class="field-group">
       <div class="title">{{ 'buyer.components.market-setting.reserve-p' | translate }}</div>
       <div class="value" [class.hidden]="editMode">{{ market.reservePercentage }}%</div>

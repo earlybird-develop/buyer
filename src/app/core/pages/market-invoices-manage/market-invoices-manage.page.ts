@@ -27,6 +27,9 @@ export class MarketInvoicesManagePage implements OnInit {
 
   public marketStat: MarketStat;
   public invoices: Invoice[];
+  public allInvoices = [];
+
+  public isStatusInvoice: boolean = false;
 
   constructor(private _invoicesService: InvoicesService,
               private _route: ActivatedRoute,
@@ -49,15 +52,33 @@ export class MarketInvoicesManagePage implements OnInit {
     this._invoicesService
       .getList(this._marketId, this.filter)
       .subscribe(
-        x => this.invoices = x,
+        x => {
+          if(this.isStatusInvoice == true){
+            this.allInvoices = this.allInvoices.concat(x);
+            this.invoices = this.allInvoices;
+          }else{
+            this.invoices = x;
+          }
+        },
         () => this._toastr.error('Internal server error')
       );
   }
 
   public setInvoiceType(status: string) {
-    this.filter.invoiceStatus = status;
-
-    this.load();
+    let allInvoices;
+    this.allInvoices = [];
+    this.isStatusInvoice = false;
+    allInvoices = ['eligible','ineligible','adjustments','awarded'];
+    if(status == 'allInvoices'){
+      this.isStatusInvoice = true;
+      allInvoices.forEach(element => {
+        this.filter.invoiceStatus = element;
+        this.load();
+      });
+    }else{
+      this.filter.invoiceStatus = status;
+      this.load();
+    }
   }
 
   public goCustomRange(): void {

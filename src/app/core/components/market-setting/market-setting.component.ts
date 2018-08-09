@@ -21,6 +21,7 @@ export class MarketSettingComponent implements OnInit {
               private _toastr: ToastrService) { }
 
   ngOnInit() {
+    console.log(this.marketOrig)
     this._marketsService
       .getSettings(this.marketOrig.id)
       .subscribe(
