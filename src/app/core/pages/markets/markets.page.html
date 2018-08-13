@@ -41,7 +41,7 @@
         <td class="text-center">
           {{ market.paidEligible | currency: market.currencySign }} / {{ market.paidTotal | currency: market.currencySign }}
         </td>
-        <td class="text-center">{{ market.cashDeployed | currency: market.currency }}</td>
+        <td class="text-center">{{ market.cashDeployed | currency: market.currencySign }}</td>
         <td class="text-center">{{ market.income | currency: market.currencySign }}</td>
         <td class="text-center">{{ market.averageApr }}%</td>
         <td class="text-center">{{ market.payDate }}</td>

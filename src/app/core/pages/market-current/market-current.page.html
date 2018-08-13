@@ -26,7 +26,7 @@
                   }} {{ 'buyer.pages.current.clearing.dpe' | translate }}
                 </div>
               </div>
-              <div class="subvalue">{{ currentMarket?.total?.discountAmount | currency: market?.currency }} {{ 'buyer.pages.current.clearing.ap'
+              <div class="subvalue">{{ currentMarket?.total?.discountAmount | currency: currentMarket?.currencySign }} {{ 'buyer.pages.current.clearing.ap'
                 | translate }}
               </div>
             </div>
@@ -50,7 +50,7 @@
                   }} {{ 'buyer.pages.current.clearing.dpe' | translate }}
                 </div>
               </div>
-              <div class="subvalue">{{ currentMarket?.clearing?.discountAmount | currency: market?.currency }} {{ 'buyer.pages.current.clearing.ap'
+              <div class="subvalue">{{ currentMarket?.clearing?.discountAmount | currency: currentMarket?.currencySign }} {{ 'buyer.pages.current.clearing.ap'
                 | translate }}
               </div>
             </div>
@@ -74,7 +74,7 @@
                   }} {{ 'buyer.pages.current.clearing.dpe' | translate }}
                 </div>
               </div>
-              <div class="subvalue">{{ currentMarket?.non?.discountAmount | currency: market?.currency }} {{ 'buyer.pages.current.clearing.ap'
+              <div class="subvalue">{{ currentMarket?.non?.discountAmount | currency: currentMarket?.currencySign }} {{ 'buyer.pages.current.clearing.ap'
                 | translate }}
               </div>
             </div>
@@ -113,31 +113,31 @@
         <tbody>
           <tr>
             <td>{{ 'buyer.pages.current.clearing.table.market-clearing' | translate }}</td>
-            <td>{{ currentMarketStat?.discount?.total?.discountAmount | currency: market?.currency }}</td>
+            <td>{{ currentMarketStat?.discount?.total?.discountAmount | currency: currentMarket?.currencySign }}</td>
             <td>{{ currentMarketStat?.discount?.total?.averageApr }}%</td>
             <td>{{ currentMarketStat?.discount?.total?.averageDpe }}</td>
             <td>{{ 'buyer.pages.current.clearing.table.current' | translate }}</td>
-            <td>{{ currentMarketStat?.amount?.current?.availableAmount | currency: market?.currency }}</td>
+            <td>{{ currentMarketStat?.amount?.current?.availableAmount | currency: currentMarket?.currencySign }}</td>
             <td>{{ currentMarketStat?.amount?.current?.supplierCount }}</td>
             <td>{{ currentMarketStat?.amount?.current?.invoiceCount }}</td>
           </tr>
           <tr>
             <td>{{ 'buyer.pages.current.clearing.table.manual-award' | translate }}</td>
-            <td>{{ currentMarketStat?.discount?.manual?.discountAmount | currency: market?.currency }}</td>
+            <td>{{ currentMarketStat?.discount?.manual?.discountAmount | currency: currentMarket?.currencySign }}</td>
             <td>{{ currentMarketStat?.discount?.manual?.averageApr }}%</td>
             <td>{{ currentMarketStat?.discount?.manual?.averageDpe }}</td>
             <td>{{ 'buyer.pages.current.clearing.table.pending' | translate }}</td>
-            <td>{{ currentMarketStat?.amount?.pending?.availableAmount | currency: market?.currency }}</td>
+            <td>{{ currentMarketStat?.amount?.pending?.availableAmount | currency: currentMarket?.currencySign }}</td>
             <td>{{ currentMarketStat?.amount?.pending?.supplierCount }}</td>
             <td>{{ currentMarketStat?.amount?.pending?.invoiceCount }}</td>
           </tr>
           <tr>
             <td>{{ 'buyer.pages.current.clearing.table.current-clearing' | translate }}</td>
-            <td>{{ currentMarketStat?.discount?.clearing?.discountAmount | currency: market?.currency }}</td>
+            <td>{{ currentMarketStat?.discount?.clearing?.discountAmount | currency: currentMarket?.currencySign }}</td>
             <td>{{ currentMarketStat?.discount?.clearing?.averageApr }}%</td>
             <td>{{ currentMarketStat?.discount?.clearing?.averageDpe }}</td>
             <td>{{ 'buyer.pages.current.clearing.table.total' | translate }}</td>
-            <td>{{ currentMarketStat?.amount?.total?.availableAmount | currency: market?.currency }}</td>
+            <td>{{ currentMarketStat?.amount?.total?.availableAmount | currency: currentMarket?.currencySign }}</td>
             <td>{{ currentMarketStat?.amount?.total?.supplierCount }}</td>
             <td>{{ currentMarketStat?.amount?.total?.invoiceCount }}</td>
           </tr>

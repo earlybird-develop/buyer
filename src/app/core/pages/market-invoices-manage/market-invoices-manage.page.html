@@ -214,7 +214,7 @@
           <td>{{ invoice.vendorCode }}</td>
           <td>{{ invoice.supplierName }}</td>
           <td>{{ invoice.invoiceId }}</td>
-          <td>{{ invoice.invoiceAmount | currency: marketStat?.currency }}</td>
+          <td>{{ invoice.invoiceAmount | currency: marketStat?.currencySign }}</td>
           <td>{{ invoice.originalPaydate }}</td>
         </tr>
         </tbody>
