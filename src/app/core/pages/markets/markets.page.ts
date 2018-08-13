@@ -46,12 +46,15 @@ export class MarketsPage implements OnInit {
 
   openModalWithComponent() {
     const initialState = {
-      marketOrig: this.currentMarket,
-      title: 'Modal with component'
+      marketOrig: this.currentMarket
     };
     this.bsModalRef = this.modalService.show(MarketSettingComponent, Object.assign({initialState}, { class: 'setting-modal' }));
-    this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.content = function call() {
+      
+    }
   }
+
+  call(){}
 
   public openSettings(market: Market): void {
     // const pop = this.popovers.find(x => x.isOpen);
