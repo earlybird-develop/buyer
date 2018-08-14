@@ -27,7 +27,6 @@
   box-sizing: border-box;
   border: 1px solid #e8e8e8;
   padding: 19px 25px 27px 31px;
-  width: 375px;
 
   .name {
     font-size: 17px;
@@ -187,4 +186,61 @@ input.control {
 
 p .title{
   margin-bottom: 4px!important;
+}
+
+.scheduleinput, .minusSpan {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 80%;
+  width: 100%;
+}
+
+.minusSpan {
+  max-width: 15%;
+  max-width: 15%;
+  width: 15px;
+  height: 4px;
+  background: blue;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+  border: 0px;
+}
+
+.scheduleAmount, .scheduleinput {
+  padding: 6px 12px;
+  border-radius: 3px;
+  border:1px solid #ddd;
+}
+
+.add-image-sec {
+  height: 30px;
+  width: 30px;
+  display: block;
+  color: #777;
+  text-align: center;
+  background: url('/assets/icons/iconfont-add.png') center no-repeat;
+  cursor: pointer;
+  margin: 0 auto;
+  border: 1px dashed blue;
+    padding: 5px;
+    background-size: 16px;
+}
+
+.table-bordered thead th {
+  font-size: 14px;
+  color:#fff;
+}
+
+.bg-highlight{
+  background-color: #94cbff;
+}
+.disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width:767px) {
+  .scheduleAmount {
+    max-width: 110px;
+  }
 }

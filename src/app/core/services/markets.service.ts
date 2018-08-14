@@ -14,7 +14,8 @@ const GET_MARKET_SETTINGS_PATH = '/market/get_market_setting';
 const SET_MARKET_SETTINGS_PATH = '/market/set_market_setting';
 const SET_MARKET_ACTIVE_PATH = '/market/set_market_active';
 const SET_MARKET_ACTION_PATH = '/market/confirm_market_action';
-
+const SET_MARKET_ALLOCATE = '/market/set_market_allocate';
+const DROP_MARKET_ALLOCATE = '/market/drop_market_allocate';
 @Injectable()
 export class MarketsService {
 
@@ -22,7 +23,7 @@ export class MarketsService {
   public popoverClose: EventEmitter<any> = new EventEmitter();
 
   constructor(private _http: HttpClient,
-              private _dialog: DialogService) { }
+    private _dialog: DialogService) { }
 
   public getList(): Observable<Market[]> {
     return Observable.create((observer: Observer<Market[]>) => {
@@ -51,6 +52,38 @@ export class MarketsService {
         .subscribe(
           resp => {
             observer.next(Model.new<Market>(Market, resp['data']));
+            observer.complete();
+          },
+          errors => observer.error(errors)
+        );
+    });
+  }
+
+  public allocateSchedules(marketSchedule, id: string): Observable<Market> {
+    const params = new HttpParams().set('market_id', id);
+
+    return Observable.create((observer: Observer<Market>) => {
+      this._http
+        .post(SET_MARKET_ALLOCATE, { data: marketSchedule }, { params: params })
+        .subscribe(
+          resp => {
+            observer.next(<Market>{});
+            observer.complete();
+          },
+          errors => observer.error(errors)
+        );
+    });
+  }
+
+  public removeSchedules(removeSchedule, id: string): Observable<Market> {
+    const params = new HttpParams().set('market_id', id);
+
+    return Observable.create((observer: Observer<Market>) => {
+      this._http
+        .post(DROP_MARKET_ALLOCATE, { data: removeSchedule }, { params: params })
+        .subscribe(
+          resp => {
+            observer.next(<Market>{});
             observer.complete();
           },
           errors => observer.error(errors)
@@ -101,7 +134,7 @@ export class MarketsService {
   }
 
   public setMarketActive(marketId: string, status: boolean)
-  : Observable<boolean> {
+    : Observable<boolean> {
     const params = new HttpParams().set('market_id', marketId);
 
     const body = {
@@ -139,7 +172,7 @@ export class MarketsService {
   }
 
   public confirmMarketAction(marketId: string, confirmId: string)
-  : Observable<boolean> {
+    : Observable<boolean> {
     const params = new HttpParams().set('market_id', marketId);
 
     const body = {

@@ -23,6 +23,7 @@ export class Market extends Model {
   @Alias('paydate') public payDate: string;
   @Alias('reconcilation_date') public reconcilationDate: string;
   @Alias('reserve_percentage') public reservePercentage: number;
+  @Alias('allocate_list') public schedulesList = [];
 
   public updateOrigin(market: Market): void {
     this.cashAvailable = market.cash;
@@ -34,5 +35,13 @@ export class Market extends Model {
     this.payDate = pipe.transform(market.payDate, 'yyyy/MM/dd');
     this.reconcilationDate =
       pipe.transform(market.reconcilationDate, 'yyyy/MM/dd');
+  }
+
+  public allocateScheduleList(clickEvent, index, removeData) {
+    if (clickEvent === 'add') {
+      this.schedulesList.push({ allocate_id: 0, cashamount: null, paydate: '' })
+    } else if (clickEvent === 'remove') {
+      this.schedulesList.splice(index, 1);
+    }
   }
 }

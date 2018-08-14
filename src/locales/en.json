@@ -187,6 +187,11 @@
           "income": "INCOME",
           "apr": "APR",
           "pay-date": "NEXT PAY DATE"
+        },
+        "schedule" : {
+          "paydate" : "Pay Date",
+          "amount" : "Amount",
+          "schedule" : "Schedule"
         }
       },
       "profile": {
