@@ -80,7 +80,7 @@ export class MarketsService {
 
     return Observable.create((observer: Observer<Market>) => {
       this._http
-        .post(DROP_MARKET_ALLOCATE, { data: removeSchedule }, { params: params })
+        .post(DROP_MARKET_ALLOCATE,  removeSchedule, { params: params })
         .subscribe(
           resp => {
             observer.next(<Market>{});
