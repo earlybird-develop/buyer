@@ -62,19 +62,19 @@
         </thead>
         <tbody>
           <tr *ngFor="let schedule of marketSchedule.schedulesList;let i=index">
-            <td>
+            <td class="scheduleFirstColumn">
               <label>{{'buyer.pages.markets.schedule.schedule' | translate}} {{i + 1}}</label>
             </td>
             <td>
-              <input type="text" class="scheduleAmount" [disabled]="!editMode || schedule.status === 2" [ngClass]="{'bg-highlight':schedule.status===1}"
+              <input type="text" class="scheduleAmount" [disabled]="!editMode || schedule.status == '2'" [ngClass]="{'bg-highlight':schedule.status=='1'}"
                 [(ngModel)]="schedule.cashamount">
             </td>
             <td>
-              <input type="text" class="scheduleinput" [disabled]="!editMode || schedule.status === 2" required placeholder="dd/mm/yy"
+              <input type="text" class="scheduleinput" [disabled]="!editMode || schedule.status == '2'" required placeholder="dd/mm/yy"
                 bsDatepicker [(ngModel)]="schedule.paydate" placement="left" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-              <button class="minusSpan" (click)="removeEvents('remove', i, schedule)" [disabled]="!editMode" *ngIf="schedule.status !== 1">
+              <button class="minusSpan" (click)="removeEvents('remove', i, schedule)" [disabled]="!editMode" *ngIf="schedule.status !='1'">
               </button>
-              <i class="left-arrow" *ngIf="schedule.status === 1"></i>
+              <i class="left-arrow" *ngIf="schedule.status == '1'"></i>
             </td>
           </tr>
         </tbody>

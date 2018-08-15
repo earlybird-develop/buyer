@@ -16,6 +16,9 @@ export class MarketSettingComponent implements OnInit {
   public marketClone: Market;
   public editMode = false;
 
+  public marketSettings: any = {};
+  public marketAllocates: any;
+
   public marketSchedule = new Market();
 
   @Input() public marketOrig: Market;
@@ -27,7 +30,6 @@ export class MarketSettingComponent implements OnInit {
 
   ngOnInit() {
 
-    this.scheduleEvents('add', null, 'init');
     this.getSettings();
   }
 
@@ -35,7 +37,18 @@ export class MarketSettingComponent implements OnInit {
     this._marketsService
       .getSettings(this.marketOrig.id)
       .subscribe(
-        market => this.market = this.marketSchedule = market,
+        (market: any) => {
+          this.market = this.marketSchedule = market;
+          this.marketSettings = {
+            expect_apr: market.expectApr,
+            min_apr: market.minApr,
+            reserve_percentage: market.reservePercentage,
+            reconcilation_date: market.reconcilationDate
+          };
+          let data = market.schedulesList;
+          this.marketAllocates = JSON.parse(JSON.stringify(data));
+          market.schedulesList.length > 0 ? '' : this.scheduleEvents('add', null, 'init');
+        },
         () => this._toastr.error('Internal server error')
       );
 
@@ -61,20 +74,31 @@ export class MarketSettingComponent implements OnInit {
   public save(): void {
     const pipe = new DatePipe('EN');
     this.market.payDate = pipe.transform(this.market.payDate, 'yyyy/MM/dd');
-    this._marketsService
-      .setSettings(this.market)
-      .subscribe(
-        () => {
-          this.marketOrig.updateOrigin(this.market);
-          this.marketClone = null;
-          this.editMode = false;
-
-          this._toastr.success('Market data successfully saved');
-        },
-        errors => this._toastr.warning('Error while saving', errors['data'])
-      );
-
-    this.saveSchedule();
+    let marketSettings = {
+      expect_apr: this.market.expectApr,
+      min_apr: this.market.minApr,
+      reserve_percentage: this.market.reservePercentage,
+      reconcilation_date: this.market.reconcilationDate
+    };
+    let checkMarketSetting = JSON.stringify(this.marketSettings) == JSON.stringify(marketSettings)
+    if (!checkMarketSetting) {
+      this._marketsService
+        .setSettings(this.market)
+        .subscribe(
+          () => {
+            this.marketOrig.updateOrigin(this.market);
+            this.marketClone = null;
+            this.editMode = false;
+            this._toastr.success('Market data successfully saved');
+          },
+          errors => this._toastr.warning('Error while saving', errors['data'])
+        );
+    }
+    let marketScheduleAllocates = this.market.schedulesList;
+    let checkMarketSchedule = JSON.stringify(this.marketAllocates) == JSON.stringify(marketScheduleAllocates)
+    if (!checkMarketSchedule) {
+      this.saveSchedule();
+    }
   }
 
   public saveSchedule(): void {
@@ -93,8 +117,7 @@ export class MarketSettingComponent implements OnInit {
         let dates = pipe.transform(list.paydate, 'yyyy/MM/dd');
         let allocateId = list.allocate_id;
         delete list.allocate_id;
-        return list.paydate = dates , list.id = allocateId;
-
+        return list.paydate = dates, list.id = allocateId ? allocateId : 0;
       }
     });
 
@@ -104,31 +127,33 @@ export class MarketSettingComponent implements OnInit {
       this._marketsService
         .allocateSchedules(schedules, this.marketOrig.id)
         .subscribe(
-          resp => this.marketSchedule = resp,
+          resp => resp,
           () => this._toastr.warning('Error while saving')
         )
-        this.getSettings();
+      this.getSettings()
     }
-
-
   }
 
   public scheduleEvents(clickEvent: string, index: number, init) {
-    let invalidValidation: boolean;
-    this.marketSchedule.schedulesList.forEach((list: any, index) => {
-      if (!list.paydate || list.paydate == 'Invalid Date') {
-        this._toastr.error('Plase select all the paydate');
-        invalidValidation = true;
-        return false;
-      } else if (!list.cashamount) {
-        this._toastr.error('Plase fill all the amounts');
-        invalidValidation = true;
-        return false;
-      }
-    });
-
-    if (!invalidValidation) {
+    if (init === 'add') {
       this.marketSchedule.allocateScheduleList(clickEvent, index, null)
+    } else {
+      let invalidValidation: boolean;
+      this.marketSchedule.schedulesList.forEach((list: any, index) => {
+        if (!list.paydate || list.paydate == 'Invalid Date') {
+          this._toastr.error('Plase select all the paydate');
+          invalidValidation = true;
+          return false;
+        } else if (!list.cashamount) {
+          this._toastr.error('Plase fill all the amounts');
+          invalidValidation = true;
+          return false;
+        }
+      });
+
+      if (!invalidValidation) {
+        this.marketSchedule.allocateScheduleList(clickEvent, index, null)
+      }
     }
   }
 
@@ -140,10 +165,10 @@ export class MarketSettingComponent implements OnInit {
       this._marketsService
         .removeSchedules(data, this.marketOrig.id)
         .subscribe(
-          resp => this.marketSchedule.allocateScheduleList(clickEvent, index, null),
+          resp => this._toastr.warning('Market allocate schedule ' + data.allocate_id + ' is deleted ') && this.getSettings(),
           () => this._toastr.warning('Error while removing')
         )
-      this.getSettings();
+      
     }
   }
 }

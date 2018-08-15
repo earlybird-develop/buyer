@@ -208,7 +208,7 @@ p .title{
 }
 
 .scheduleAmount, .scheduleinput {
-  padding: 6px 10px;
+  padding: 6px 8px;
   border-radius: 3px;
   border:1px solid #ddd;
 }
@@ -248,6 +248,14 @@ p .title{
 }
 .disabled {
   cursor: not-allowed;
+}
+
+.scheduleFirstColumn {
+  padding: 20px 5px !important;
+
+  label{
+    width:72px;
+  }
 }
 
 @media (max-width:767px) {
