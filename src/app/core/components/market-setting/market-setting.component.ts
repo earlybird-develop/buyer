@@ -92,7 +92,7 @@ export class MarketSettingComponent implements OnInit {
         const pipe = new DatePipe('EN');
         let dates = pipe.transform(list.paydate, 'yyyy/MM/dd');
         let allocateId = list.allocate_id;
-        // delete list.allocate_id;
+        delete list.allocate_id;
         return list.paydate = dates , list.id = allocateId;
 
       }
@@ -107,6 +107,7 @@ export class MarketSettingComponent implements OnInit {
           resp => this.marketSchedule = resp,
           () => this._toastr.warning('Error while saving')
         )
+        this.getSettings();
     }
 
 
