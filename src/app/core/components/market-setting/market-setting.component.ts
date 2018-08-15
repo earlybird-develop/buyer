@@ -4,6 +4,7 @@ import { MarketsService } from '../../services';
 import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { listener } from '@angular/core/src/render3/instructions';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'eb-market-setting',
@@ -21,7 +22,8 @@ export class MarketSettingComponent implements OnInit {
   @Input() public popoverHandler: any;
 
   constructor(private _marketsService: MarketsService,
-    private _toastr: ToastrService) { }
+    private _toastr: ToastrService,
+    public bsModalRef: BsModalRef) { }
 
   ngOnInit() {
 
@@ -33,7 +35,7 @@ export class MarketSettingComponent implements OnInit {
     this._marketsService
       .getSettings(this.marketOrig.id)
       .subscribe(
-        market => this.market = market,
+        market => this.market = this.marketSchedule = market,
         () => this._toastr.error('Internal server error')
       );
 
@@ -72,29 +74,61 @@ export class MarketSettingComponent implements OnInit {
         errors => this._toastr.warning('Error while saving', errors['data'])
       );
 
-      this.saveSchedule();
+    this.saveSchedule();
   }
 
   public saveSchedule(): void {
+    let invalidValidation: boolean;
     this.marketSchedule.schedulesList.forEach((list: any, index) => {
-      const pipe = new DatePipe('EN');
-      let dates = pipe.transform(list.paydate, 'yyyy/MM/dd');
-      return list.paydate = dates;
+      if (!list.paydate || list.paydate == 'Invalid Date') {
+        this._toastr.error('Plase select all the paydate');
+        invalidValidation = true;
+        return false;
+      } else if (!list.cashamount) {
+        this._toastr.error('Plase fill all the amounts');
+        invalidValidation = true;
+        return false;
+      } else {
+        const pipe = new DatePipe('EN');
+        let dates = pipe.transform(list.paydate, 'yyyy/MM/dd');
+        let allocateId = list.allocate_id;
+        // delete list.allocate_id;
+        return list.paydate = dates , list.id = allocateId;
+
+      }
     });
 
-    let schedules = { allocates: [] };
-    schedules.allocates = this.marketSchedule.schedulesList;
-    this._marketsService
-      .allocateSchedules(schedules, this.marketOrig.id)
-      .subscribe(
-        resp => this.market = resp,
-        () => this._toastr.warning('Error while saving')
-      )
+    if (!invalidValidation) {
+      let schedules = { allocates: [] };
+      schedules.allocates = this.marketSchedule.schedulesList;
+      this._marketsService
+        .allocateSchedules(schedules, this.marketOrig.id)
+        .subscribe(
+          resp => this.marketSchedule = resp,
+          () => this._toastr.warning('Error while saving')
+        )
+    }
+
 
   }
 
   public scheduleEvents(clickEvent: string, index: number, init) {
-    this.marketSchedule.allocateScheduleList(clickEvent, index, null)
+    let invalidValidation: boolean;
+    this.marketSchedule.schedulesList.forEach((list: any, index) => {
+      if (!list.paydate || list.paydate == 'Invalid Date') {
+        this._toastr.error('Plase select all the paydate');
+        invalidValidation = true;
+        return false;
+      } else if (!list.cashamount) {
+        this._toastr.error('Plase fill all the amounts');
+        invalidValidation = true;
+        return false;
+      }
+    });
+
+    if (!invalidValidation) {
+      this.marketSchedule.allocateScheduleList(clickEvent, index, null)
+    }
   }
 
   public removeEvents(clickEvent: string, index: number, schedule: any) {

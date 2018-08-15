@@ -38,8 +38,8 @@
       <p class="title">{{ 'buyer.components.market-setting.cashpool' | translate }}
         <i class="fas fa-question-circle"></i>
       </p>
-      <div class="value" [class.hidden]="editMode">{{ market.currencySign }}{{ market.cash | number }}</div>
-      <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.cash">
+      <div class="value" >{{ market.currencySign }}{{ market.cash | number }}</div>
+      <!-- <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.cash"> -->
     </div>
     <div class="field-group">
       <div class="title">{{ 'buyer.components.market-setting.reserve-p' | translate }}</div>
@@ -66,13 +66,15 @@
               <label>{{'buyer.pages.markets.schedule.schedule' | translate}} {{i + 1}}</label>
             </td>
             <td>
-              <input type="text" class="scheduleAmount" [disabled]="!editMode || schedule.status === 2" [ngClass]="{'bg-highlight':schedule.status===1}" [(ngModel)]="schedule.cashamount">
+              <input type="text" class="scheduleAmount" [disabled]="!editMode || schedule.status === 2" [ngClass]="{'bg-highlight':schedule.status===1}"
+                [(ngModel)]="schedule.cashamount">
             </td>
             <td>
-              <input type="text" class="scheduleinput" [disabled]="!editMode || schedule.status === 2" required placeholder="dd/mm/yy" bsDatepicker [(ngModel)]="schedule.paydate"
-                placement="right" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+              <input type="text" class="scheduleinput" [disabled]="!editMode || schedule.status === 2" required placeholder="dd/mm/yy"
+                bsDatepicker [(ngModel)]="schedule.paydate" placement="left" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
               <button class="minusSpan" (click)="removeEvents('remove', i, schedule)" [disabled]="!editMode" *ngIf="schedule.status !== 1">
               </button>
+              <i class="left-arrow" *ngIf="schedule.status === 1"></i>
             </td>
           </tr>
         </tbody>
@@ -84,5 +86,5 @@
 
 <div *ngIf="market" class="text-center">
   <a class="btn btn-primary ok-cancel-btns" (click)="save()">{{ 'buyer.components.market-setting.ok' | translate }}</a>
-  <a class="btn btn-secondary ok-cancel-btns" (click)="close()">{{ 'buyer.components.market-setting.cancel' | translate }}</a>
+  <a class="btn btn-secondary ok-cancel-btns" (click)="bsModalRef.hide()">{{ 'buyer.components.market-setting.cancel' | translate }}</a>
 </div>

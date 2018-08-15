@@ -64,7 +64,7 @@ export class MarketsService {
 
     return Observable.create((observer: Observer<Market>) => {
       this._http
-        .post(SET_MARKET_ALLOCATE, { data: marketSchedule }, { params: params })
+        .post(SET_MARKET_ALLOCATE,  marketSchedule, { params: params })
         .subscribe(
           resp => {
             observer.next(<Market>{});

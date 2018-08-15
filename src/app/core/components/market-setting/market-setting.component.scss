@@ -191,7 +191,7 @@ p .title{
 .scheduleinput, .minusSpan {
   display: inline-block;
   vertical-align: middle;
-  max-width: 80%;
+  max-width: 70%;
   width: 100%;
 }
 
@@ -208,7 +208,7 @@ p .title{
 }
 
 .scheduleAmount, .scheduleinput {
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: 3px;
   border:1px solid #ddd;
 }
@@ -227,6 +227,17 @@ p .title{
     background-size: 16px;
 }
 
+.left-arrow{
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  background: url(/assets/icons/g-arrow.png) center no-repeat;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 8px;
+  background-size: 16px;
+}
+
 .table-bordered thead th {
   font-size: 14px;
   color:#fff;
@@ -243,4 +254,5 @@ p .title{
   .scheduleAmount {
     max-width: 110px;
   }
+
 }

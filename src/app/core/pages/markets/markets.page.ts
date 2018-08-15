@@ -49,9 +49,6 @@ export class MarketsPage implements OnInit {
       marketOrig: this.currentMarket
     };
     this.bsModalRef = this.modalService.show(MarketSettingComponent, Object.assign({initialState}, { class: 'setting-modal' }));
-    this.bsModalRef.content.content = function call() {
-      
-    }
   }
 
   call(){}
