@@ -88,7 +88,7 @@ export class MarketSettingComponent implements OnInit {
           () => {
             this.marketOrig.updateOrigin(this.market);
             this.marketClone = null;
-            this.editMode = false;
+            // this.editMode = false;
             this._toastr.success('Market data successfully saved');
           },
           errors => this._toastr.warning('Error while saving', errors['data'])
@@ -122,15 +122,22 @@ export class MarketSettingComponent implements OnInit {
     });
 
     if (!invalidValidation) {
-      let schedules = { allocates: [] };
-      schedules.allocates = this.marketSchedule.schedulesList;
-      this._marketsService
-        .allocateSchedules(schedules, this.marketOrig.id)
-        .subscribe(
-          resp => resp,
-          () => this._toastr.warning('Error while saving')
-        )
-      this.getSettings()
+      var schedules = this.marketSchedule.schedulesList.map(function (schedule) { return schedule.paydate; });
+      var isDuplicate = schedules.some(function (list, idx) {
+        return schedules.indexOf(list) != idx
+      });
+      if (!isDuplicate) {
+        let schedules = { allocates: [] };
+        schedules.allocates = this.marketSchedule.schedulesList;
+        this._marketsService
+          .allocateSchedules(schedules, this.marketOrig.id)
+          .subscribe(
+            resp => this._toastr.success('Successfully saves market allocate schedule'),
+            () => this._toastr.warning('Error while saving')
+          )
+      } else {
+        this._toastr.error('Please select different pay date');
+      }
     }
   }
 
@@ -165,10 +172,10 @@ export class MarketSettingComponent implements OnInit {
       this._marketsService
         .removeSchedules(data, this.marketOrig.id)
         .subscribe(
-          resp => this._toastr.warning('Market allocate schedule ' + data.allocate_id + ' is deleted ') && this.getSettings(),
+          resp => this._toastr.success('Market allocate schedule ' + data.allocate_id + ' is deleted ') && this.getSettings(),
           () => this._toastr.warning('Error while removing')
         )
-      
+
     }
   }
 }

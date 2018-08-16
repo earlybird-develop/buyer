@@ -95,7 +95,7 @@ export class MarketsService {
     const params = new HttpParams().set('market_id', market.id);
 
     const fields = [
-      'market_cash', 'expect_apr', 'min_apr', 'paydate', 'reserve_percentage',
+       'expect_apr', 'min_apr', 'reserve_percentage',
       'reconcilation_date'
     ];
 

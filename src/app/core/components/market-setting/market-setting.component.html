@@ -38,7 +38,7 @@
       <p class="title">{{ 'buyer.components.market-setting.cashpool' | translate }}
         <i class="fas fa-question-circle"></i>
       </p>
-      <div class="value" >{{ market.currencySign }}{{ market.cash | number }}</div>
+      <div class="value">{{ market.currencySign }}{{ market.cash | number }}</div>
       <!-- <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.cash"> -->
     </div>
     <div class="field-group">
@@ -51,7 +51,7 @@
       <div class="value" [class.hidden]="editMode">{{ market.reconcilationDate }}</div>
       <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.reconcilationDate">
     </div>
-    <div class="table-responsive">
+    <div class="">
       <table class="table table-bordered scheduleTable">
         <thead class="bg-dark">
           <tr>
@@ -72,19 +72,23 @@
             <td>
               <input type="text" class="scheduleinput" [disabled]="!editMode || schedule.status == '2'" required placeholder="dd/mm/yy"
                 bsDatepicker [(ngModel)]="schedule.paydate" placement="left" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-              <button class="minusSpan" (click)="removeEvents('remove', i, schedule)" [disabled]="!editMode" *ngIf="schedule.status !='1'">
-              </button>
-              <i class="left-arrow" *ngIf="schedule.status == '1'"></i>
+              <span [hidden]="!editMode" *ngIf="schedule.status == '1'">
+                <i class="left-arrow"></i>
+              </span>
+              <span [hidden]="!editMode" *ngIf="schedule.status !='1'" class="minusSpan" (click)="removeEvents('remove', i, schedule)">
+              </span>
             </td>
           </tr>
         </tbody>
       </table>
-      <button class="btn-add add-image-sec" [disabled]="!editMode" (click)="scheduleEvents('add', null)"></button>
+      <div class="text-center">
+        <button class="btn btn-success" [disabled]="!editMode" (click)="scheduleEvents('add', null)">Add Schedule</button>
+      </div>
     </div>
   </div>
 </ng-container>
 
 <div *ngIf="market" class="text-center">
-  <a class="btn btn-primary ok-cancel-btns" (click)="save()">{{ 'buyer.components.market-setting.ok' | translate }}</a>
+  <a class="btn ok-cancel-btns btn-success" (click)="save()">{{ 'buyer.components.market-setting.ok' | translate }}</a>
   <a class="btn btn-secondary ok-cancel-btns" (click)="bsModalRef.hide()">{{ 'buyer.components.market-setting.cancel' | translate }}</a>
 </div>
