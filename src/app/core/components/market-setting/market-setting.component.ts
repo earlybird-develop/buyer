@@ -51,10 +51,6 @@ export class MarketSettingComponent implements OnInit {
         },
         () => this._toastr.error('Internal server error')
       );
-
-    // this.marketSchedule.schedulesList = [{ "allocate_id": 1, "status": 2, "paydate": '2018/08/20', "cashamount": "20000" },
-    // { "allocate_id": 2, "status": 1, "paydate": '2018/08/21', "cashamount": "30000" },
-    // { "allocate_id": 3, "status": 3, "paydate": '2018/08/22', "cashamount": "40000" }];
   }
 
   public close(): void {
@@ -172,7 +168,7 @@ export class MarketSettingComponent implements OnInit {
       this._marketsService
         .removeSchedules(data, this.marketOrig.id)
         .subscribe(
-          resp => this._toastr.success('Market allocate schedule ' + data.allocate_id + ' is deleted ') && this.getSettings(),
+          resp => this._toastr.success('Market allocate schedule ' + data.allocate_id + ' is deleted ') && this.marketSchedule.allocateScheduleList(clickEvent, index, null),
           () => this._toastr.warning('Error while removing')
         )
 
