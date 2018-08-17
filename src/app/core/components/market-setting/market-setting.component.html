@@ -75,7 +75,7 @@
               <span [hidden]="!editMode" *ngIf="schedule.status == '1'">
                 <i class="left-arrow"></i>
               </span>
-              <span [hidden]="!editMode" *ngIf="schedule.status !='1'" class="minusSpan" (click)="removeEvents('remove', i, schedule)">
+              <span [hidden]="!editMode" *ngIf="schedule.status != '1' && schedule.status != '2' " class="minusSpan" (click)="removeEvents('remove', i, schedule)">
               </span>
             </td>
           </tr>
