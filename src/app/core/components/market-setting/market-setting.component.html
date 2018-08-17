@@ -70,7 +70,7 @@
                 [(ngModel)]="schedule.cashamount">
             </td>
             <td>
-              <input type="text" class="scheduleinput" [disabled]="!editMode || schedule.status == '2'" required placeholder="dd/mm/yy"
+              <input (ngModelChange)="checkDuplicateDate($event, i)" type="text" class="scheduleinput" [disabled]="!editMode || schedule.status == '2'" required placeholder="dd/mm/yy"
                 bsDatepicker [(ngModel)]="schedule.paydate" placement="left" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
               <span *ngIf="schedule.status == '1'">
                 <i class="left-arrow"></i>

@@ -29,7 +29,6 @@ export class MarketSettingComponent implements OnInit {
     public bsModalRef: BsModalRef) { }
 
   ngOnInit() {
-
     this.getSettings();
   }
 
@@ -146,6 +145,7 @@ export class MarketSettingComponent implements OnInit {
             resp => {
               this._toastr.success('Successfully saves market allocate schedule');
               this.marketAllocates = JSON.parse(JSON.stringify(this.marketSchedule.schedulesList));
+              this.bsModalRef.hide();
             },
             () => this._toastr.warning('Error while saving')
           )
@@ -183,13 +183,32 @@ export class MarketSettingComponent implements OnInit {
     if (allocateId === 0) {
       this.marketSchedule.allocateScheduleList(clickEvent, index, null)
     } else {
-      let data = { allocate_id: allocateId };
-      this._marketsService
-        .removeSchedules(data, this.marketOrig.id)
-        .subscribe(
-          resp => this._toastr.success('Market allocate schedule ' + data.allocate_id + ' is deleted ') && this.marketSchedule.allocateScheduleList(clickEvent, index, null),
-          () => this._toastr.warning('Error while removing')
-        )
+      if (allocateId) {
+        let data = { allocate_id: allocateId };
+        this._marketsService
+          .removeSchedules(data, this.marketOrig.id)
+          .subscribe(
+            resp => this._toastr.success('Market allocate schedule ' + data.allocate_id + ' is deleted ') && this.marketSchedule.allocateScheduleList(clickEvent, index, null),
+            () => this._toastr.warning('Error while removing')
+          )
+      } else {
+        this.marketSchedule.allocateScheduleList(clickEvent, index, null)
+      }
+    }
+  }
+
+  public checkDuplicateDate(date, index) {
+    const pipe = new DatePipe('EN');
+    this.marketSchedule.schedulesList[index].paydate = pipe.transform(date, 'yyyy-MM-dd');
+    let mappingDate = this.marketSchedule.schedulesList.map(function (schedule) { return pipe.transform(schedule.paydate, 'yyyy-MM-dd'); });
+    var isDuplicate = mappingDate.some(function (list, idx) {
+      return mappingDate.indexOf(list) != idx;
+    });
+    if (isDuplicate) {
+      this._toastr.error('Plase select different paydate');
+      setTimeout(() => {
+        this.marketSchedule.schedulesList[index].paydate = "";
+      }, 1000);
     }
   }
 }
