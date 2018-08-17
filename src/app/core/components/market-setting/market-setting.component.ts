@@ -98,6 +98,7 @@ export class MarketSettingComponent implements OnInit {
   }
 
   public saveSchedule(): void {
+    const pipe = new DatePipe('EN');
     let invalidValidation: boolean;
     this.marketSchedule.schedulesList.forEach((list: any, index) => {
       if (!list.paydate || list.paydate == 'Invalid Date') {
@@ -109,31 +110,48 @@ export class MarketSettingComponent implements OnInit {
         invalidValidation = true;
         return false;
       } else {
-        const pipe = new DatePipe('EN');
         let dates = pipe.transform(list.paydate, 'yyyy/MM/dd');
-        let allocateId = list.allocate_id;
+        let allocateId = (list.allocate_id ? list.allocate_id : (list.id ? list.id : 0));
         delete list.allocate_id;
         return list.paydate = dates, list.id = allocateId ? allocateId : 0;
       }
     });
 
-    if (!invalidValidation) {
-      var schedules = this.marketSchedule.schedulesList.map(function (schedule) { return schedule.paydate; });
-      var isDuplicate = schedules.some(function (list, idx) {
-        return schedules.indexOf(list) != idx
-      });
-      if (!isDuplicate) {
+    let mappingDate = this.marketSchedule.schedulesList.map(function (schedule) { return schedule.paydate; });
+    var isDuplicate = mappingDate.some(function (list, idx) {
+      return mappingDate.indexOf(list) != idx
+    });
+    if (!isDuplicate) {
+      let marketAllocatesChanges = [];
+      if (!invalidValidation) {
+        this.marketSchedule.schedulesList.forEach(currentList => {
+          if (currentList.id == 0) {
+            marketAllocatesChanges.push(currentList);
+          } else {
+            this.marketAllocates.forEach(oldAllocates => {
+              if ((oldAllocates.allocate_id ? oldAllocates.allocate_id : oldAllocates.id) == currentList.id) {
+                if (pipe.transform(oldAllocates.paydate, 'yyyy/MM/dd') != currentList.paydate || oldAllocates.cashamount != currentList.cashamount) {
+                  marketAllocatesChanges.push(currentList);
+                }
+              }
+            });
+          }
+        });
         let schedules = { allocates: [] };
-        schedules.allocates = this.marketSchedule.schedulesList;
+        schedules.allocates = marketAllocatesChanges;
+        marketAllocatesChanges = [];
         this._marketsService
           .allocateSchedules(schedules, this.marketOrig.id)
           .subscribe(
-            resp => this._toastr.success('Successfully saves market allocate schedule'),
+            resp => {
+              this._toastr.success('Successfully saves market allocate schedule');
+              this.marketAllocates = JSON.parse(JSON.stringify(this.marketSchedule.schedulesList));
+            },
             () => this._toastr.warning('Error while saving')
           )
-      } else {
-        this._toastr.error('Please select different pay date');
       }
+    } else {
+      this._toastr.error('Plase select different paydate');
     }
   }
 
@@ -161,17 +179,17 @@ export class MarketSettingComponent implements OnInit {
   }
 
   public removeEvents(clickEvent: string, index: number, schedule: any) {
-    if (schedule.allocate_id === 0) {
+    let allocateId = schedule.allocate_id ? schedule.allocate_id : schedule.id;
+    if (allocateId === 0) {
       this.marketSchedule.allocateScheduleList(clickEvent, index, null)
     } else {
-      let data = { allocate_id: schedule.allocate_id };
+      let data = { allocate_id: allocateId };
       this._marketsService
         .removeSchedules(data, this.marketOrig.id)
         .subscribe(
           resp => this._toastr.success('Market allocate schedule ' + data.allocate_id + ' is deleted ') && this.marketSchedule.allocateScheduleList(clickEvent, index, null),
           () => this._toastr.warning('Error while removing')
         )
-
     }
   }
 }

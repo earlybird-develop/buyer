@@ -72,7 +72,7 @@
             <td>
               <input type="text" class="scheduleinput" [disabled]="!editMode || schedule.status == '2'" required placeholder="dd/mm/yy"
                 bsDatepicker [(ngModel)]="schedule.paydate" placement="left" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-              <span [hidden]="!editMode" *ngIf="schedule.status == '1'">
+              <span *ngIf="schedule.status == '1'">
                 <i class="left-arrow"></i>
               </span>
               <span [hidden]="!editMode" *ngIf="schedule.status != '1' && schedule.status != '2' " class="minusSpan" (click)="removeEvents('remove', i, schedule)">
