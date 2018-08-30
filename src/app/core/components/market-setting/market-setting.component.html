@@ -47,11 +47,7 @@
       <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.reservePercentage">
     </div>
     <div class="field-group">
-      <div class="title">{{ 'buyer.components.market-setting.date' | translate }}</div>
-      <div class="value" [class.hidden]="editMode">{{ market.reconcilationDate }}</div>
-      <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.reconcilationDate">
-    </div>
-    <div class="">
+        <div class="title margin-bottom">{{ 'buyer.components.market-setting.schedule' | translate }}</div>
       <table class="table table-bordered scheduleTable">
         <thead class="bg-dark">
           <tr>
@@ -82,8 +78,13 @@
         </tbody>
       </table>
       <div class="text-center">
-        <button class="btn btn-success" [disabled]="!editMode" (click)="scheduleEvents('add', null)">Add Schedule</button>
+        <button class="btn btn-success" [hidden]="!editMode" (click)="scheduleEvents('add', null)">{{'buyer.pages.markets.schedule.addschedule' | translate}}</button>
       </div>
+    </div>
+    <div class="field-group">
+      <div class="title">{{ 'buyer.components.market-setting.date' | translate }}</div>
+      <div class="value" [class.hidden]="editMode">{{ market.reconcilationDate }}</div>
+      <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.reconcilationDate">
     </div>
   </div>
 </ng-container>

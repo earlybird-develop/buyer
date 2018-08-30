@@ -32,7 +32,8 @@
         "npd": "NEXT PAYMENT DATE",
         "reserve-p": "RESERVE PERCENTAGE",
         "date": "DATE",
-        "ok": "OK"
+        "ok": "OK",
+        "schedule" : "SCHEDULE"
       }
     },
     "pages": {
@@ -191,7 +192,8 @@
         "schedule" : {
           "paydate" : "Pay Date",
           "amount" : "Amount",
-          "schedule" : "Schedule"
+          "schedule" : "Schedule",
+          "addschedule" : "Add Schedule"
         }
       },
       "profile": {

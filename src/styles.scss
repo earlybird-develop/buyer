@@ -583,5 +583,10 @@ a.emailLink {
 }
 
 .setting-modal{
-  top:90px!important;
+  top:0 !important;
+}
+
+eb-market-setting .container{
+  max-height: 73vh;
+  overflow: auto;
 }

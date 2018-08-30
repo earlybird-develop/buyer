@@ -1,12 +1,12 @@
 %controls {
   position: absolute;
   right: 0;
-  font-size: 10px;
+  font-size: 12px;
   padding: 0;
-  line-height: 20px;
+  line-height: 24px;
   border-radius: 3px;
   text-align: center;
-  height: 20px;
+  height: 24px;
   font-weight: 400;
   width: 61px;
 }
@@ -56,21 +56,21 @@
 
   .data.apr {
     padding-left: 26px;
-    padding-bottom: 23px;
+    padding-bottom: 10px;
 
     input.control {
       padding: 0 5px;
     }
 
     .title {
-      margin-top: 27px;
+      margin-top: 10px;
       font-size: 13px;
       font-weight: 700;
     }
 
     label {
       display: block;
-      margin-top: 15px;
+      margin-top: 10px;
 
       .label {
         color: #24457c;
@@ -90,14 +90,18 @@
   }
 
   .field-group {
-    padding-bottom: 26px;
+    padding-bottom: 10px;
     padding-left: 26px;
-    margin-top: 18px;
+    margin-top: 10px;
 
     .title {
       color: #24457c;
       font-size: 13px;
       font-weight: 700;
+      margin-bottom: 0;
+    }
+    .margin-bottom{
+      margin-bottom: 10px;
     }
 
     .value {
@@ -278,6 +282,11 @@ a.btn.ok-cancel-btns.btn-success{
 
 .scheduleAmount{
   width: 120px;
+}
+
+.modal-content{
+  max-height: 80vh !important;
+  overflow: auto !important;
 }
 
 @media (max-width:767px) {
