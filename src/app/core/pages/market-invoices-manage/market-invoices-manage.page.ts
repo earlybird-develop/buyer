@@ -65,20 +65,10 @@ export class MarketInvoicesManagePage implements OnInit {
   }
 
   public setInvoiceType(status: string) {
-    let allInvoices;
-    this.allInvoices = [];
-    this.isStatusInvoice = false;
-    allInvoices = ['eligible','ineligible','adjustments','awarded'];
-    if(status == 'allInvoices'){
-      this.isStatusInvoice = true;
-      allInvoices.forEach(element => {
-        this.filter.invoiceStatus = element;
-        this.load();
-      });
-    }else{
+
       this.filter.invoiceStatus = status;
       this.load();
-    }
+
   }
 
   public goCustomRange(): void {
@@ -104,6 +94,7 @@ export class MarketInvoicesManagePage implements OnInit {
   }
 
   public changeStatus(type: number): void {
+
     const ids = this.invoices
       .filter(x => x._checked)
       .map(x => x.invId);

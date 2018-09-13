@@ -26,7 +26,7 @@ export class InvoicesService {
 
     let keys = Object.keys(filterObject);
 
-    if (filter.invoiceStatus !== 'eligible') {
+    if (filter.invoiceStatus !== 'eligible'  &&  filter.invoiceStatus !== 'all') {
       keys = ['invoice_status'];
     }
 
@@ -55,7 +55,7 @@ export class InvoicesService {
 
     let keys = Object.keys(filterObject);
 
-    if (filter.invoiceStatus !== 'eligible') {
+    if (filter.invoiceStatus !== 'eligible' &&  filter.invoiceStatus !== 'all') {
       keys = ['invoice_status'];
     }
 

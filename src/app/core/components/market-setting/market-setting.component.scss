@@ -8,7 +8,7 @@
   text-align: center;
   height: 24px;
   font-weight: 400;
-  width: 61px;
+  width:61px;
 }
 
 :host {
@@ -45,7 +45,7 @@
 
     .save {
       @extend %controls;
-      top: 25px;
+      top: 28px;
     }
   }
 
@@ -115,7 +115,7 @@
   margin-top: 30px;
   width: 113px;
   height: 40px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   text-align: center;
   padding: 0;

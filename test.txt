@@ -1,4 +1,0 @@
-hello world.
-
-make a test for git server
-Hi

@@ -6,7 +6,7 @@
       <tr>
         <th>{{ 'buyer.pages.markets.list.setting' | translate }}</th>
         <th class="text-center">{{ 'buyer.pages.markets.list.status' | translate }}</th>
-        <th>{{ 'buyer.pages.markets.list.market' | translate }}</th>
+        <th class="text-center">{{ 'buyer.pages.markets.list.market' | translate }}</th>
         <th class="text-center" [innerHTML]="'buyer.pages.markets.list.cash' | translate"></th>
         <th class="text-center" [innerHTML]="'buyer.pages.markets.list.ap' | translate">A/P <br> ELIGIBLE/TOTAL</th>
         <th class="text-center">{{ 'buyer.pages.markets.list.cash-dep' | translate }}</th>
@@ -31,7 +31,7 @@
                        confirmable>
           </eb-checkbox>
         </td>
-        <td>
+        <td class="text-center">
           <a [routerLink]="[ market.id, 'current']">{{ market.name }}</a>
           <div>({{ market.currency }})</div>
         </td>
