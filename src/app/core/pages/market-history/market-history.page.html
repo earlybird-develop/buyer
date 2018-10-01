@@ -72,11 +72,11 @@
   <div class="market-stats">
     <div class="awarded">
       <div class="title">{{ 'buyer.pages.history.ap' | translate }}</div>
-      <div class="amount">{{ market?.awardedAmount | currency: market?.currency }}</div>
+      <div class="amount">{{ market?.awardedAmount | currency: market?.currencySign }}</div>
     </div>
     <div class="total-discount">
       <div class="title">{{ 'buyer.pages.history.income' | translate }}</div>
-      <div class="amount">{{ market?.discountAmount | currency: market?.currency }}</div>
+      <div class="amount">{{ market?.discountAmount | currency: market?.currencySign }}</div>
     </div>
     <div class="average-discount">
       <div class="title">{{ 'buyer.pages.history.discount' | translate }}</div>

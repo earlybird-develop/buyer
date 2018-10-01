@@ -3,25 +3,43 @@
   padding: 0 70px;
 }
 
-.header {
-  font-size: 17px;
-  line-height: 35px;
-  border-bottom: 1px solid rgba(149, 152, 154, .36);
-  padding-top: 40px;
+.top-head-table-chart{
+  margin-top: 20px;
+  //box-shadow: 0px 0px 4px 2px rgba(0,0,0, 0.10)
+
 }
 
-.statistic-block {
+
+.header {
+  font-size: 17px;
+  font-weight:500;
+  line-height: 35px;
+  padding-top: 10px;
+  border-bottom: 1px solid #EFEFEF;
+  img {
+    display: block;
+    float: left;
+    height: 24px;
+    margin-top:5px;
+    margin-right: 10px;
+    width: 24px;
+  }
+}
+
+.statistic {
   margin-top: 21px;
   display: flex;
   justify-content: space-between;
 
 
   .stat {
+    font-weight:400;
     box-sizing: border-box;
     background-color: rgba(244, 244, 244, .36);
-    padding: 17px 31px;
+    padding: 10px 24px;
     border: 1px solid rgba(202, 206, 213, .36);
     width: 310px;
+    font-size: 14px;
 
     &.blue {
       .value {
@@ -46,32 +64,36 @@
     .title {
       color: #43425d;
       font-size: 16px;
+      font-weight:500;
+      padding-bottom:10px
     }
 
     .value {
-      color: #4d4f5c;
-      font-size: 28px;
+      align-items: stretch;
+      display: flex;
+      font-size: 36px;
       font-weight: 700;
-      margin-top: 12px;
-      line-height: 40px;
+
     }
 
     .progress {
       width: 110px;
       background-color: #d9dadb;
-      height: 1px;
+      height: 5px;
 
       .progress-bar {
-        height: 1px;
-        width: 80%;
+        width: 100%;
         background-color: rgba(149, 152, 154, 1);
       }
     }
 
     .summary {
       margin-top: 10px;
-      font-size: 15px;
       color: #727780;
+      span{
+        font-weight: 500;
+        font-size:15px;
+      }
     }
   }
 }

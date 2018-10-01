@@ -1,6 +1,8 @@
 <eb-sidebarable-page>
   <ng-container sidebar>
-    <div [class.active]="filter.invoiceStatus === 'all'" class="sidebar-menu-title visible-invoice" (click)="setInvoiceType('all')">{{ 'buyer.pages.invoices.filter.title' | translate }}</div>
+    <div [class.active]="filter.invoiceStatus === 'all'" class="sidebar-menu-title visible-invoice"
+         (click)="setInvoiceType('all')">{{ 'buyer.pages.invoices.filter.title' | translate }}
+    </div>
 
     <ul class="sidebar-menu">
       <li [class.active]="filter.invoiceStatus === 'eligible'">
@@ -25,9 +27,11 @@
       </li>
     </ul>
 
-    <div class="sidebar-separator" *ngIf="filter.invoiceStatus === 'all' || filter.invoiceStatus === 'eligible'"></div>
+    <div class="sidebar-separator"></div>
 
-    <div class="filter-block" *ngIf="filter.invoiceStatus === 'all' || filter.invoiceStatus === 'eligible'">
+    <div class="filter-parameter" *ngIf="filter.invoiceStatus === 'all' || filter.invoiceStatus === 'eligible'">
+
+      <div class="filter-block" >
       <div class="filter-block-title">{{ 'buyer.pages.invoices.filter.dpe' | translate }}</div>
       <ul>
         <li>
@@ -63,9 +67,9 @@
           </label>
         </li>
       </ul>
-    </div>
+      </div>
 
-    <div class="filter-block" *ngIf="filter.invoiceStatus === 'all' ||  filter.invoiceStatus === 'eligible'">
+      <div class="filter-block">
       <div class="filter-block-title">{{ 'buyer.pages.invoices.filter.eia' | translate }}</div>
       <ul>
         <li>
@@ -101,13 +105,13 @@
           </label>
         </li>
       </ul>
-    </div>
+      </div>
 
-    <div class="sidebar-menu-title opd" *ngIf="filter.invoiceStatus === 'all' || filter.invoiceStatus === 'eligible'">
-      {{ 'buyer.pages.invoices.filter.opd' | translate }}
-    </div>
+      <div class="sidebar-menu-title opd">
+        {{ 'buyer.pages.invoices.filter.opd' | translate }}
+      </div>
 
-    <div class="custom-range-filter" *ngIf=" filter.invoiceStatus === 'all' || filter.invoiceStatus === 'eligible'">
+      <div class="custom-range-filter" >
       <label class="from">
         &nbsp; &nbsp; {{ 'buyer.pages.invoices.filter.from' | translate }}
         <input type="text"
@@ -132,14 +136,18 @@
         {{ 'buyer.pages.invoices.filter.go' | translate }}
       </button>
     </div>
+
+    </div>
   </ng-container>
 
   <div class="filter-range">
-    {{ 'buyer.pages.invoices.inv-status' | translate }}
+    <div class="range-title">{{ 'buyer.pages.invoices.inv-status' | translate }}</div>
+    <div class="sync-btn">
+      <a class="btn btn-default" (click)="syncInvoices()">
+        {{ 'buyer.pages.invoices.sync' | translate }}
+      </a>
+    </div>
 
-    <a class="btn btn-default sync-btn" (click)="syncInvoices()">
-      {{ 'buyer.pages.invoices.sync' | translate }}
-    </a>
     <div class="sub-line"></div>
   </div>
 

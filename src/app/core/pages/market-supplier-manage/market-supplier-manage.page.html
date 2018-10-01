@@ -1,6 +1,7 @@
-<div class="header">{{ 'buyer.pages.supplier.title' | translate }}</div>
+<div class="top-head-table-chart">
+  <div class="header">{{ 'buyer.pages.supplier.title' | translate }}</div>
 
-<div class="statistic-block">
+  <div class="statistic">
   <div class="stat">
     <div class="title">{{ 'buyer.pages.supplier.total-sup' | translate }}</div>
     <div class="value">{{ stat?.totalCount }}&nbsp;</div>
@@ -10,7 +11,7 @@
            [style.width]="calculatePersentage(stat?.totalApCount, stat?.totalCount)">
       </div>
     </div>
-    <div class="summary">{{ stat?.totalApCount }} {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
+    <div class="summary"><span>{{ stat?.totalApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
   </div>
   <div class="stat blue">
     <div class="title">{{ 'buyer.pages.supplier.reg-sup' | translate }}</div>
@@ -21,19 +22,20 @@
            [style.width]="calculatePersentage(stat?.registeredApCount, stat?.registeredCount )">
       </div>
     </div>
-    <div class="summary">{{ stat?.registeredApCount }} {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
+    <div class="summary"><span>{{ stat?.registeredApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
   </div>
   <div class="stat green">
     <div class="title">{{ 'buyer.pages.supplier.part-sup' | translate }}</div>
-    <div class="value">{{ stat?.participatedCount }}&nbsp;</div>
+    <div class="value">{{ stat?.participatedCount }}</div>
     <div class="progress">
       <div class="progress-bar"
            *ngIf="stat"
            [style.width]="calculatePersentage(stat?.participatedApCount, stat?.participatedCount )">
       </div>
     </div>
-    <div class="summary">{{ stat?.participatedApCount }} {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
+    <div class="summary"><span>{{ stat?.participatedApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
   </div>
+</div>
 </div>
 
 <div class="list">

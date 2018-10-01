@@ -1,159 +1,203 @@
-<div class="float-left w-100">
+
   <div class="top-head-table-chart">
-    <div class="heading">
-      <img src="./assets/icons/clearing-status.svg" alt="{{ 'buyer.pages.current.clearing.title' | translate }}"> {{ 'buyer.pages.current.clearing.title' | translate }}
+    <div class="header">
+       {{ 'buyer.pages.current.clearing.title' | translate }}
     </div>
+
     <div class="statistic">
-      <div class="col-12">
-        <div class="row">
-          <div class="initial-clear col-sm-4">
-            <div class="grapha">
+
+          <div class="stat">
               <div class="title">{{ 'buyer.pages.current.clearing.market-total' | translate }}</div>
               <div class="value">
                 <div class="amount">
-                  <sub>{{ currentMarket?.currencySign }}</sub>{{ currentMarket?.total?.availableAmount | number: '4.2-2' }}
+                  <span>{{ currentMarket?.currencySign }}</span>{{currentMarket?.total?.discountAmount }}
                 </div>
                 <div class="numbers">
-                  <div class="apr">{{ currentMarket?.total?.averageApr }}%</div>
+                  <div class="apr">{{ currentMarket?.total?.averageApr }} %</div>
                   <div class="dpe">{{ currentMarket?.total?.averageDpe }}</div>
                 </div>
                 <div class="numbers-desc">
                   <div class="apr">{{ 'buyer.pages.current.clearing.apr' | translate }}</div>
                   <div class="dpe">{{ 'buyer.pages.current.clearing.dpe' | translate }}</div>
                 </div>
-                <div class="numbers-mobile">
-                  {{ currentMarket?.total?.averageApr }}% {{ 'buyer.pages.current.clearing.apr' | translate }} {{ currentMarket?.total?.averageDpe
-                  }} {{ 'buyer.pages.current.clearing.dpe' | translate }}
-                </div>
               </div>
-              <div class="subvalue">{{ currentMarket?.total?.discountAmount | currency: currentMarket?.currencySign }} {{ 'buyer.pages.current.clearing.ap'
-                | translate }}
+              <div class="subvalue">
+                {{ currentMarket?.currencySign }} <span>{{ currentMarket?.total?.availableAmount | number: '4.2-2' }}</span> {{ 'buyer.pages.current.clearing.ap'| translate }}
               </div>
-            </div>
           </div>
-          <div class="clearing col-sm-4">
-            <div class="grapha">
-              <div class="title">{{ 'buyer.pages.current.clearing.clearing-total' | translate }}</div>
-              <div class="value">
-                <div class="amount">
-                  <sub>{{ currentMarket?.currencySign }}</sub>{{ currentMarket?.clearing?.availableAmount | number: '4.2-2' }}</div>
-                <div class="numbers">
-                  <div class="apr">{{ currentMarket?.clearing?.averageApr }}%</div>
-                  <div class="dpe">{{ currentMarket?.clearing?.averageDpe }}</div>
-                </div>
-                <div class="numbers-desc">
-                  <div class="apr">{{ 'buyer.pages.current.clearing.apr' | translate }}</div>
-                  <div class="dpe">{{ 'buyer.pages.current.clearing.dpe' | translate }}</div>
-                </div>
-                <div class="numbers-mobile">
-                  {{ currentMarket?.clearing?.averageApr }}% {{ 'buyer.pages.current.clearing.apr' | translate }} {{ currentMarket?.clearing?.averageDpe
-                  }} {{ 'buyer.pages.current.clearing.dpe' | translate }}
-                </div>
-              </div>
-              <div class="subvalue">{{ currentMarket?.clearing?.discountAmount | currency: currentMarket?.currencySign }} {{ 'buyer.pages.current.clearing.ap'
-                | translate }}
-              </div>
-            </div>
+
+      <div class="stat green">
+        <div class="title">{{ 'buyer.pages.current.clearing.clearing-total' | translate }}</div>
+        <div class="value">
+          <div class="amount">
+            <span>{{ currentMarket?.currencySign }}</span>{{ currentMarket?.clearing?.discountAmount}}
           </div>
-          <div class="non-clearing col-sm-4">
-            <div class="grapha">
-              <div class="title">{{ 'buyer.pages.current.clearing.non-clearing-total' | translate }}</div>
-              <div class="value">
-                <div class="amount">
-                  <sub>{{ currentMarket?.currencySign }}</sub>{{ currentMarket?.non?.availableAmount | number: '4.2-2' }}</div>
-                <div class="numbers">
-                  <div class="apr">{{ currentMarket?.non?.averageApr }}%</div>
-                  <div class="dpe">{{ currentMarket?.non?.averageDpe }}</div>
-                </div>
-                <div class="numbers-desc">
-                  <div class="apr">{{ 'buyer.pages.current.clearing.apr' | translate }}</div>
-                  <div class="dpe">{{ 'buyer.pages.current.clearing.dpe' | translate }}</div>
-                </div>
-                <div class="numbers-mobile">
-                  {{ currentMarket?.non?.averageApr }}% {{ 'buyer.pages.current.clearing.apr' | translate }} {{ currentMarket?.non?.averageDpe
-                  }} {{ 'buyer.pages.current.clearing.dpe' | translate }}
-                </div>
-              </div>
-              <div class="subvalue">{{ currentMarket?.non?.discountAmount | currency: currentMarket?.currencySign }} {{ 'buyer.pages.current.clearing.ap'
-                | translate }}
-              </div>
-            </div>
+          <div class="numbers">
+            <div class="apr">{{ currentMarket?.clearing?.averageApr }} %</div>
+            <div class="dpe">{{ currentMarket?.clearing?.averageDpe }}</div>
+          </div>
+          <div class="numbers-desc">
+            <div class="apr">{{ 'buyer.pages.current.clearing.apr' | translate }}</div>
+            <div class="dpe">{{ 'buyer.pages.current.clearing.dpe' | translate }}</div>
           </div>
         </div>
+        <div class="subvalue">
+          {{ currentMarket?.currencySign }} <span>{{ currentMarket?.clearing?.availableAmount | number: '4.2-2' }}</span> {{ 'buyer.pages.current.clearing.ap'| translate }}
+        </div>
       </div>
+      <div class="stat red">
+        <div class="title">{{ 'buyer.pages.current.clearing.non-clearing-total' | translate }}</div>
+        <div class="value">
+          <div class="amount">
+            <span>{{ currentMarket?.currencySign }}</span>{{ currentMarket?.non?.discountAmount}}
+          </div>
+          <div class="numbers">
+            <div class="apr">{{ currentMarket?.non?.averageApr }} %</div>
+            <div class="dpe">{{ currentMarket?.non?.averageDpe }}</div>
+          </div>
+          <div class="numbers-desc">
+            <div class="apr">{{ 'buyer.pages.current.clearing.apr' | translate }}</div>
+            <div class="dpe">{{ 'buyer.pages.current.clearing.dpe' | translate }}</div>
+          </div>
+        </div>
+        <div class="subvalue">
+          {{ currentMarket?.currencySign }} <span>{{ currentMarket?.non?.availableAmount | number: '4.2-2' }}</span> {{ 'buyer.pages.current.clearing.ap'| translate }}
+        </div>
+      </div>
+
     </div>
-    <div class="row chart" *ngIf="barChartData">
-      <div class="col-lg-6 col-sm-6 col-6 income">
-        <label class="graph-theme-label">{{ 'buyer.pages.current.clearing.graph-income' | translate }}</label>
-        <span class="graph-theme"></span>
-      </div>
-      <div class="col-lg-6 col-6 apr">
-        <span class="graph-theme"></span>
-        <label class="graph-theme-label">{{ 'buyer.pages.current.clearing.graph-apr' | translate }}</label>
+
+    <div class="chart" *ngIf="barChartData">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6 col-6 income">
+          <label class="graph-theme-label">{{ 'buyer.pages.current.clearing.graph-income' | translate }}</label>
+          <span class="graph-theme"></span>
+        </div>
+        <div class="col-lg-6 col-6 apr">
+          <span class="graph-theme"></span>
+          <label class="graph-theme-label">{{ 'buyer.pages.current.clearing.graph-apr' | translate }}</label>
+        </div>
       </div>
       <canvas class="income-apr-chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
         [colors]="[{ backgroundColor: 'transparent' }, { backgroundColor: '#4f7dc9' }]" [chartType]="barChartType"></canvas>
     </div>
-  </div>
-  <div class="float-left w-100 mrg-top-20 bar-table box-shad">
+
     <div class="table-responsive market-stat">
-      <table>
-        <thead>
-          <tr>
-            <th>{{ 'buyer.pages.current.clearing.table.current-offers' | translate }}</th>
-            <th>{{ 'buyer.pages.current.clearing.table.income' | translate }}</th>
-            <th>{{ 'buyer.pages.current.clearing.table.apr' | translate }}</th>
-            <th>{{ 'buyer.pages.current.clearing.table.dpe' | translate }}</th>
-            <th>{{ 'buyer.pages.current.clearing.table.cash-deployed' | translate }}</th>
-            <th>{{ 'buyer.pages.current.clearing.table.amount' | translate }}</th>
-            <th>{{ 'buyer.pages.current.clearing.table.suppliers' | translate }}</th>
-            <th>{{ 'buyer.pages.current.clearing.table.invoices' | translate }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ 'buyer.pages.current.clearing.table.market-clearing' | translate }}</td>
-            <td>{{ currentMarketStat?.discount?.total?.discountAmount | currency: currentMarket?.currencySign }}</td>
-            <td>{{ currentMarketStat?.discount?.total?.averageApr }}%</td>
-            <td>{{ currentMarketStat?.discount?.total?.averageDpe }}</td>
-            <td>{{ 'buyer.pages.current.clearing.table.current' | translate }}</td>
-            <td>{{ currentMarketStat?.amount?.current?.availableAmount | currency: currentMarket?.currencySign }}</td>
-            <td>{{ currentMarketStat?.amount?.current?.supplierCount }}</td>
-            <td>{{ currentMarketStat?.amount?.current?.invoiceCount }}</td>
-          </tr>
-          <tr>
-            <td>{{ 'buyer.pages.current.clearing.table.manual-award' | translate }}</td>
-            <td>{{ currentMarketStat?.discount?.manual?.discountAmount | currency: currentMarket?.currencySign }}</td>
-            <td>{{ currentMarketStat?.discount?.manual?.averageApr }}%</td>
-            <td>{{ currentMarketStat?.discount?.manual?.averageDpe }}</td>
-            <td>{{ 'buyer.pages.current.clearing.table.pending' | translate }}</td>
-            <td>{{ currentMarketStat?.amount?.pending?.availableAmount | currency: currentMarket?.currencySign }}</td>
-            <td>{{ currentMarketStat?.amount?.pending?.supplierCount }}</td>
-            <td>{{ currentMarketStat?.amount?.pending?.invoiceCount }}</td>
-          </tr>
-          <tr>
-            <td>{{ 'buyer.pages.current.clearing.table.current-clearing' | translate }}</td>
-            <td>{{ currentMarketStat?.discount?.clearing?.discountAmount | currency: currentMarket?.currencySign }}</td>
-            <td>{{ currentMarketStat?.discount?.clearing?.averageApr }}%</td>
-            <td>{{ currentMarketStat?.discount?.clearing?.averageDpe }}</td>
-            <td>{{ 'buyer.pages.current.clearing.table.total' | translate }}</td>
-            <td>{{ currentMarketStat?.amount?.total?.availableAmount | currency: currentMarket?.currencySign }}</td>
-            <td>{{ currentMarketStat?.amount?.total?.supplierCount }}</td>
-            <td>{{ currentMarketStat?.amount?.total?.invoiceCount }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <div class="row row-header row-line">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-md-4 col-label">
+                  {{ 'buyer.pages.current.clearing.table.current-offers' | translate }}
+                </div>
+                <div class="col-md-3">
+                  {{ 'buyer.pages.current.clearing.table.income' | translate }}
+                </div>
+                <div class="col-md-2">
+                  {{ 'buyer.pages.current.clearing.table.apr' | translate }}
+                </div>
+                <div class="col-md-2">
+                  {{ 'buyer.pages.current.clearing.table.dpe' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-md-4  col-label">
+                  {{ 'buyer.pages.current.clearing.table.cash-deployed' | translate }}
+                </div>
+                <div class="col-md-4">
+                  {{ 'buyer.pages.current.clearing.table.amount' | translate }}
+                </div>
+                <div class="col-md-2">
+                  {{ 'buyer.pages.current.clearing.table.suppliers' | translate }}
+                </div>
+                <div class="col-md-2">
+                  {{ 'buyer.pages.current.clearing.table.invoices' | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row row-content row-line">
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="col-md-4 col-label">
+                    {{ 'buyer.pages.current.clearing.table.market-clearing' | translate }}
+                  </div>
+                  <div class="col-md-3">
+                    {{ currentMarketStat?.discount?.total?.discountAmount | currency: currentMarket?.currencySign }}
+                  </div>
+                  <div class="col-md-2">
+                    {{ currentMarketStat?.discount?.total?.averageApr }} %
+                  </div>
+                  <div class="col-md-2">
+                    {{ currentMarketStat?.discount?.total?.averageDpe }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="col-md-4 col-label ">
+                    {{ 'buyer.pages.current.clearing.table.current' | translate }}
+                  </div>
+                  <div class="col-md-4">
+                    {{ currentMarketStat?.amount?.current?.availableAmount | currency: currentMarket?.currencySign }}
+                  </div>
+                  <div class="col-md-2">
+                    {{ currentMarketStat?.amount?.current?.supplierCount }}
+                  </div>
+                  <div class="col-md-2">
+                    {{ currentMarketStat?.amount?.current?.invoiceCount }}
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row row-content row-line">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-md-4 col-label">
+                  {{ 'buyer.pages.current.clearing.table.current-clearing' | translate }}
+                </div>
+                <div class="col-md-3">
+                  {{ currentMarketStat?.discount?.clearing?.discountAmount | currency: currentMarket?.currencySign }}
+                </div>
+                <div class="col-md-2">
+                  {{ currentMarketStat?.discount?.clearing?.averageApr }} %
+                </div>
+                <div class="col-md-2">
+                  {{ currentMarketStat?.discount?.clearing?.averageDpe }}
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-md-4 col-label">
+                  {{ 'buyer.pages.current.clearing.table.pending' | translate }}
+                </div>
+                <div class="col-md-4">
+                  {{ currentMarketStat?.amount?.pending?.availableAmount | currency: currentMarket?.currencySign }}
+                </div>
+                <div class="col-md-2">
+                  {{ currentMarketStat?.amount?.pending?.supplierCount }}
+                </div>
+                <div class="col-md-2">
+                  {{ currentMarketStat?.amount?.pending?.invoiceCount }}
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
   </div>
-  <div class="float-left w-100 mrg-top-20 box-shad">
-    <div class="heading">
-      <img src="./assets/icons/supplier-network.svg" alt="clearing-status"> {{ 'buyer.pages.current.network.title' | translate }}
+
+
+  <div class="mrg-top-20">
+    <div class="header">
+     {{ 'buyer.pages.current.network.title' | translate }}
     </div>
-    <div class="statistic-block statistic" *ngIf="supplierNetworkStat">
-      <div class="col-12">
-        <div class="row">
-          <div class="col-sm-4 bar-padding">
-            <div class="mg-55">
+    <div class="statistic" *ngIf="supplierNetworkStat">
+
+        <div class="stat second-stat">
               <div class="title">{{ 'buyer.pages.current.network.suppl-total' | translate }}</div>
               <div class="value">{{ supplierNetworkStat?.total?.count }}&nbsp;</div>
               <div class="progress">
@@ -161,10 +205,8 @@
                 </div>
               </div>
               <div class="summary">{{ supplierNetworkStat?.total?.countAp }} {{ 'buyer.pages.current.network.with-ap' | translate }}</div>
-            </div>
           </div>
-          <div class="col-sm-4 bar-padding">
-            <div class="mg-55">
+          <div class="stat second-stat blue">
               <div class="title">{{ 'buyer.pages.current.network.reg-suppl' | translate }}</div>
               <div class="value blue-color">{{ supplierNetworkStat?.registered?.count }}&nbsp;</div>
               <div class="progress">
@@ -172,10 +214,8 @@
                 </div>
               </div>
               <div class="summary">{{ supplierNetworkStat?.registered?.countAp }} {{ 'buyer.pages.current.network.with-ap' | translate }}</div>
-            </div>
           </div>
-          <div class="col-sm-4 bar-padding">
-            <div class="mg-55">
+          <div class="stat second-stat green">
               <div class="title">{{ 'buyer.pages.current.network.part-suppl' | translate }}</div>
               <div class="value green-color">{{ supplierNetworkStat?.participated?.count }}&nbsp;</div>
               <div class="progress">
@@ -183,10 +223,7 @@
                 </div>
               </div>
               <div class="summary">{{ supplierNetworkStat?.participated?.countAp }} {{ 'buyer.pages.current.network.with-ap' | translate }}</div>
-            </div>
           </div>
-        </div>
-      </div>
     </div>
     <div class="row topFiveTable" *ngIf="supplierNetworkStat">
       <div class="col-lg-6 col-sm-6 col-12 registered-table">
@@ -227,4 +264,3 @@
       </div>
     </div>
   </div>
-</div>

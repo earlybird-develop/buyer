@@ -15,14 +15,17 @@
   box-sizing: border-box;
   position: fixed;
   bottom: 0;
-  top: 100px;
+  top: 102px;
   left: 0;
 }
+
 
 .main {
   margin-left: 229px;
   width: 100%;
+
 }
+
 
 @media(max-width: 1000px) {
   :host {

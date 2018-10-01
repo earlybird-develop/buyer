@@ -108,7 +108,7 @@ export class MarketsService {
         )
         .subscribe(
           resp => {
-            if (resp['code'] === 0) {
+            if (resp['code'] === 0 ) {
               this._dialog
                 .confirm(resp['data']['message'] + '. Confirm the action?')
                 .subscribe(
@@ -124,8 +124,10 @@ export class MarketsService {
                   () => observer.error(false)
                 );
             } else {
-              observer.next(market);
-              observer.complete();
+
+                observer.next(market);
+                observer.complete();
+
             }
           },
           errors => observer.error(errors)
@@ -141,7 +143,7 @@ export class MarketsService {
       active_status: status ? 1 : -1
     };
 
-    return Observable.create((observer: Observer<boolean>) => {
+    return Observable.create((observer: Observer<any>) => {
       this._http
         .post(SET_MARKET_ACTIVE_PATH, body, { params })
         .subscribe(
@@ -155,15 +157,18 @@ export class MarketsService {
                       marketId,
                       resp['data']['confirm-id']
                     ).subscribe(
-                      () => { observer.next(true); observer.complete(); },
+                      () => {
+                          observer.next(resp);
+                          observer.complete();
+                      },
                       errors => observer.error(errors)
                     );
                   },
-                  () => observer.error(false)
+                  errors => observer.error(errors)
                 );
             } else {
-              observer.next(true);
-              observer.complete();
+                observer.next(resp);
+                observer.complete();
             }
           },
           errors => observer.error(errors)

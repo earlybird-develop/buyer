@@ -68,11 +68,15 @@ export class MarketsPage implements OnInit {
     this._marketsService
       .setMarketActive(market.id, status)
       .subscribe(
-        () => {
-          market.status = status ? 1 : -1;
-          this._toastr.success('Market data successfully saved');
+        success => {
+          if( success['code'] === 1 ) {
+            market.status = status ? 1 : -1;
+            this._toastr.success('Market data successfully saved');
+          }else{
+            this._toastr.warning(success['msg']);
+          }
         },
-        () => null
+        error => this._toastr.error(error['statusText'])
       );
   }
 }
