@@ -3,7 +3,7 @@
 <div class="table-markets">
   <table>
     <thead>
-      <tr>
+      <tr class="table-title">
         <th>{{ 'buyer.pages.markets.list.setting' | translate }}</th>
         <th class="text-center">{{ 'buyer.pages.markets.list.status' | translate }}</th>
         <th class="text-center">{{ 'buyer.pages.markets.list.market' | translate }}</th>
@@ -36,10 +36,10 @@
           <div>({{ market.currency }})</div>
         </td>
         <td class="text-center">
-          {{ market.cashAvailable | currency: market.currencySign }} / {{ market.cashTotal | currency: market.currencySign }}
+          {{ market.cashAvailable | currency: market.currencySign }}
         </td>
         <td class="text-center">
-          {{ market.paidEligible | currency: market.currencySign }} / {{ market.paidTotal | currency: market.currencySign }}
+          {{ market.paidEligible | currency: market.currencySign }}
         </td>
         <td class="text-center">{{ market.cashDeployed | currency: market.currencySign }}</td>
         <td class="text-center">{{ market.income | currency: market.currencySign }}</td>
