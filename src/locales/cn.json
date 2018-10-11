@@ -209,6 +209,20 @@
         "password": "密码",
         "remember": "记录邮箱",
         "forgot": "忘记密码"
+      },
+      "forget": {
+        "title": "获取帮助以登录到您的账户",
+        "instructions": "请输入您的电子邮件，我们会发给您一个带密码重置说明的链接。",
+        "label" : {
+          "email" : "电子邮件地址"
+        },
+        "back-to-login":"返回登录", 
+        "continue":"继续"
+      },
+      "forget-password-message": {
+        "title": "检查电子邮件",
+        "message": "如果与 <a class='emailLink' href=\"forgetmail: {{forgetmail}}\">{{forgetmail}}</a> 相链接的账户在我们的记录中, 我们就已发送了提供重置密码说明的电子邮件。如果您没有收到此电子邮件，. 请单击 <a class='emailLink' href=\"email: {{email}}\">此处</a> 以联系支持部门。",
+        "back-to-login":"返回登录"
       }
     }
   }
