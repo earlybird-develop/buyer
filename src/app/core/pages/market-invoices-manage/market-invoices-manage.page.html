@@ -112,29 +112,21 @@
       </div>
 
       <div class="custom-range-filter" >
-      <label class="from">
-        &nbsp; &nbsp; {{ 'buyer.pages.invoices.filter.from' | translate }}
-        <input type="text"
-               placeholder="dd/mm/yy"
-               class="form-control"
-               bsDatepicker
-               [(ngModel)]="startDate"
-               placement="right"
-               [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-      </label>
-      <label class="to">
-        &nbsp; &nbsp; {{ 'buyer.pages.invoices.filter.to' | translate }}
-        <input type="text"
-               placeholder="dd/mm/yy"
-               class="form-control"
-               bsDatepicker
-               [(ngModel)]="endDate"
-               placement="right"
-               [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-      </label>
-      <button class="btn btn-primary" (click)="goCustomRange()">
-        {{ 'buyer.pages.invoices.filter.go' | translate }}
-      </button>
+          <div class="row">
+              <div class="col-md-6 color-white">{{ 'buyer.pages.invoices.filter.from' | translate }}</div>
+              <div class="col-md-6 color-white">{{ 'buyer.pages.invoices.filter.to' | translate }}</div>
+              <div class="col-md-6 nopadding">
+                  <input type="text" placeholder="dd/mm/yy" class="form-control" bsDatepicker [(ngModel)]="startDate"
+                         placement="right" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+              </div>
+              <div class="col-md-6 nopadding">
+                  <input type="text" placeholder="dd/mm/yy" class="form-control" bsDatepicker [(ngModel)]="endDate"
+                         placement="right" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+              </div>
+          </div>
+          <button class="btn btn-primary" (click)="goCustomRange()">
+            {{ 'buyer.pages.invoices.filter.go' | translate }}
+          </button>
     </div>
 
     </div>
