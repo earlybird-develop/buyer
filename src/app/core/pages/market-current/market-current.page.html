@@ -86,32 +86,32 @@
           <div class="row row-header row-line">
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-md-4 col-label">
+                <div class="col-md-3 col-label">
                   {{ 'buyer.pages.current.clearing.table.current-offers' | translate }}
                 </div>
                 <div class="col-md-3">
                   {{ 'buyer.pages.current.clearing.table.income' | translate }}
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   {{ 'buyer.pages.current.clearing.table.apr' | translate }}
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   {{ 'buyer.pages.current.clearing.table.dpe' | translate }}
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-md-4  col-label">
+                <div class="col-md-3  col-label">
                   {{ 'buyer.pages.current.clearing.table.cash-deployed' | translate }}
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   {{ 'buyer.pages.current.clearing.table.amount' | translate }}
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   {{ 'buyer.pages.current.clearing.table.suppliers' | translate }}
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   {{ 'buyer.pages.current.clearing.table.invoices' | translate }}
                 </div>
               </div>
@@ -120,32 +120,32 @@
           <div class="row row-content row-line">
               <div class="col-sm-6">
                 <div class="row">
-                  <div class="col-md-4 col-label">
+                  <div class="col-md-3 col-label">
                     {{ 'buyer.pages.current.clearing.table.market-clearing' | translate }}
                   </div>
                   <div class="col-md-3">
                     {{ currentMarketStat?.discount?.total?.discountAmount | currency: currentMarket?.currencySign }}
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     {{ currentMarketStat?.discount?.total?.averageApr }} %
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     {{ currentMarketStat?.discount?.total?.averageDpe }}
                   </div>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="row">
-                  <div class="col-md-4 col-label ">
+                  <div class="col-md-3 col-label ">
                     {{ 'buyer.pages.current.clearing.table.current' | translate }}
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     {{ currentMarketStat?.amount?.current?.availableAmount | currency: currentMarket?.currencySign }}
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     {{ currentMarketStat?.amount?.current?.supplierCount }}
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     {{ currentMarketStat?.amount?.current?.invoiceCount }}
                   </div>
                 </div>
@@ -154,32 +154,32 @@
           <div class="row row-content row-line">
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-md-4 col-label">
+                <div class="col-md-3 col-label">
                   {{ 'buyer.pages.current.clearing.table.current-clearing' | translate }}
                 </div>
                 <div class="col-md-3">
                   {{ currentMarketStat?.discount?.clearing?.discountAmount | currency: currentMarket?.currencySign }}
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   {{ currentMarketStat?.discount?.clearing?.averageApr }} %
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   {{ currentMarketStat?.discount?.clearing?.averageDpe }}
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-md-4 col-label">
+                <div class="col-md-3 col-label">
                   {{ 'buyer.pages.current.clearing.table.pending' | translate }}
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   {{ currentMarketStat?.amount?.pending?.availableAmount | currency: currentMarket?.currencySign }}
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   {{ currentMarketStat?.amount?.pending?.supplierCount }}
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   {{ currentMarketStat?.amount?.pending?.invoiceCount }}
                 </div>
               </div>
