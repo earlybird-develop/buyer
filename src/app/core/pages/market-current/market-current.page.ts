@@ -56,6 +56,9 @@ export class MarketCurrentPage implements OnInit {
               let dataValue = dataLabel / 1000;
               return dataLabel % 50000 === 0 ? (dataValue === 0 ? 0 : dataValue + 'k') : '';
             }
+          },
+          gridLines: {
+              drawOnChartArea: false
           }
         },
         {
@@ -68,6 +71,9 @@ export class MarketCurrentPage implements OnInit {
             callback: function (dataLabel, index) {
               return dataLabel % 5 === 0 ? (dataLabel === 0 ? 0 : dataLabel + '%') : '';
             }
+          },
+          gridLines: {
+              drawOnChartArea: false
           }
         }
       ]
