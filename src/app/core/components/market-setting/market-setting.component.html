@@ -18,7 +18,7 @@
       </ng-container>
     </div>
     <div class="data apr">
-      <div class="title">APR</div>
+      <div class="title">{{ 'buyer.components.market-setting.apr' | translate }}</div>
       <label>
         <p class="label">{{ 'buyer.components.market-setting.apr-d' | translate }}
           <i class="fas fa-question-circle"></i>
@@ -47,19 +47,19 @@
       <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.reservePercentage">
     </div>
     <div class="field-group">
-        <div class="title margin-bottom">{{ 'buyer.components.market-setting.schedule' | translate }}</div>
+        <div class="title margin-bottom">{{ 'buyer.components.market-setting.schedule.title' | translate }}</div>
       <table class="table table-bordered scheduleTable">
         <thead class="bg-dark">
           <tr>
             <th></th>
-            <th class="text-white">{{'buyer.pages.markets.schedule.amount' | translate}}</th>
-            <th class="text-white">{{'buyer.pages.markets.schedule.paydate' | translate}}</th>
+            <th class="text-white">{{'buyer.components.market-setting.schedule.amount' | translate}}</th>
+            <th class="text-white">{{'buyer.components.market-setting.schedule.paydate' | translate}}</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let schedule of marketSchedule.schedulesList;let i=index">
             <td class="scheduleFirstColumn">
-              <label>{{'buyer.pages.markets.schedule.schedule' | translate}} {{i + 1}}</label>
+              <label>{{'buyer.components.market-setting.schedule.label' | translate}} {{i + 1}}</label>
             </td>
             <td>
               <input type="text" class="scheduleAmount" [disabled]="!editMode || schedule.status == '2'" [ngClass]="{'bg-highlight':schedule.status=='1'}"
@@ -78,7 +78,8 @@
         </tbody>
       </table>
       <div class="text-center">
-        <button class="btn btn-success" [hidden]="!editMode" (click)="scheduleEvents('add', null)">{{'buyer.pages.markets.schedule.addschedule' | translate}}</button>
+        <button class="btn btn-success btn-add" [hidden]="!editMode" (click)="scheduleEvents('add', null)">
+          {{'buyer.components.market-setting.schedule.btn_add' | translate}}</button>
       </div>
     </div>
     <div class="field-group">

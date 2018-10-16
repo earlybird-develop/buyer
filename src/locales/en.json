@@ -33,7 +33,14 @@
         "reserve-p": "RESERVE PERCENTAGE",
         "date": "DATE",
         "ok": "OK",
-        "schedule" : "SCHEDULE"
+        "schedule" : {
+          "title": "CASH SCHEDULE",
+          "label":"Schedule",
+          "amount": "Cash Amount",
+          "paydate": "Cash Date",
+          "status": "Status",
+          "btn_add": "Add Schedule"
+        }
       }
     },
     "pages": {

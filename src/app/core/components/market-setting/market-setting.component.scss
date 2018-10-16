@@ -26,7 +26,7 @@
 .container {
   box-sizing: border-box;
   border: 1px solid #e8e8e8;
-  padding: 19px 25px 27px 31px;
+  padding:16px;
 
   .name {
     font-size: 17px;
@@ -110,7 +110,9 @@
     }
   }
 }
-
+.btn-add {
+  line-height:0px!important;
+}
 .ok-cancel-btns {
   margin-top: 30px;
   width: 113px;
@@ -264,6 +266,7 @@ p .title{
 
   label{
     width:72px;
+    text-align:center;
   }
 }
 

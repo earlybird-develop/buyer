@@ -32,7 +32,15 @@
         "npd": "下个付款日",
         "reserve-p": "预留比例",
         "date": "对账日",
-        "ok": "确定"
+        "ok": "确定",
+        "schedule":{
+          "title": "資金計劃",
+          "label":"計劃",
+          "amount": "資金金額",
+          "paydate": "啟動日期",
+          "status": "狀態",
+          "btn_add": "新增計劃"
+        }
       }
     },
     "pages": {

@@ -25,14 +25,22 @@
         "edit": "编辑",
         "save": "保存",
         "cancel": "取消",
-        "apr": "APR",
-        "apr-d": "期望 APR",
-        "apr-min": "成本 APR",
+        "apr": "年化率",
+        "apr-d": "期望年化率",
+        "apr-min": "成本年化率",
         "cashpool": "现金池",
         "npd": "下个付款日",
         "reserve-p": "预留比例",
         "date": "对账日",
-        "ok": "确定"
+        "ok": "确定",
+        "schedule": {
+          "title": "资金计划",
+          "label": "计划",
+          "amount": "资金金额",
+          "paydate": "启动日期",
+          "status": "状态",
+          "btn_add": "新增计划"
+        }
       }
     },
     "pages": {
