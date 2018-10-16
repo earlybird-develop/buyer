@@ -10,19 +10,19 @@
               <div class="title">{{ 'buyer.pages.current.clearing.market-total' | translate }}</div>
               <div class="value">
                 <div class="amount">
-                  <span>{{ currentMarket?.currencySign }}</span>{{currentMarket?.total?.discountAmount }}
+                  <span>{{ currentMarket?.currencySign }}</span>{{currentMarket?.total?.discountAmount | number: '4.2-2' }}
                 </div>
                 <div class="numbers">
-                  <div class="apr">{{ currentMarket?.total?.averageApr }} %</div>
+                  <div class="apr">{{ currentMarket?.total?.averageApr }}</div>
                   <div class="dpe">{{ currentMarket?.total?.averageDpe }}</div>
                 </div>
                 <div class="numbers-desc">
-                  <div class="apr">{{ 'buyer.pages.current.clearing.apr' | translate }}</div>
+                  <div class="apr">% {{ 'buyer.pages.current.clearing.apr' | translate }}</div>
                   <div class="dpe">{{ 'buyer.pages.current.clearing.dpe' | translate }}</div>
                 </div>
               </div>
               <div class="subvalue">
-                {{ currentMarket?.currencySign }} <span>{{ currentMarket?.total?.availableAmount | number: '4.2-2' }}</span> {{ 'buyer.pages.current.clearing.ap'| translate }}
+                {{ currentMarket?.currencySign }} <span>{{ currentMarket?.total?.availableAmount | number: '1.2-2' }}</span> {{ 'buyer.pages.current.clearing.ap'| translate }}
               </div>
           </div>
 
@@ -30,33 +30,33 @@
         <div class="title">{{ 'buyer.pages.current.clearing.clearing-total' | translate }}</div>
         <div class="value">
           <div class="amount">
-            <span>{{ currentMarket?.currencySign }}</span>{{ currentMarket?.clearing?.discountAmount}}
+            <span>{{ currentMarket?.currencySign }}</span>{{ currentMarket?.clearing?.discountAmount | number: '1.2-2'}}
           </div>
           <div class="numbers">
-            <div class="apr">{{ currentMarket?.clearing?.averageApr }} %</div>
+            <div class="apr">{{ currentMarket?.clearing?.averageApr }}</div>
             <div class="dpe">{{ currentMarket?.clearing?.averageDpe }}</div>
           </div>
           <div class="numbers-desc">
-            <div class="apr">{{ 'buyer.pages.current.clearing.apr' | translate }}</div>
+            <div class="apr">% {{ 'buyer.pages.current.clearing.apr' | translate }}</div>
             <div class="dpe">{{ 'buyer.pages.current.clearing.dpe' | translate }}</div>
           </div>
         </div>
         <div class="subvalue">
-          {{ currentMarket?.currencySign }} <span>{{ currentMarket?.clearing?.availableAmount | number: '4.2-2' }}</span> {{ 'buyer.pages.current.clearing.ap'| translate }}
+          {{ currentMarket?.currencySign }} <span>{{ currentMarket?.clearing?.availableAmount | number: '1.2-2' }}</span> {{ 'buyer.pages.current.clearing.ap'| translate }}
         </div>
       </div>
       <div class="stat red">
         <div class="title">{{ 'buyer.pages.current.clearing.non-clearing-total' | translate }}</div>
         <div class="value">
           <div class="amount">
-            <span>{{ currentMarket?.currencySign }}</span>{{ currentMarket?.non?.discountAmount}}
+            <span>{{ currentMarket?.currencySign }}</span>{{ currentMarket?.non?.discountAmount | number: '1.2-2'}}
           </div>
           <div class="numbers">
-            <div class="apr">{{ currentMarket?.non?.averageApr }} %</div>
+            <div class="apr">{{ currentMarket?.non?.averageApr }}</div>
             <div class="dpe">{{ currentMarket?.non?.averageDpe }}</div>
           </div>
           <div class="numbers-desc">
-            <div class="apr">{{ 'buyer.pages.current.clearing.apr' | translate }}</div>
+            <div class="apr">% {{ 'buyer.pages.current.clearing.apr' | translate }}</div>
             <div class="dpe">{{ 'buyer.pages.current.clearing.dpe' | translate }}</div>
           </div>
         </div>

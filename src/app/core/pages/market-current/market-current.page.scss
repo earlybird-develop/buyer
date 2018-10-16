@@ -89,9 +89,9 @@
       .amount {
         align-items: center;
         display: flex;
-        font-size: 36px;
+        font-size: 26px;
         font-weight: 700;
-        width:76%;
+        width:75%;
         span {
           color: #333;
           margin-top:12px;
@@ -107,6 +107,7 @@
       .numbers-desc {
         color: #333;
         margin-top:5px;
+        min-width: 72px;
       }
     }
 
