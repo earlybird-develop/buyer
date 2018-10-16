@@ -25,6 +25,7 @@
         "edit": "Edit",
         "save": "Save",
         "cancel": "Cancel",
+        "exit": "Exit",
         "apr": "APR",
         "apr-d": "Desired APR",
         "apr-min": "Minimum APR",
@@ -39,7 +40,7 @@
           "amount": "Cash Amount",
           "paydate": "Cash Date",
           "status": "Status",
-          "btn_add": "Add Schedule"
+          "btn_add": "Add"
         }
       }
     },

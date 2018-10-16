@@ -25,6 +25,7 @@
         "edit": "编辑",
         "save": "保存",
         "cancel": "取消",
+        "exit": "退出",
         "apr": "APR",
         "apr-d": "期望 APR",
         "apr-min": "成本 APR",
@@ -39,7 +40,7 @@
           "amount": "資金金額",
           "paydate": "啟動日期",
           "status": "狀態",
-          "btn_add": "新增計劃"
+          "btn_add": "新增"
         }
       }
     },

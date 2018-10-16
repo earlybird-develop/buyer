@@ -105,23 +105,27 @@
     }
 
     .value {
-      font-weight: 450;
+      font-weight: 500;
       margin-top: 10px;
     }
   }
 }
-.btn-add {
-  line-height:0px!important;
+.btn-min {
+  height:28px !important;
+  font-size: 12px !important;
+  line-height:14px !important;
+  color:#fff !important;
 }
-.ok-cancel-btns {
-  margin-top: 30px;
-  width: 113px;
+.btn-main {
+  margin-top: 20px;
+  width: 95px;
   height: 40px;
   font-size: 13px;
   font-weight: 700;
   text-align: center;
   padding: 0;
   line-height: 40px;
+  color:#fff !important;
 }
 
 input.control {
@@ -279,9 +283,6 @@ table.table.table-bordered.scheduleTable td, table.table.table-bordered.schedule
   background-size: 100%;
 }
 
-a.btn.ok-cancel-btns.btn-success{
-  color: #fff !important;
-}
 
 .scheduleAmount{
   width: 120px;

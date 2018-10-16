@@ -5,17 +5,6 @@
     <div class="name">({{market.currency}})</div>
     <div class="name">
       {{ market.name }}
-      <a class="btn btn-secondary pointer edit" *ngIf="!editMode" (click)="enableEditMode()">
-        {{ 'buyer.components.market-setting.edit' | translate }}
-      </a>
-      <ng-container *ngIf="editMode">
-        <a class="btn btn-primary pointer save" [class.hidden]="!editMode" (click)="save()">
-          {{ 'buyer.components.market-setting.save' | translate }}
-        </a>
-        <a class="btn btn-secondary pointer edit" [class.hidden]="!editMode" (click)="cancelEditing()">
-          {{ 'buyer.components.market-setting.cancel' | translate }}
-        </a>
-      </ng-container>
     </div>
     <div class="data apr">
       <div class="title">{{ 'buyer.components.market-setting.apr' | translate }}</div>
@@ -47,7 +36,22 @@
       <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.reservePercentage">
     </div>
     <div class="field-group">
-        <div class="title margin-bottom">{{ 'buyer.components.market-setting.schedule.title' | translate }}</div>
+      <div class="title">{{ 'buyer.components.market-setting.date' | translate }}</div>
+      <div class="value" [class.hidden]="editMode">{{ market.reconcilationDate }}</div>
+      <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.reconcilationDate">
+    </div>
+    <div class="field-group">
+        <div class="title margin-bottom">
+          <span style="margin-right:10px;">
+            {{ 'buyer.components.market-setting.schedule.title' | translate }}
+          </span>
+          <a class="btn btn-warning pointer btn-min" *ngIf="!editCashMode" (click)="enableEditCashMode()">
+            {{ 'buyer.components.market-setting.edit' | translate }}
+          </a>
+          <a class="btn btn-success pointer btn-min" *ngIf="editCashMode" [hidden]="!editCashMode" (click)="scheduleEvents('add', null)">
+            {{'buyer.components.market-setting.schedule.btn_add' | translate}}
+          </a>
+        </div>
       <table class="table table-bordered scheduleTable">
         <thead class="bg-dark">
           <tr>
@@ -62,35 +66,54 @@
               <label>{{'buyer.components.market-setting.schedule.label' | translate}} {{i + 1}}</label>
             </td>
             <td>
-              <input type="text" class="scheduleAmount" [disabled]="!editMode || schedule.status == '2'" [ngClass]="{'bg-highlight':schedule.status=='1'}"
+              <input type="text" class="scheduleAmount" [disabled]="!editCashMode || schedule.status == '1'" [ngClass]="{'bg-highlight':schedule.status=='1'}"
                 [(ngModel)]="schedule.cashamount">
             </td>
             <td>
-              <input (ngModelChange)="checkDuplicateDate($event, i)" type="text" class="scheduleinput" [disabled]="!editMode || schedule.status == '2'" required placeholder="dd/mm/yy"
+              <input (ngModelChange)="checkDuplicateDate($event, i)" type="text" class="scheduleinput"  [disabled]="!editCashMode || schedule.status == '1'" [ngClass]="{'bg-highlight':schedule.status=='1'}"
+                     required placeholder="dd/mm/yy"
                 bsDatepicker [(ngModel)]="schedule.paydate" placement="left" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+
               <span *ngIf="schedule.status == '1'">
                 <i class="left-arrow"></i>
               </span>
-              <span [hidden]="!editMode" *ngIf="schedule.status != '1' && schedule.status != '2' " class="minusSpan" (click)="removeEvents('remove', i, schedule)">
+              <span [hidden]="!editCashMode" *ngIf="schedule.status != '1' && schedule.status != '2' " class="minusSpan" (click)="removeEvents('remove', i, schedule)">
               </span>
             </td>
           </tr>
         </tbody>
       </table>
       <div class="text-center">
-        <button class="btn btn-success btn-add" [hidden]="!editMode" (click)="scheduleEvents('add', null)">
-          {{'buyer.components.market-setting.schedule.btn_add' | translate}}</button>
+          <ng-container *ngIf="editCashMode">
+            <a class="btn btn-primary pointer btn-min" [class.hidden]="!editCashMode" (click)="saveCash()">
+              {{ 'buyer.components.market-setting.save' | translate }}
+            </a>
+            <a class="btn btn-secondary pointer btn-min" [class.hidden]="!editCashMode" (click)="cancelEditCashMode()">
+              {{ 'buyer.components.market-setting.cancel' | translate }}
+            </a>
+          </ng-container>
       </div>
     </div>
-    <div class="field-group">
-      <div class="title">{{ 'buyer.components.market-setting.date' | translate }}</div>
-      <div class="value" [class.hidden]="editMode">{{ market.reconcilationDate }}</div>
-      <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.reconcilationDate">
-    </div>
+
   </div>
 </ng-container>
 
 <div *ngIf="market" class="text-center">
-  <a class="btn ok-cancel-btns btn-success" (click)="save()">{{ 'buyer.components.market-setting.ok' | translate }}</a>
-  <a class="btn btn-secondary ok-cancel-btns" (click)="bsModalRef.hide()">{{ 'buyer.components.market-setting.cancel' | translate }}</a>
+  <ng-container *ngIf="!editMode">
+    <a class="btn btn-warning btn-main" (click)="enableEditMode()">
+      {{ 'buyer.components.market-setting.edit' | translate }}
+    </a>
+    <a class="btn btn-secondary btn-main" (click)="bsModalRef.hide()">
+      {{ 'buyer.components.market-setting.exit' | translate }}
+    </a>
+  </ng-container>
+
+  <ng-container *ngIf="editMode">
+    <a class="btn btn-success btn-main" [class.hidden]="!editMode" (click)="save()">
+      {{ 'buyer.components.market-setting.save' | translate }}
+    </a>
+    <a class="btn btn-secondary btn-main" [class.hidden]="!editMode" (click)="cancelEditing()">
+      {{ 'buyer.components.market-setting.cancel' | translate }}
+    </a>
+  </ng-container>
 </div>

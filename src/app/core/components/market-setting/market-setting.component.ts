@@ -15,6 +15,7 @@ export class MarketSettingComponent implements OnInit {
   public market: Market;
   public marketClone: Market;
   public editMode = false;
+  public editCashMode = false;
 
   public marketSettings: any = {};
   public marketAllocates: any;
@@ -66,6 +67,24 @@ export class MarketSettingComponent implements OnInit {
     this.editMode = false;
   }
 
+  public enableEditCashMode(): void {
+    this.marketClone = Object.assign({}, this.market);
+    this.editCashMode = true;
+  }
+
+  public cancelEditCashMode(): void {
+    this.market = Object.assign({}, this.marketClone);
+    this.editCashMode = false;
+  }
+
+  public saveCash(): void{
+    let marketScheduleAllocates = this.market.schedulesList;
+    let checkMarketSchedule = JSON.stringify(this.marketAllocates) == JSON.stringify(marketScheduleAllocates)
+    if (!checkMarketSchedule) {
+      this.saveSchedule();
+    }
+  }
+
   public save(): void {
     const pipe = new DatePipe('EN');
     this.market.payDate = pipe.transform(this.market.payDate, 'yyyy/MM/dd');
@@ -89,16 +108,14 @@ export class MarketSettingComponent implements OnInit {
           errors => this._toastr.warning('Error while saving', errors['data'])
         );
     }
-    let marketScheduleAllocates = this.market.schedulesList;
-    let checkMarketSchedule = JSON.stringify(this.marketAllocates) == JSON.stringify(marketScheduleAllocates)
-    if (!checkMarketSchedule) {
-      this.saveSchedule();
-    }
+    this.cancelEditing();
+
   }
 
   public saveSchedule(): void {
     const pipe = new DatePipe('EN');
     let invalidValidation: boolean;
+
     this.marketSchedule.schedulesList.forEach((list: any, index) => {
       if (!list.paydate || list.paydate == 'Invalid Date') {
         this._toastr.error('Plase select all the paydate');
