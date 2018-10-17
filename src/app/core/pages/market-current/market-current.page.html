@@ -64,7 +64,6 @@
           {{ currentMarket?.currencySign }} <span>{{ currentMarket?.non?.availableAmount | number: '4.2-2' }}</span> {{ 'buyer.pages.current.clearing.ap'| translate }}
         </div>
       </div>
-
     </div>
 
     <div class="chart" *ngIf="barChartData">
@@ -234,12 +233,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let apKey of supplierNetworkStat?.topByIncome | keys">
+            <tr *ngFor="let apKey of supplierNetworkStat?.topByAp | keys">
               <td>
                 <span>{{ apKey }}</span>
               </td>
               <td>
-                <span class="incomeLabel">{{ supplierNetworkStat.topByIncome[apKey] | currency: market?.currency }}</span>
+                <span class="incomeLabel">{{ supplierNetworkStat.topByAp[apKey] | currency: market?.currency }}</span>
               </td>
             </tr>
           </tbody>
