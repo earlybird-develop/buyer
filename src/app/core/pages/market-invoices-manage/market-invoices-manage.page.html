@@ -116,11 +116,11 @@
               <div class="col-md-6 color-white">{{ 'buyer.pages.invoices.filter.from' | translate }}</div>
               <div class="col-md-6 color-white">{{ 'buyer.pages.invoices.filter.to' | translate }}</div>
               <div class="col-md-6 nopadding">
-                  <input type="text" placeholder="dd/mm/yy" class="form-control" bsDatepicker [(ngModel)]="startDate"
+                  <input type="text" placeholder="dd/mm/yy" class="form-control datebox" bsDatepicker [(ngModel)]="startDate"
                          placement="right" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
               </div>
               <div class="col-md-6 nopadding">
-                  <input type="text" placeholder="dd/mm/yy" class="form-control" bsDatepicker [(ngModel)]="endDate"
+                  <input type="text" placeholder="dd/mm/yy" class="form-control datebox" bsDatepicker [(ngModel)]="endDate"
                          placement="right" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
               </div>
           </div>

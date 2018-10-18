@@ -34,7 +34,7 @@
         font-weight: 400;
         height: 32px;
         line-height: 32px;
-        padding: 0 16px 0 16px !important;
+        padding: 0 16px 0 16px !important; 
       }
 
   }
@@ -430,3 +430,10 @@
     padding-left:0px;
     padding-right:0px;
 }
+
+ .datebox{
+     width:65px;
+     height:30px;
+     font-size:12px;
+     padding:3px;
+ }
