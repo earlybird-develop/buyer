@@ -20,11 +20,10 @@
     display: inline-block;
     height: 100%;
     line-height: 50px;
-    margin: 0 20px;
+    margin: 0 10px;
     font-size: 14px;
-    font-weight: 450;
     text-align: center;
-    width: 110px;
+    width: 70px;
 
     a {
       color: #fff !important;
@@ -33,6 +32,33 @@
     &.active a {
       font-weight: 700;
     }
+  }
+}
+
+.info {
+  display: flex;
+  align-items: stretch;
+  height: 57px;
+
+  .pay-date {
+    color: #fff;
+    font-size: 10px;
+    line-height: 57px;
+    font-weight: 700;
+    margin-lefT: 22px;
+
+    img {
+      margin-right: 8px;
+      height: 12px;
+      width: 12px;
+    }
+  }
+
+  .buyer-name{
+      line-height:57px;
+      color:white;
+      padding-right:20px;
+      font-size:12px;
   }
 }
 

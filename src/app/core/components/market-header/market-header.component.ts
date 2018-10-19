@@ -8,5 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./market-header.component.scss']
 })
 export class MarketHeaderComponent {
-  public buyId: string;
+    public buyId: string;
+    public payDate: string;
+    public buyerName: string;
 }
