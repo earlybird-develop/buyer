@@ -15,7 +15,6 @@
     width: 16px;
   }
 
-
   &.second {
     color: #fff;
     cursor: pointer;
@@ -52,13 +51,14 @@
 }
 
 .custom-range-filter {
-  margin: 0px 38px 0 26px;
+  margin: -5px 38px 0 26px;
 
   label {
     color: #cecfd0;
     display: block;
     font-size: 13px;
     font-weight: 400;
+
 
     input {
       border: 1px solid #E8E9EC;
@@ -77,6 +77,12 @@
 
   .color-white{
     color:white;
+    font-size:13px;
+    font-weight:400;
+  }
+
+  .nomargin{
+    margin-bottom:10px;
   }
 
   .nopadding{
@@ -94,11 +100,11 @@
 
   button {
     display: block;
-    height: 32px;
-    line-height: 32px;
-    width: 69px;
+    height: 32px !important;
+    line-height: 32px !important;
+    width: 68px;
     border: none;
-    padding: 0;
+    padding: 0 !important;
     font-size: 14px;
     margin-top: 12px;
     outline: none;
@@ -117,59 +123,35 @@
     font-weight: 700;
   }
 }
-.filter-range{
+
+.filter-range {
   background-color: #f5f6f7;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 35px;
-  padding: 20px 50px 5px;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 25px;
+  padding: 12px 50px 5px;
+
+  span {
+    color: #284e85;
+    font-weight: 700;
+  }
 
   .sub-line {
     margin: 0 -5px;
     border-bottom: 1px solid rgba(149, 152, 154, 0.36);
   }
-
-  .range-title {
-    font-weight: 500;
-    font-size: 17px;
-    display:inline;
-  }
-
-  .range-container {
-    float: right;
-    display:inline;
-    font-size:13px;
-    span {
-      color: #284e85;
-    }
-  }
-
-  .sync-btn {
-    float: right;
-    margin-top: -10px;
-    display:inline;
-    .btn{
-      font-size: 13px;
-      font-weight: 400;
-      height: 32px;
-      line-height: 32px;
-      padding: 0 16px 0 16px !important;
-    }
-
-  }
-
 }
 
 .market-stats {
   background-color: #f5f6f7;
   display: flex;
   justify-content: space-between;
-  padding: 10px 90px;
+  padding: 25px 74px;
 
   .title {
     color: rgba(26, 26, 26, .8);
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   .amount {
@@ -186,15 +168,11 @@
   }
 }
 
-.separator {
-  color: #dde7ee !important;
-}
-
 .list {
-  margin: 30px 57px 66px;
+  margin: 45px 57px 60px;
 
   .pages {
-    margin: 95px 0 190px 0;
+    margin: 35px 0 190px 0;
     text-align: right;
   }
 }
