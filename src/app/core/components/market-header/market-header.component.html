@@ -27,9 +27,11 @@
 
 <div class="info">
     <span class="buyer-name">{{buyerName}}</span>
-    <eb-timer></eb-timer>
-    <div class="pay-date" tooltip="{{'buyer.pages.markets.list.pay-date' | translate}} : {{ payDate }}" placement="left">
+
+    <div class="pay-date" tooltip="{{'buyer.pages.markets.list.pay-date' | translate}}" placement="bottom">
         <img class="pointer" src="./assets/icons/calendar.svg">
-        <span>{{'buyer.pages.markets.list.pay-date' | translate}} : {{ payDate }}</span>
+        <span>{{ payDate }}</span>
     </div>
+
+    <eb-timer> </eb-timer>
 </div>

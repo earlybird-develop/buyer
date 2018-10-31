@@ -12,6 +12,10 @@
           "markets": "Markets"
         }
       },
+      "timer":{
+        "closed": "Market Closed",
+        "to_close": "To Market Close"
+      },
       "market-header": {
         "menu": {
           "invoiceManage": "Invoice Manage",

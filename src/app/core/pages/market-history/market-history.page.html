@@ -125,9 +125,9 @@
           </a>
         </td>
         <td>{{ award.awardDate }}</td>
-        <td>{{ award.invoiceAmount | currency: market.currency }}</td>
-        <td>{{ award.paidAmount | currency: market.currency }}</td>
-        <td>{{ award.discountAmount | currency: market.currency }}</td>
+        <td>{{ award.invoiceAmount | currency: market?.currencySign }}</td>
+        <td>{{ award.paidAmount | currency: market?.currencySign }}</td>
+        <td>{{ award.discountAmount | currency: market?.currencySign }}</td>
         <td class="text-center">{{ award.averageDiscount }}%</td>
         <td>{{ award.averageApr }}</td>
         <td>{{ award.averageDpe }}</td>

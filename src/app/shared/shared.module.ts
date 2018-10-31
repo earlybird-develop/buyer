@@ -9,6 +9,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { TimerComponent } from './timer/timer.component';
 import { FooterComponent } from './footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { TimerService } from './timer/timer.service';
 import {
@@ -34,7 +35,8 @@ import { CustomSelectComponent } from './custom-select/custom-select.component';
     PopoverModule.forRoot(),
     TooltipModule.forRoot(),
     BsDropdownModule.forRoot(),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    TranslateModule
   ],
   declarations: [
     CheckboxComponent,

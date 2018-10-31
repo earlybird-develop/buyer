@@ -12,6 +12,10 @@
           "markets": "市场"
         }
       },
+      "timer":{
+        "closed": "已经收市",
+        "to_close": "将要收市"
+      },
       "market-header": {
         "menu": {
           "invoiceManage": "发票管理",

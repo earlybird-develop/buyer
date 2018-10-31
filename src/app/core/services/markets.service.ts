@@ -33,7 +33,7 @@ export class MarketsService {
           response => {
 
             observer.next(
-              Model.newCollection<Market>(Market, response['data']['list'])
+              Model.newCollection<Market>(Market, response['data'])
             );
 
             observer.complete();

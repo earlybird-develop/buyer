@@ -20,6 +20,10 @@ export class MarketsPage implements OnInit {
   public currentMarket: Market;
   public markets: Market[];
   public bsModalRef: BsModalRef;
+
+  private _interval: any;
+  private refresh_time = 30000;
+
   // @ViewChildren(PopoverDirective)
   // public popovers: QueryList<PopoverDirective>;
 
@@ -27,13 +31,16 @@ export class MarketsPage implements OnInit {
               private _toastr: ToastrService, private modalService: BsModalService) { }
 
   ngOnInit() {
-    this._marketsService
-      .getList()
-      .subscribe(
-        markets => this.markets = markets,
 
-        () => this._toastr.error('Internal server error')
-      );
+    this.load();
+
+    this._interval = setInterval(
+        () => {
+          this.load();
+        }
+        , this.refresh_time
+    );
+
 
     // Hack : I'm sorry
     // It is closing popup, which closed on its own
@@ -42,6 +49,16 @@ export class MarketsPage implements OnInit {
     //   .subscribe(
     //     () => this.popovers.find(x => x.isOpen).hide()
     //   );
+  }
+
+  public load(): void{
+    this._marketsService
+        .getList()
+        .subscribe(
+            markets => this.markets = markets,
+
+            () => this._toastr.error('Internal server error')
+        );
   }
 
   openModalWithComponent() {
@@ -72,6 +89,7 @@ export class MarketsPage implements OnInit {
           if( success['code'] === 1 ) {
             market.status = status ? 1 : -1;
             this._toastr.success('Market data successfully saved');
+            this.load();
           }else{
             this._toastr.warning(success['msg']);
           }
