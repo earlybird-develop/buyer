@@ -32,7 +32,20 @@ export class MarketsPage implements OnInit {
 
   ngOnInit() {
 
-    this.load();
+    this._marketsService
+        .getList()
+        .subscribe(
+            success => {
+              markets => this.markets = markets ;
+              this._interval = setInterval(
+                  () => {
+                    this.load();
+                  }
+                  , this.refresh_time
+              );
+            },
+            error => this._toastr.error('Internal server error')
+        );
 
     this._interval = setInterval(
         () => {
