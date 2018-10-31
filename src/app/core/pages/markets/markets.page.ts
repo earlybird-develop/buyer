@@ -34,12 +34,14 @@ export class MarketsPage implements OnInit {
 
     this.load();
 
+    /*
     this._interval = setInterval(
         () => {
           this.load();
         }
         , this.refresh_time
     );
+    */
 
 
     // Hack : I'm sorry
@@ -56,7 +58,6 @@ export class MarketsPage implements OnInit {
         .getList()
         .subscribe(
             markets => this.markets = markets,
-
             () => this._toastr.error('Internal server error')
         );
   }
