@@ -30,12 +30,12 @@ export class AccessTokenInterceptor implements HttpInterceptor {
     });
 
 
-
     return next.handle(request)
       .do(null, (err: any) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
             this._router.navigate(['signin']);
+            return;
           }
         }
       });

@@ -13,8 +13,8 @@
         }
       },
       "timer":{
-        "closed": "已经收市",
-        "to_close": "将要收市"
+        "closed": "已經收市",
+        "to_close": "市場清算"
       },
       "market-header": {
         "menu": {
@@ -212,7 +212,7 @@
           "country": "国家",
           "submit": "提高",
           "lastName": "姓氏",
-          "phone": "联系电放",
+          "phone": "聯繫電話",
           "year": "财年截止日"
         }
       },

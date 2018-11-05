@@ -1,4 +1,5 @@
 export * from './market';
+export * from './saler';
 export * from './supplier';
 export * from './user';
 export * from './invoice';

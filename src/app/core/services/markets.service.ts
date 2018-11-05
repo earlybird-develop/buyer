@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
 
-import { Market } from '../models';
+import { Market, Saler } from '../models';
 import { Model } from 'tsmodels';
 import { DialogService } from '../../shared/dialog';
 
@@ -33,6 +33,7 @@ export class MarketsService {
           response => {
 
             observer.next(
+
               Model.newCollection<Market>(Market, response['data'])
             );
 
@@ -95,7 +96,7 @@ export class MarketsService {
     const params = new HttpParams().set('market_id', market.id);
 
     const fields = [
-       'expect_apr', 'min_apr', 'reserve_percentage',
+       'market_cash', 'expect_apr', 'min_apr', 'reserve_percentage',
       'reconcilation_date'
     ];
 
@@ -135,8 +136,8 @@ export class MarketsService {
     });
   }
 
-  public setMarketActive(marketId: string, status: boolean)
-    : Observable<boolean> {
+  public setMarketActive(marketId: string, status: boolean): Observable<boolean> {
+
     const params = new HttpParams().set('market_id', marketId);
 
     const body = {

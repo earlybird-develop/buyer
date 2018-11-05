@@ -40,6 +40,7 @@ export class MarketSettingComponent implements OnInit {
         (market: any) => {
           this.market = this.marketSchedule = market;
           this.marketSettings = {
+            market_cash: market.cash,
             expect_apr: market.expectApr,
             min_apr: market.minApr,
             reserve_percentage: market.reservePercentage,
@@ -80,29 +81,38 @@ export class MarketSettingComponent implements OnInit {
   public saveCash(): void{
     let marketScheduleAllocates = this.market.schedulesList;
     let checkMarketSchedule = JSON.stringify(this.marketAllocates) == JSON.stringify(marketScheduleAllocates)
+
     if (!checkMarketSchedule) {
       this.saveSchedule();
     }
   }
 
   public save(): void {
+
     const pipe = new DatePipe('EN');
-    this.market.payDate = pipe.transform(this.market.payDate, 'yyyy/MM/dd');
+
+    //this.market.payDate = pipe.transform(this.market.payDate, 'yyyy/MM/dd');
+
     let marketSettings = {
+      market_cash: this.market.cash,
       expect_apr: this.market.expectApr,
       min_apr: this.market.minApr,
       reserve_percentage: this.market.reservePercentage,
       reconcilation_date: this.market.reconcilationDate
     };
+
     let checkMarketSetting = JSON.stringify(this.marketSettings) == JSON.stringify(marketSettings)
+
     if (!checkMarketSetting) {
       this._marketsService
         .setSettings(this.market)
         .subscribe(
           () => {
             this.marketOrig.updateOrigin(this.market);
+
             this.marketClone = null;
             // this.editMode = false;
+
             this._toastr.success('Market data successfully saved');
           },
           errors => this._toastr.warning('Error while saving', errors['data'])

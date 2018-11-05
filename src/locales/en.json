@@ -14,14 +14,14 @@
       },
       "timer":{
         "closed": "Market Closed",
-        "to_close": "To Market Close"
+        "to_close": "To Market Clear"
       },
       "market-header": {
         "menu": {
-          "invoiceManage": "Invoice Manage",
-          "currentMarket": "Current Market",
-          "historyMarket": "History Market",
-          "supplierManage": "Supplier Manage"
+          "invoiceManage": "Invoice",
+          "currentMarket": "Current",
+          "historyMarket": "History",
+          "supplierManage": "Supplier"
         }
       },
       "market-setting": {

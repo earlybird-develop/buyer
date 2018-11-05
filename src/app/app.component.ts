@@ -12,7 +12,7 @@ export class AppComponent {
               dialog: DialogService,
               translate: TranslateService) {
      dialog.setRootViewContainerRef(vRef);
-     translate.setDefaultLang('en');
-     translate.use(localStorage.getItem('lang') || 'en');
+     translate.setDefaultLang('cn');
+     translate.use(localStorage.getItem('lang') || 'cn');
   }
 }

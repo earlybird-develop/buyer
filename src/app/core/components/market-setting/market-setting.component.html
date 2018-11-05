@@ -27,8 +27,8 @@
       <p class="title">{{ 'buyer.components.market-setting.cashpool' | translate }}
         <i class="fas fa-question-circle"></i>
       </p>
-      <div class="value">{{ market.currencySign }}{{ market.cash | number }}</div>
-      <!-- <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.cash"> -->
+      <div class="value" [class.hidden]="editMode">{{ market.currencySign }}{{ market.cash | number: '1.2' }}</div>
+      <input type="text" class="control block" [class.hidden]="!editMode" [(ngModel)]="market.cash">
     </div>
     <div class="field-group">
       <div class="title">{{ 'buyer.components.market-setting.reserve-p' | translate }}</div>

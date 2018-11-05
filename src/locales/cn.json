@@ -14,7 +14,7 @@
       },
       "timer":{
         "closed": "已经收市",
-        "to_close": "将要收市"
+        "to_close": "市场清算"
       },
       "market-header": {
         "menu": {
@@ -212,7 +212,7 @@
           "country": "国家",
           "submit": "提高",
           "lastName": "姓氏",
-          "phone": "联系电放",
+          "phone": "联系电话",
           "year": "财年截止日"
         }
       },
@@ -238,5 +238,11 @@
         "back-to-login":"返回登录"
       }
     }
+  },
+
+  "code":{
+    "10001": "服务器内部异常"
   }
+
+
 }

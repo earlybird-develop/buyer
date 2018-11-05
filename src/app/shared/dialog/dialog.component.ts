@@ -7,7 +7,6 @@ import { DOCUMENT } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-
 @Component({
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']

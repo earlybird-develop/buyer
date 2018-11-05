@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 // import { PopoverDirective } from 'ngx-bootstrap';
 
 import { MarketsService } from '../../services';
-import { Market } from '../../models';
+import { Market, Saler } from '../../models';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -18,43 +18,28 @@ import {MarketSettingComponent} from '../../components/market-setting/market-set
 export class MarketsPage implements OnInit {
   public participation = 'all_on';
   public currentMarket: Market;
+  public salers: Saler[];
   public markets: Market[];
   public bsModalRef: BsModalRef;
-
   private _interval: any;
-  private refresh_time = 30000;
-
   // @ViewChildren(PopoverDirective)
   // public popovers: QueryList<PopoverDirective>;
 
+
   constructor(private _marketsService: MarketsService,
-              private _toastr: ToastrService, private modalService: BsModalService) { }
+              private _toastr: ToastrService,
+              private modalService: BsModalService) { }
 
   ngOnInit() {
 
-    this._marketsService
-        .getList()
-        .subscribe(
-            success => {
-              markets => this.markets = markets ;
-              this._interval = setInterval(
-                  () => {
-                    this.load();
-                  }
-                  , this.refresh_time
-              );
-            },
-            error => this._toastr.error('Internal server error')
-        );
+    this.load();
 
     this._interval = setInterval(
         () => {
           this.load();
         }
-        , this.refresh_time
+        , 15000
     );
-
-
     // Hack : I'm sorry
     // It is closing popup, which closed on its own
     // this._marketsService
@@ -64,21 +49,41 @@ export class MarketsPage implements OnInit {
     //   );
   }
 
-  public load(): void{
+  load() {
     this._marketsService
         .getList()
         .subscribe(
-            markets => this.markets = markets,
 
-            () => this._toastr.error('Internal server error')
+            markets => {
+                this.markets = markets;
+                console.log(this.markets);
+            },
+            error => {
+
+                  this._toastr.error('Internal server error');
+
+             }
+
         );
   }
+
+    ngOnDestroy() {
+
+        clearInterval(this._interval);
+
+    }
+
 
   openModalWithComponent() {
     const initialState = {
       marketOrig: this.currentMarket
     };
+
     this.bsModalRef = this.modalService.show(MarketSettingComponent, Object.assign({initialState}, { class: 'setting-modal' }));
+
+    console.log(this.bsModalRef);
+
+
   }
 
   call(){}
@@ -91,7 +96,9 @@ export class MarketsPage implements OnInit {
     // }
     
     this.currentMarket = market;
+
     this.openModalWithComponent();
+
   }
 
   public setMarketStatus(status: boolean, market: Market): void {
@@ -102,7 +109,6 @@ export class MarketsPage implements OnInit {
           if( success['code'] === 1 ) {
             market.status = status ? 1 : -1;
             this._toastr.success('Market data successfully saved');
-            this.load();
           }else{
             this._toastr.warning(success['msg']);
           }

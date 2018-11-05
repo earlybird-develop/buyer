@@ -28,6 +28,7 @@
 
 .statistic {
   margin-top: 21px;
+  margin-left: -1rem; 
   display: flex;
   justify-content: space-between;
 
@@ -35,9 +36,11 @@
     font-weight:400;
     box-sizing: border-box;
     background-color: rgba(244, 244, 244, .36);
-    padding: 10px 16px;
+    padding: 10px 0;
+    padding-left: 10px;
+    margin-left: 8px;
     border: 1px solid rgba(202, 206, 213, .36);
-    min-width: 310px;
+    min-width: 33.33333%;
     font-size: 14px;
 
     &.second-stat {
@@ -89,9 +92,9 @@
       .amount {
         align-items: center;
         display: flex;
-        font-size: 26px;
+        font-size: 24px;
         font-weight: 700;
-        width:75%;
+        width: 75%;
         span {
           color: #333;
           margin-top:12px;
@@ -107,7 +110,7 @@
       .numbers-desc {
         color: #333;
         margin-top:5px;
-        min-width: 65px;
+        min-width: 60px;
       }
     }
 
