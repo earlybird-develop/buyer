@@ -229,12 +229,12 @@
         "label" : {
           "email" : "电子邮件地址"
         },
-        "back-to-login":"返回登录", 
+        "back-to-login":"返回登录",
         "continue":"继续"
       },
       "forget-password-message": {
         "title": "检查电子邮件",
-        "message": "如果与 <a class='emailLink' href=\"forgetmail: {{forgetmail}}\">{{forgetmail}}</a> 相链接的账户在我们的记录中, 我们就已发送了提供重置密码说明的电子邮件。如果您没有收到此电子邮件，. 请单击 <a class='emailLink' href=\"email: {{email}}\">此处</a> 以联系支持部门。",
+        "message": "如果您所提供的 <a class='emailLink' href=\"forgetmail: {{forgetmail}}\">{{forgetmail}}</a> 对应账户在我们的记录中, 我们将会向您此邮箱发送提供重置密码说明的电子邮件。如果您没有收到此电子邮件。请发邮件至support@eb-cf.com 以联系我司客服支持部门。",
         "back-to-login":"返回登录"
       }
     }
