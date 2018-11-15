@@ -1,6 +1,11 @@
 :host {
   align-items: center;
   background-color: #3d7ab3;
+  background-image: url(../../../../assets/graphics.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
   bottom: 0;
   display: flex;
   position: absolute;

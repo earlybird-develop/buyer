@@ -26,6 +26,7 @@ export class InlineEditComponent implements ControlValueAccessor {
   @Input()
   public placeholder = '';
 
+  // tslint:disable-next-line:no-output-rename
   @Output('change')
   public change: EventEmitter<number> = new EventEmitter();
 

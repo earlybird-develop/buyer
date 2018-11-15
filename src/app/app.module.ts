@@ -26,13 +26,13 @@ const twLocale = require('../locales/tw.json');
 export class CustomTranslateLoader extends TranslateLoader {
   public getTranslation(lang: string): Observable<Object> {
 
-      if( lang === 'cn' ){
+      if ( lang === 'cn' ) {
         const locale = cnLocale;
         return Observable.of(locale);
-      } else if(lang === 'tw'){
+      } else if (lang === 'tw') {
         const locale = twLocale;
         return Observable.of(locale);
-      } else if(lang === 'en'){
+      } else if (lang === 'en') {
         const locale = enLocale;
         return Observable.of(locale);
       }

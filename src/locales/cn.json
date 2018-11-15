@@ -232,6 +232,17 @@
         "back-to-login":"返回登录",
         "continue":"继续"
       },
+      "reset": {
+        "title": "重置密码",
+        "password": "密码",
+        "check": "确认密码",
+        "hide": "隐藏",
+        "show": "显示",
+        "check1": "最少8个字符",
+        "check2": "包含最少1个数字",
+        "check3": "包含最少1个大写字母",
+        "check4": "包含最少1个小写字母"
+      },
       "forget-password-message": {
         "title": "检查电子邮件",
         "message": "如果您所提供的 <a class='emailLink' href=\"forgetmail: {{forgetmail}}\">{{forgetmail}}</a> 对应账户在我们的记录中, 我们将会向您此邮箱发送提供重置密码说明的电子邮件。如果您没有收到此电子邮件。请发邮件至support@eb-cf.com 以联系我司客服支持部门。",

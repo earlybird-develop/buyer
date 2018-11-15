@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoreRoutingModule } from './core-routing.module';
 
@@ -17,6 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { SharedModule } from '../shared/shared.module';
+
 
 import {
   MarketsService,
@@ -40,7 +41,8 @@ import {
   ChangePasswordPage,
   ProfilePage,
   SigninPage,
-  ForgetPasswordPage
+  ForgetPasswordPage,
+  ResetPasswordComponent
 } from './pages';
 
 import {
@@ -54,6 +56,7 @@ import {
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     RouterModule,
     NoopAnimationsModule,
@@ -92,7 +95,8 @@ import {
     ChangePasswordPage,
     ProfilePage,
     SigninPage,
-    ForgetPasswordPage
+    ForgetPasswordPage,
+    ResetPasswordComponent
   ],
   entryComponents: [
     MarketHeaderComponent,

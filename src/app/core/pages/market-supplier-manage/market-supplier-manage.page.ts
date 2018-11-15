@@ -45,7 +45,7 @@ export class MarketSupplierManagePage implements OnInit {
     if (supplier._showDetails) {
       supplier.clearUsers();
     } else {
-        for (var i = 0; i < this.suppliers.length; i++) {
+        for (let i = 0; i < this.suppliers.length; i++) {
             this.suppliers[i]._showDetails = false;
             this.suppliers[i].clearUsers();
         }
