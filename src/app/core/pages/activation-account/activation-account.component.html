@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="right-side">
+    <img src="./assets/logo.svg" alt="Early Bird">
+  </div>
+  <div class="content">
+    <div class="title">{{ 'buyer.pages.activation.title' | translate }}</div>
+    <form class="forgetpassword-form" [formGroup]="formModel" (ngSubmit)="onSubmit()">
+      <div class="form-group" formGroupName="passwordInfo">
+        <label class="password" for="password">{{ 'buyer.pages.reset.password' | translate }}</label>
+        <span class="red-color">*</span>
+        <!-->img class="passwordImg" src="../../../../assets/password.svg"-->
+        <input id="password" type="{{ btnType }}" class="form-control" maxlength="15" formControlName="password">
+        <div class="showHidenBtn">
+          <input type="button" class="showHidenBox" (click)="check()" value="{{ 'buyer.pages.reset.'+btnValue | translate }}">
+        </div>
+        <div [hidden]="formModel.get('passwordInfo.password').valid || formModel.get('passwordInfo.password').untouched">
+          <div class="errorText" [hidden]="!formModel.hasError('onlySpecial','passwordInfo.password')">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check5' | translate }}
+          </div>
+          <div class="errorText" [hidden]="!formModel.hasError('required','passwordInfo.password')">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check1' | translate }}
+          </div>
+          <div class="errorText" [hidden]="!formModel.hasError('onlyCapital','passwordInfo.password')">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check3' | translate }}
+          </div>
+          <div class="errorText" [hidden]="!formModel.hasError('onlyLetter','passwordInfo.password')">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check4' | translate }}
+          </div>
+          <div class="errorText" [hidden]="!formModel.hasError('onlyNum','passwordInfo.password')">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check2' | translate }}
+          </div>
+          <div class="errorText" [hidden]="!formModel.hasError('minlength','passwordInfo.password')">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check1' | translate }}
+          </div>
+        </div>
+        <label class="password" for="check">{{ 'buyer.pages.reset.check' | translate }}</label>
+        <span class="red-color">*</span>
+        <input id="check-password" type="{{ btnType }}" class="form-control" maxlength="15" formControlName="checkPassword">
+        <div class="" [hidden]="formModel.get('passwordInfo.checkPassword').valid || formModel.get('passwordInfo.checkPassword').untouched">
+          <div class="errorText" [hidden]="!formModel.hasError('equal','passwordInfo')">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check6' | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="forgot">
+        <button type="submit" class="btn-primary continue-btn">{{ 'buyer.pages.forget.continue' | translate }}</button>
+        <button class="btn back-to-login" [routerLink]="['/signin']" href="javascript:void(0);">{{
+          'buyer.pages.forget.back-to-login' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

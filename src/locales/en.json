@@ -251,6 +251,9 @@
         "check5": "Prohibit non-numeric non-letters",
         "check6": "Inconsistent password"
       },
+      "activation": {
+        "title": "Activation Account"
+      },
       "forget-password-message": {
         "title": "Check your email",
         "message": "If we have an account on file linked to <a class='emailLink' href=\"forgetmail: {{forgetmail}}\">{{forgetmail}}</a>, we have sent an email with instructions to reset your password. Please contact <a class='emailLink' href=\"email: {{email}}\">{{email}}</a> for any additional questions.",

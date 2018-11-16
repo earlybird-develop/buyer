@@ -42,7 +42,8 @@ import {
   ProfilePage,
   SigninPage,
   ForgetPasswordPage,
-  ResetPasswordComponent
+  ResetPasswordComponent,
+  ActivationAccountComponent
 } from './pages';
 
 import {
@@ -96,7 +97,8 @@ import {
     ProfilePage,
     SigninPage,
     ForgetPasswordPage,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ActivationAccountComponent
   ],
   entryComponents: [
     MarketHeaderComponent,

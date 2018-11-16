@@ -10,7 +10,8 @@ import {
   MarketCurrentPage,
   SigninPage,
   ForgetPasswordPage,
-  ResetPasswordComponent
+  ResetPasswordComponent,
+  ActivationAccountComponent
 } from './pages';
 
 import {
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'reset-password',
         component: ResetPasswordComponent
+      },
+      {
+        path: 'activation-account',
+        component: ActivationAccountComponent
       },
       {
         path: '',
