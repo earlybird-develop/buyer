@@ -54,8 +54,7 @@ export class MarketsPage implements OnInit {
             this.load_data();
           }
           // console.log('1');
-        }
-      , this.refresh_time
+        }, this.refresh_time
     );
     // Hack : I'm sorry
     // It is closing popup, which closed on its own

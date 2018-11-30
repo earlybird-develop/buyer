@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { CurrentMarketService } from '../../services';
+import { CurrentMarketService, MarketsService } from '../../services';
 
 import {
   CurrentMarket,
@@ -25,6 +25,16 @@ export class MarketCurrentPage implements OnInit {
   public currentMarket: CurrentMarket;
   public currentMarketStat: CurrentMarketStat;
   public supplierNetworkStat: SuppliersNetworkStat;
+
+  // 页面重新读取数据时间
+  private refresh_time = 5000;
+  private _interval: any;
+
+  private refresh_data = false;
+
+  private current_hash = [];
+
+  private _code: string;
 
   // Chart configuration
   public barChartType = 'bar';
@@ -82,34 +92,109 @@ export class MarketCurrentPage implements OnInit {
 
   constructor(private _currentMarketService: CurrentMarketService,
     private _route: ActivatedRoute,
-    private _toastr: ToastrService) {
+    private _toastr: ToastrService,
+    private _marketsService: MarketsService) {
     this._marketId = this._route.parent.snapshot.params.id;
   }
 
   ngOnInit() {
 
-    this._currentMarketService
-      .getMarketGraph(this._marketId)
-      .subscribe(
-        x => this.chartHandler(x),
-        () => this._toastr.error('Internal server error')
-      );
+    this.load_hash();
+    this.load_getMarketGraph();
+    this.load_currentMarket();
+    this.load_getMarketStat();
+    this.load_getSupplierNetworkStat();
 
+    this._interval = setInterval(
+      () => {
+        // this.load();
+        this.load_hash();
+
+        if (this.refresh_data) {
+          this.load_currentMarket();
+          this.load_getMarketGraph();
+          this.load_getMarketStat();
+          this.load_getSupplierNetworkStat();
+        }
+        // console.log('1');
+      }
+      , this.refresh_time
+    );
+  }
+
+  // 获取hash值
+  load_hash() {
+    this._marketsService
+      .getHashList([this._marketId])
+      .subscribe(
+        resp => {
+          if (resp.code === 1) {
+
+            // tslint:disable-next-line:max-line-length
+            /*if (resp.data.length !== this.current_hash.length && this.current_hash.length > 0) {
+              this.current_hash = [];
+            }*/
+
+            for (const hash of resp.data) {
+
+              this._code = hash['cashpool_code'];
+
+              if (this.current_hash.includes(this._code)) {  // 判断当前页面是否有该市场键
+                if (this.current_hash[this._code] !== hash['stat_hash']) {
+                  this.current_hash[this._code] = hash['stat_hash'];
+                  if (!this.refresh_data) {
+                    this.refresh_data = true;
+                  }
+                }
+              } else {
+                this.current_hash.push(this._code);
+                this.current_hash[this._code] = hash['stat_hash'];
+
+                if (!this.refresh_data) {
+                  this.refresh_data = true;
+                }
+              }
+            }
+          } else {
+            this._toastr.warning(resp.msg);
+          }
+
+        }
+        , error => {
+          this._toastr.error('Internal server error');
+        }
+      );
+  }
+
+  // 获取当前市场
+  load_currentMarket() {
     this._currentMarketService
       .getMarket(this._marketId)
       .subscribe(
         res => this.currentMarket = res,
         () => this._toastr.error('Internal server error')
       );
+  }
 
+  load_getMarketGraph() {
+    this._currentMarketService
+      .getMarketGraph(this._marketId)
+      .subscribe(
+        x => this.chartHandler(x),
+        () => this._toastr.error('Internal server error')
+      );
+  }
 
+  load_getMarketStat() {
     this._currentMarketService
       .getMarketStat(this._marketId)
       .subscribe(
         res => this.currentMarketStat = res,
         () => this._toastr.error('Internal server error')
       );
+  }
 
+  load_getSupplierNetworkStat() {
     this._currentMarketService
       .getSupplierNetworkStat(this._marketId)
       .subscribe(
