@@ -61,7 +61,9 @@ const routes: Routes = [
                 path: ':id',
                 component: MarketPage,
                 children: [
+                  // tslint:disable-next-line:max-line-length
                   { path: 'supplier-manage', component: MarketSupplierManagePage },
+                  // tslint:disable-next-line:max-line-length
                   { path: 'invoice-manage', component: MarketInvoicesManagePage },
                   { path: 'history', component: MarketHistoryPage },
                   { path: 'current', component: MarketCurrentPage }

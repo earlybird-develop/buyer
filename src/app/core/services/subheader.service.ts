@@ -13,7 +13,7 @@ export class SubheaderService {
   constructor(private _cfr: ComponentFactoryResolver) { }
 
   public show<T>(component: Type<T>, providers = []): any {
-    console.log(component);
+    // console.log(component);
     if (this._currentComponent === component) {
       return this.container;
     }

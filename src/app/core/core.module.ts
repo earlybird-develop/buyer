@@ -26,7 +26,9 @@ import {
   MarketHistoryService,
   CurrentMarketService,
   SubheaderService,
-  AccountService
+  AccountService,
+  ResetPasswordService,
+  ActivationAccountService
 } from './services';
 
 import {
@@ -79,7 +81,9 @@ import {
     CurrentMarketService,
     SuppliersService,
     SubheaderService,
-    AccountService
+    AccountService,
+    ResetPasswordService,
+    ActivationAccountService
   ],
   declarations: [
     WrapperPage,

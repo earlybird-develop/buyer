@@ -171,7 +171,7 @@ export class MarketHistoryPage implements OnInit {
   public exportToCsv(): void {
     const history = this.awards
       .map(x => x._toJSON());
-    console.log(history);
+    // console.log(history);
 
     const params = { useBom: false };
     const csv = new Angular2Csv(history, 'History', params);

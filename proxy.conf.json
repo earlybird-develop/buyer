@@ -1,6 +1,6 @@
 {
   "/": {
-    "target": "http://101.132.66.66:8000/",
+    "target": "http://privateapi.com:8000/",
     "secure": false
   }
 }

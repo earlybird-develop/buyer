@@ -7,13 +7,16 @@
       <div class="header-menu">
         <ul >
           <li>
-            <a [routerLink]="['/markets']">
-              {{ 'buyer.components.header.menu.markets' | translate }}
-            </a>
+            
           </li>
         </ul>
       </div>
       <div class="user-menu">
+        <button type="button" class="btn btn-primary">
+              <a [routerLink]="['/markets']">
+                {{ 'buyer.components.header.menu.markets' | translate }}
+              </a>
+            </button>
         <div class="lang-select" dropdown [autoClose]="true">
           <a dropdownToggle>
             <ng-container [ngSwitch]="translate.currentLang">

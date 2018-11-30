@@ -10,12 +10,14 @@ import { DialogService } from '../../shared/dialog';
 
 
 const MARKETS_PATH = '/market/get_market_list';
+const GET_MARKET_HASH_PATH = '/hash/get_hash';
 const GET_MARKET_SETTINGS_PATH = '/market/get_market_setting';
 const SET_MARKET_SETTINGS_PATH = '/market/set_market_setting';
 const SET_MARKET_ACTIVE_PATH = '/market/set_market_active';
 const SET_MARKET_ACTION_PATH = '/market/confirm_market_action';
 const SET_MARKET_ALLOCATE = '/market/set_market_allocate';
 const DROP_MARKET_ALLOCATE = '/market/drop_market_allocate';
+
 @Injectable()
 export class MarketsService {
 
@@ -136,6 +138,7 @@ export class MarketsService {
     });
   }
 
+  // tslint:disable-next-line:max-line-length
   public setMarketActive(marketId: string, status: boolean): Observable<boolean> {
 
     const params = new HttpParams().set('market_id', marketId);
@@ -194,6 +197,26 @@ export class MarketsService {
             observer.complete();
           },
           errors => observer.error(errors)
+        );
+    });
+  }
+
+  // 根据hashtime判断是否取值
+  // tslint:disable-next-line:max-line-length
+  public getHashList(cashpool_code: string[]): Observable<any> {
+
+    const data = { 'cashpool_code': cashpool_code  };
+
+    return Observable.create((observer: Observer<any>) => {
+
+      this._http
+        .post( GET_MARKET_HASH_PATH, data )
+        .subscribe(
+          resp => {
+            observer.next(resp);
+            observer.complete();
+          },
+          error => observer.error(error)
         );
     });
   }
