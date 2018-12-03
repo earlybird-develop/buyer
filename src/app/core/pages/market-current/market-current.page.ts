@@ -63,7 +63,8 @@ export class MarketCurrentPage implements OnInit {
             max: 250000,
             fontSize: 18,
             callback: function (dataLabel, index) {
-              let dataValue = dataLabel / 1000;
+              const dataValue = dataLabel / 1000;
+              // tslint:disable-next-line:max-line-length
               return dataLabel % 50000 === 0 ? (dataValue === 0 ? 0 : dataValue + 'k') : '';
             }
           },
@@ -79,6 +80,7 @@ export class MarketCurrentPage implements OnInit {
             max: 45,
             fontSize: 18,
             callback: function (dataLabel, index) {
+              // tslint:disable-next-line:max-line-length
               return dataLabel % 5 === 0 ? (dataLabel === 0 ? 0 : dataLabel + '%') : '';
             }
           },
@@ -142,9 +144,9 @@ export class MarketCurrentPage implements OnInit {
               if (this.current_hash.includes(this._code)) {  // 判断当前页面是否有该市场键
                 if (this.current_hash[this._code] !== hash['stat_hash']) {
                   this.current_hash[this._code] = hash['stat_hash'];
-                  if (!this.refresh_data) {
-                    this.refresh_data = true;
-                  }
+                  this.refresh_data = true;
+                } else {
+                  this.refresh_data = false;
                 }
               } else {
                 this.current_hash.push(this._code);

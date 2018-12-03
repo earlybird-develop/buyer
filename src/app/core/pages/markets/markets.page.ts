@@ -83,7 +83,6 @@ export class MarketsPage implements OnInit {
               for (const hash of resp.data) {
 
                 this._code = hash['cashpool_code'];
-
                 if (this.current_hash.includes(this._code)) {  // 判断当前页面是否有该市场键
                   if (this.current_hash[this._code ] !== hash['stat_hash']) {
                     this.current_hash[this._code ] = hash['stat_hash'];
