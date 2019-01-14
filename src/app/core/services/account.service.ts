@@ -5,7 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-
+import * as CryptoJS from 'crypto-js';
 import { UserProfile, ForegtPasswordEmail } from '../models';
 
 const GET_ACCESS_TOKEN_PATH = '/oauth2/get_access_token';
@@ -13,7 +13,7 @@ const GET_PROFILE_PATH = '/account/get_profile';
 const UPDATE_PROFILE_PATH = '/account/update_profile';
 const FORGET_PASSWORD_EMAIL_SEND = '/service/reset_password';
 const CHANGE_PASSWORD = '/account/change_password';
-
+const aseKey = '1234567890123456';
 @Injectable()
 export class AccountService {
 
@@ -21,15 +21,17 @@ export class AccountService {
 
   public getAccessToken(httpParams: Object): Observable<boolean> {
     const params = new HttpParams()
-        .set('username', httpParams['email'])
-        .set('password', httpParams['password'])
         .set('appid', 'cisco')
         .set('secret', '123456')
         .set('grant_type', 'password');
+        var encryptPassword = CryptoJS.AES.encrypt(httpParams['password'], CryptoJS.enc.Utf8.parse(aseKey), {
+          mode: CryptoJS.mode.ECB,
+          padding: CryptoJS.pad.Pkcs7
+        }).toString();
 
     return Observable.create((observer: Observer<boolean>) => {
       this._http
-        .get(GET_ACCESS_TOKEN_PATH, { params })
+        .post(GET_ACCESS_TOKEN_PATH, {'username':httpParams['email'],'password':encryptPassword},{ params })
         .subscribe(
           resp => {
             localStorage.setItem('access_token', resp['access_token']);
