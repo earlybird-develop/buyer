@@ -18,7 +18,7 @@
       },
       "market-header": {
         "menu": {
-          "invoiceManage": "发票管理",
+          "invoiceManage": "票据管理",
           "currentMarket": "当前市场",
           "historyMarket": "市场历史",
           "supplierManage": "供应商管理"
@@ -76,7 +76,7 @@
             "cash-deployed": "现金分配",
             "amount": "金额",
             "suppliers": "供应商数",
-            "invoices": "发票数",
+            "invoices": "票据数",
             "market-clearing": "市场清算",
             "current": "今日分配",
             "manual-award": "手工奖励",
@@ -118,7 +118,7 @@
         "list": {
           "download": "下载",
           "date": "清算日期",
-          "inv-amount": "发票金额",
+          "inv-amount": "票据金额",
           "payble": "新应付金额",
           "discount-total": "折扣总计",
           "discount-avr": "平均折扣率",
@@ -130,17 +130,17 @@
       },
       "invoices": {
         "filter": {
-          "title": "发票",
-          "eligible": "有效发票",
-          "ineligible": "无效发票",
-          "adjustments": "调整发票",
-          "awarded": "早付发票",
+          "title": "票据",
+          "eligible": "有效票据",
+          "ineligible": "无效票据",
+          "adjustments": "调整票据",
+          "awarded": "早付票据",
           "dpe": "提早天数",
           "less15": "小于15天",
           "more15": "15到30天",
           "more30": "30到45天",
           "more45": "45天以上",
-          "eia": "有效发票金额",
+          "eia": "有效票据金额",
           "less25k": "25,000以下",
           "more25k": "25,000 到 50,000",
           "more50k": "50,000 到 75,000",
@@ -150,21 +150,21 @@
           "to": "到",
           "go": "查询"
         },
-        "inv-status": "发票状态",
-        "sync": "同步发票",
+        "inv-status": "票据状态",
+        "sync": "同步票据",
         "amount-ap": "应付金额",
-        "inv-num": "发票数",
+        "inv-num": "票据数",
         "sup-num": "供应商数",
         "set-adj": "设置为调整",
         "set-el": "设置为有效",
-        "search": "搜索发票编号",
+        "search": "搜索票据编号",
         "list": {
           "all": "所有",
           "status": "状态",
           "vendor-code": "供应商编号",
           "suppl": "供应商",
-          "inv-id": "发票编号",
-          "inv-amount": "发票金额",
+          "inv-id": "票据编号",
+          "inv-amount": "票据金额",
           "pay-date": "原付款日"
         }
       },
