@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Invoice, InvoicesFilter, MarketStat } from '../../models';
 import { InvoicesService } from '../../services';
-import { InvoiceFilter } from '../../../shared/pipes';
 
 @Component({
   selector: 'eb-market-invoices-manage',
@@ -24,7 +23,6 @@ export class MarketInvoicesManagePage implements OnInit {
   public isStatusInvoice: boolean = false;
   public filterDate = [];
   public filterAmount = [];
-  public test:any;
   constructor(private _invoicesService: InvoicesService,
     private _route: ActivatedRoute,
     private _toastr: ToastrService) {
