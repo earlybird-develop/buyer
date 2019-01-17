@@ -21,7 +21,8 @@ import { InlineEditComponent } from './inline-edit/inline-edit.component';
 import {
   SearchFilterPipe,
   CapitalizePipe,
-  KeysPipe
+  KeysPipe,
+  InvoiceFilter
 } from './pipes';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -45,7 +46,7 @@ import { CustomSelectComponent } from './custom-select/custom-select.component';
     InlineEditComponent,
     FooterComponent,
     DialogComponent,
-
+    InvoiceFilter,
     SearchFilterPipe,
     CapitalizePipe,
     KeysPipe,
@@ -62,7 +63,7 @@ import { CustomSelectComponent } from './custom-select/custom-select.component';
     InlineEditComponent,
     FooterComponent,
     CustomSelectComponent,
-
+    InvoiceFilter,
     SearchFilterPipe,
     CapitalizePipe,
     KeysPipe

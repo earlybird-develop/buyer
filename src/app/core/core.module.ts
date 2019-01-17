@@ -28,7 +28,8 @@ import {
   SubheaderService,
   AccountService,
   ResetPasswordService,
-  ActivationAccountService
+  ActivationAccountService,
+  AESService
 } from './services';
 
 import {
@@ -83,7 +84,8 @@ import {
     SubheaderService,
     AccountService,
     ResetPasswordService,
-    ActivationAccountService
+    ActivationAccountService,
+    AESService
   ],
   declarations: [
     WrapperPage,
