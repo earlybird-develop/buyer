@@ -1,7 +1,6 @@
 import { Attribute, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-
 export interface ISelectOption {
   id: number;
   value: string;
@@ -21,11 +20,9 @@ export interface ISelectOption {
 })
 export class CustomSelectComponent implements ControlValueAccessor {
   public selectedOption: ISelectOption;
-
   @Input() public options: ISelectOption[];
   @Input() public placeholder: string;
   @Input() public title: string;
-
   private _propagateChange: Function = () => null;
 
   constructor() {

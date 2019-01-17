@@ -13,8 +13,8 @@ export class ForgetPasswordPage implements OnInit {
 
   public showEmail: String = '';
   constructor(private router: Router,
-              private _accountService: AccountService,
-              private _toastr: ToastrService) { }
+    private _accountService: AccountService,
+    private _toastr: ToastrService) { }
 
   ngOnInit() {
   }

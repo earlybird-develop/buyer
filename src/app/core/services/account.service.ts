@@ -54,9 +54,10 @@ export class AccountService {
   }
 
   public updateProfile(profile: UserProfile): Observable<UserProfile> {
+    var encryptData = this.aesService.encrypt(profile._toJSON());
     return Observable.create((observer: Observer<UserProfile>) => {
       this._http
-        .post(UPDATE_PROFILE_PATH, { data: profile._toJSON() })
+        .post(UPDATE_PROFILE_PATH, { data: encryptData })
         .subscribe(
           resp => {
             observer.next(<UserProfile>{});
@@ -83,9 +84,10 @@ export class AccountService {
   }
 
   public postForgetPasswordMail(email): Observable<ForegtPasswordEmail> {
+    var encryptData = this .aesService.encrypt(email)
     return Observable.create((observer: Observer<ForegtPasswordEmail>) => {
       this._http
-        .post(FORGET_PASSWORD_EMAIL_SEND, email)
+        .post(FORGET_PASSWORD_EMAIL_SEND, encryptData)
         .subscribe(
           resp => {
             observer.next(<ForegtPasswordEmail>{});

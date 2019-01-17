@@ -1,13 +1,11 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
-
 import { Market, Saler } from '../models';
 import { Model } from 'tsmodels';
 import { DialogService } from '../../shared/dialog';
-
+import { AESService } from './aes.service';
 
 const MARKETS_PATH = '/market/get_market_list';
 const GET_MARKET_HASH_PATH = '/hash/get_hash';
@@ -20,25 +18,18 @@ const DROP_MARKET_ALLOCATE = '/market/drop_market_allocate';
 
 @Injectable()
 export class MarketsService {
-
   // Hack : I'm so sorry :_(
   public popoverClose: EventEmitter<any> = new EventEmitter();
-
-  constructor(private _http: HttpClient,
-    private _dialog: DialogService) { }
-
+  constructor(private _http: HttpClient, private _dialog: DialogService, private aesService: AESService) { }
   public getList(): Observable<Market[]> {
     return Observable.create((observer: Observer<Market[]>) => {
       this._http
         .get(MARKETS_PATH)
         .subscribe(
           response => {
-
             observer.next(
-
               Model.newCollection<Market>(Market, response['data'])
             );
-
             observer.complete();
           },
           errors => observer.error(errors)
@@ -64,10 +55,10 @@ export class MarketsService {
 
   public allocateSchedules(marketSchedule, id: string): Observable<Market> {
     const params = new HttpParams().set('market_id', id);
-
+    var encryptData = this.aesService.encrypt(marketSchedule);
     return Observable.create((observer: Observer<Market>) => {
       this._http
-        .post(SET_MARKET_ALLOCATE,  marketSchedule, { params: params })
+        .post(SET_MARKET_ALLOCATE, encryptData, { params: params })
         .subscribe(
           resp => {
             observer.next(<Market>{});
@@ -80,10 +71,10 @@ export class MarketsService {
 
   public removeSchedules(removeSchedule, id: string): Observable<Market> {
     const params = new HttpParams().set('market_id', id);
-
+    var encryptData = this.aesService.encrypt(removeSchedule);
     return Observable.create((observer: Observer<Market>) => {
       this._http
-        .post(DROP_MARKET_ALLOCATE,  removeSchedule, { params: params })
+        .post(DROP_MARKET_ALLOCATE, encryptData, { params: params })
         .subscribe(
           resp => {
             observer.next(<Market>{});
@@ -96,22 +87,21 @@ export class MarketsService {
 
   public setSettings(market: Market): Observable<Market> {
     const params = new HttpParams().set('market_id', market.id);
-
     const fields = [
-       'market_cash', 'expect_apr', 'min_apr', 'reserve_percentage',
+      'market_cash', 'expect_apr', 'min_apr', 'reserve_percentage',
       'reconcilation_date'
     ];
-
+    var encryptData = this.aesService.encrypt(market._toJSON(fields));
     return Observable.create((observer: Observer<Market>) => {
       this._http
         .post(
           SET_MARKET_SETTINGS_PATH,
-          market._toJSON(fields),
+          encryptData,
           { params: params }
         )
         .subscribe(
           resp => {
-            if (resp['code'] === 0 ) {
+            if (resp['code'] === 0) {
               this._dialog
                 .confirm(resp['data']['message'] + '. Confirm the action?')
                 .subscribe(
@@ -128,8 +118,8 @@ export class MarketsService {
                 );
             } else {
 
-                observer.next(market);
-                observer.complete();
+              observer.next(market);
+              observer.complete();
 
             }
           },
@@ -140,16 +130,14 @@ export class MarketsService {
 
   // tslint:disable-next-line:max-line-length
   public setMarketActive(marketId: string, status: boolean): Observable<boolean> {
-
     const params = new HttpParams().set('market_id', marketId);
-
     const body = {
       active_status: status ? 1 : -1
     };
-
+    var encryptData = this.aesService.encrypt(body);
     return Observable.create((observer: Observer<any>) => {
       this._http
-        .post(SET_MARKET_ACTIVE_PATH, body, { params })
+        .post(SET_MARKET_ACTIVE_PATH, encryptData, { params })
         .subscribe(
           resp => {
             if (resp['code'] === 0) {
@@ -162,8 +150,8 @@ export class MarketsService {
                       resp['data']['confirm-id']
                     ).subscribe(
                       () => {
-                          observer.next(resp);
-                          observer.complete();
+                        observer.next(resp);
+                        observer.complete();
                       },
                       errors => observer.error(errors)
                     );
@@ -171,8 +159,8 @@ export class MarketsService {
                   errors => observer.error(errors)
                 );
             } else {
-                observer.next(resp);
-                observer.complete();
+              observer.next(resp);
+              observer.complete();
             }
           },
           errors => observer.error(errors)
@@ -183,14 +171,13 @@ export class MarketsService {
   public confirmMarketAction(marketId: string, confirmId: string)
     : Observable<boolean> {
     const params = new HttpParams().set('market_id', marketId);
-
     const body = {
       'confirm-id': confirmId
     };
-
+    var encryptData = this.aesService.encrypt(body);
     return Observable.create((observer: Observer<boolean>) => {
       this._http
-        .post(SET_MARKET_ACTION_PATH, body, { params: params })
+        .post(SET_MARKET_ACTION_PATH, encryptData, { params: params })
         .subscribe(
           resp => {
             observer.next(true);
@@ -204,13 +191,11 @@ export class MarketsService {
   // 根据hashtime判断是否取值
   // tslint:disable-next-line:max-line-length
   public getHashList(cashpool_code: string[]): Observable<any> {
-
-    const data = { 'cashpool_code': cashpool_code  };
-
+    const data = { 'cashpool_code': cashpool_code };
+    var encryptData =this.aesService.encrypt(data);
     return Observable.create((observer: Observer<any>) => {
-
       this._http
-        .post( GET_MARKET_HASH_PATH, data )
+        .post(GET_MARKET_HASH_PATH, encryptData)
         .subscribe(
           resp => {
             observer.next(resp);

@@ -32,13 +32,13 @@ export class MarketInvoicesManagePage implements OnInit {
   ngOnInit() {
     this.load();
   }
-  public reloadMarketStat():void{
+  public reloadMarketStat(): void {
     this._invoicesService
-    .getMarketStat(this._marketId, this.filter)
-    .subscribe(
-      x => { this.marketStat = x, console.log(x) },
-      () => this._toastr.error('Internal server error')
-    );
+      .getMarketStat(this._marketId, this.filter)
+      .subscribe(
+        x => { this.marketStat = x, console.log(x) },
+        () => this._toastr.error('Internal server error')
+      );
   }
   public load(): void {
     this._invoicesService
@@ -85,17 +85,17 @@ export class MarketInvoicesManagePage implements OnInit {
       var index = this.filterDate.indexOf(id);
       this.filterDate.splice(index, 1);
     }
-    
+
   }
 
-  public toggleAmount(id: number, e: Event,checked:boolean): void {
+  public toggleAmount(id: number, e: Event, checked: boolean): void {
     this.filter.toggleAmount(id, e);
     this.reloadMarketStat();
     if (checked) {
       this.filterAmount.push(id);
     } else {
-      var index = this.filterAmount.indexOf(id);   
-      this.filterAmount.splice(index,1);
+      var index = this.filterAmount.indexOf(id);
+      this.filterAmount.splice(index, 1);
     }
   }
 

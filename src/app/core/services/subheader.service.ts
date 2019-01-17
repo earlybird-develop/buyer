@@ -3,7 +3,6 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
-
 @Injectable()
 export class SubheaderService {
   private _rootViewContainerRef: ViewContainerRef;
@@ -17,13 +16,10 @@ export class SubheaderService {
     if (this._currentComponent === component) {
       return this.container;
     }
-
     if (this.container) {
       this.dispose();
     }
-
     const childComponent = this._cfr.resolveComponentFactory(component);
-
     const childInjector = Injector.create({
       providers: providers,
       parent: this._rootViewContainerRef.parentInjector
@@ -50,7 +46,4 @@ export class SubheaderService {
       this._currentComponent = null;
     }
   }
-
-
-
 }

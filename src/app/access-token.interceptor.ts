@@ -7,7 +7,6 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
@@ -16,11 +15,10 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class AccessTokenInterceptor implements HttpInterceptor {
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router) { }
 
   public intercept(request: HttpRequest<any>, next: HttpHandler)
-  : Observable<HttpEvent<any>> {
-
+    : Observable<HttpEvent<any>> {
     request = request.clone({
       url: '/rest' + request.url,
       setParams: {
@@ -28,7 +26,6 @@ export class AccessTokenInterceptor implements HttpInterceptor {
         'openid': localStorage.getItem('openid')
       }
     });
-
 
     return next.handle(request)
       .do(null, (err: any) => {
@@ -40,6 +37,4 @@ export class AccessTokenInterceptor implements HttpInterceptor {
         }
       });
   }
-
-
 }

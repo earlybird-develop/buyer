@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../services';
-
 import { ToastrService } from 'ngx-toastr';
-
 import { UserProfile } from '../../models';
 import { NgForm } from '@angular/forms';
 
@@ -16,7 +14,7 @@ export class ProfilePage implements OnInit {
   public user: UserProfile;
 
   constructor(private _accountService: AccountService,
-              private _toastr: ToastrService) { }
+    private _toastr: ToastrService) { }
 
   ngOnInit() {
     this._accountService
