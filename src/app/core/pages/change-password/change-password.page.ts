@@ -8,15 +8,14 @@ import { UserProfile, User } from '../../models';
   templateUrl: './change-password.page.html',
   styleUrls: ['./change-password.page.scss']
 })
-export class ChangePasswordPage implements OnInit{
+export class ChangePasswordPage implements OnInit {
 
   public user: UserProfile;
 
   constructor(private _toastr: ToastrService,
-              private _accountService: AccountService) {
+    private _accountService: AccountService) {
 
   }
-
   ngOnInit() {
     this._accountService
       .getProfile()
@@ -28,5 +27,4 @@ export class ChangePasswordPage implements OnInit{
       .getProfile()
       .subscribe(x => this.user = x);
   }
-
 }

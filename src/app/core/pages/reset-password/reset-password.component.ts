@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// tslint:disable-next-line:max-line-length
 import { FormGroup, ReactiveFormsModule, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ResetPasswordService } from '../../services/reset-password.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,17 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  // 显示隐藏按钮的值
-  public btnValue = 'show';
-  // 显示隐藏按钮的类型
-  public btnType = 'password';
-
+  public btnValue = 'show';// 显示隐藏按钮的值
+  public btnType = 'password';  // 显示隐藏按钮的类型
   // 获取url的verify_code和type值
   // tslint:disable-next-line:member-ordering
   private verifyCode = this.route.snapshot.queryParams['verify_code'] || '';
   // tslint:disable-next-line:member-ordering
   private urlType = this.route.snapshot.queryParams['type'] || '';
-
 
   // 自定义密码与确认密码校验
   passwordValidator(group: FormGroup): any {
@@ -30,14 +25,14 @@ export class ResetPasswordComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     const checkPassword: FormControl = group.get('checkPassword') as FormControl;
     const valid: boolean = (password.value === checkPassword.value);
-    return valid ? null : { equal: { errorInfo: 'true'}};
+    return valid ? null : { equal: { errorInfo: 'true' } };
   }
 
   // 自定义包含最少1个数字校验
   leastOneNum(control: FormControl): any {
     // 正则表达式判断是否有一个数字
     const onlyNum = /\d+/;
-    const valid = onlyNum.test( control.value );
+    const valid = onlyNum.test(control.value);
     return valid ? null : { onlyNum: { number: 'true' } };
   }
 
@@ -68,7 +63,6 @@ export class ResetPasswordComponent implements OnInit {
   // 定义表单属性名称
   // tslint:disable-next-line:member-ordering
   formModel: FormGroup;
-
   constructor(fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
@@ -79,10 +73,10 @@ export class ResetPasswordComponent implements OnInit {
         // 设置密码和确认密码值为空，校验条件为必填和最少长度为8
         // tslint:disable-next-line:max-line-length
         password: ['', [Validators.required, Validators.minLength(8), this.leastOneNum, this.leastOneLeter, this.leastOneCapital, this.SpecialCharacter]],
-        checkPassword: ['', [ Validators.required, Validators.minLength(8) ]]
-      }, { validator: this.passwordValidator})
+        checkPassword: ['', [Validators.required, Validators.minLength(8)]]
+      }, { validator: this.passwordValidator })
     });
-   }
+  }
 
   ngOnInit() {
   }

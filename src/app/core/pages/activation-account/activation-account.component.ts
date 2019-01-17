@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// tslint:disable-next-line:max-line-length
 import { FormGroup, ReactiveFormsModule, FormControl, FormBuilder, Validators } from '@angular/forms';
-// tslint:disable-next-line:max-line-length
 import { ActivationAccountService } from '../../services/activation-account.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -11,11 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./activation-account.component.scss']
 })
 export class ActivationAccountComponent implements OnInit {
-  // 显示隐藏按钮的值
-  public btnValue = 'show';
-  // 显示隐藏按钮的类型
-  public btnType = 'password';
-
+  public btnValue = 'show';// 显示隐藏按钮的值
+  public btnType = 'password'; // 显示隐藏按钮的类型
   // 获取url的verify_code和type值
   // tslint:disable-next-line:member-ordering
   private verifyCode = this.route.snapshot.queryParams['verify_code'] || '';
@@ -31,7 +26,6 @@ export class ActivationAccountComponent implements OnInit {
     const valid: boolean = (password.value === checkPassword.value);
     return valid ? null : { equal: { errorInfo: 'true' } };
   }
-
   // 自定义包含最少1个数字校验
   leastOneNum(control: FormControl): any {
     // 正则表达式判断是否有一个数字
@@ -115,6 +109,4 @@ export class ActivationAccountComponent implements OnInit {
       this.btnType = 'password';
     }
   }
-
-
 }

@@ -3,9 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { CoreRoutingModule } from './core-routing.module';
-
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -15,9 +13,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
 import { SharedModule } from '../shared/shared.module';
-
 
 import {
   MarketsService,
@@ -28,7 +24,8 @@ import {
   SubheaderService,
   AccountService,
   ResetPasswordService,
-  ActivationAccountService
+  ActivationAccountService,
+  AESService
 } from './services';
 
 import {
@@ -83,7 +80,8 @@ import {
     SubheaderService,
     AccountService,
     ResetPasswordService,
-    ActivationAccountService
+    ActivationAccountService,
+    AESService
   ],
   declarations: [
     WrapperPage,

@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-
 import { Model } from 'tsmodels';
 import { Invoice, InvoicesFilter, MarketStat } from '../models';
-
+import { AESService } from './aes.service';
 
 const MARKET_STAT_PATH = '/invoice/get_market_stat';
 const GET_INVOICES_LIST_PATH = '/invoice/get_invoices_list';
@@ -16,17 +14,17 @@ const SYNC_INVOICES_PATH = '/invoice/sync_market_invoices';
 @Injectable()
 export class InvoicesService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private aesService: AESService) { }
 
   public getMarketStat(marketId: string, filter: InvoicesFilter)
-  : Observable<MarketStat> {
+    : Observable<MarketStat> {
 
     let params = new HttpParams().set('market_id', marketId);
     const filterObject = filter._toJSON();
 
     let keys = Object.keys(filterObject);
 
-    if (filter.invoiceStatus !== 'eligible'  &&  filter.invoiceStatus !== 'all') {
+    if (filter.invoiceStatus !== 'eligible' && filter.invoiceStatus !== 'all') {
       keys = ['invoice_status'];
     }
 
@@ -48,14 +46,14 @@ export class InvoicesService {
   }
 
   public getList(marketId: string, filter: InvoicesFilter)
-  : Observable<Invoice[]> {
+    : Observable<Invoice[]> {
 
     let params = new HttpParams().set('market_id', marketId);
     const filterObject = filter._toJSON();
 
     let keys = Object.keys(filterObject);
 
-    if (filter.invoiceStatus !== 'eligible' &&  filter.invoiceStatus !== 'all') {
+    if (filter.invoiceStatus !== 'eligible' && filter.invoiceStatus !== 'all') {
       keys = ['invoice_status'];
     }
 
@@ -79,14 +77,13 @@ export class InvoicesService {
   }
 
   public setAdjustment(marketId: string, ids: string[], type: number)
-  : Observable<boolean> {
+    : Observable<boolean> {
     const params = new HttpParams().set('market_id', marketId);
-
     const body = { 'inv_id': ids, 'is_eligiable': type };
-
+    var encryptData = this.aesService.encrypt(body);
     return Observable.create((observer: Observer<boolean>) => {
       this._http
-        .post(SET_INVOICES_ELIGIABLE_PATH, body, { params })
+        .post(SET_INVOICES_ELIGIABLE_PATH, encryptData, { params })
         .subscribe(
           res => {
             if (res['code'] === 0) {
@@ -112,7 +109,7 @@ export class InvoicesService {
             observer.next(true);
             observer.complete();
           },
-            errors => observer.error(errors)
+          errors => observer.error(errors)
         );
     });
   }

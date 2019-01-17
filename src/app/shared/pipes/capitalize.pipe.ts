@@ -11,5 +11,4 @@ export class CapitalizePipe implements PipeTransform {
     }
     return value;
   }
-
 }

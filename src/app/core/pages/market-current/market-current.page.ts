@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { CurrentMarketService, MarketsService } from '../../services';
-
-import {
-  CurrentMarket,
-  CurrentMarketStat,
-  SuppliersNetworkStat
-} from '../../models';
+import { CurrentMarket, CurrentMarketStat, SuppliersNetworkStat } from '../../models';
 import { ToastrService } from 'ngx-toastr';
-
 
 @Component({
   selector: 'eb-market-current',
@@ -19,23 +12,15 @@ import { ToastrService } from 'ngx-toastr';
 export class MarketCurrentPage implements OnInit {
 
   private _marketId: string;
-
   public graphData: Object[] = [];
-
   public currentMarket: CurrentMarket;
   public currentMarketStat: CurrentMarketStat;
   public supplierNetworkStat: SuppliersNetworkStat;
-
-  // 页面重新读取数据时间
-  private refresh_time = 5000;
+  private refresh_time = 5000;// 页面重新读取数据时间
   private _interval: any;
-
   private refresh_data = false;
-
   private current_hash = [];
-
   private _code: string;
-
   // Chart configuration
   public barChartType = 'bar';
   public barChartLabels: string[] = [];
@@ -69,7 +54,7 @@ export class MarketCurrentPage implements OnInit {
             }
           },
           gridLines: {
-              drawOnChartArea: false
+            drawOnChartArea: false
           }
         },
         {
@@ -85,7 +70,7 @@ export class MarketCurrentPage implements OnInit {
             }
           },
           gridLines: {
-              drawOnChartArea: false
+            drawOnChartArea: false
           }
         }
       ]
@@ -100,13 +85,11 @@ export class MarketCurrentPage implements OnInit {
   }
 
   ngOnInit() {
-
     this.load_hash();
     this.load_getMarketGraph();
     this.load_currentMarket();
     this.load_getMarketStat();
     this.load_getSupplierNetworkStat();
-
     this._interval = setInterval(
       () => {
         // this.load();
@@ -123,7 +106,6 @@ export class MarketCurrentPage implements OnInit {
       , this.refresh_time
     );
   }
-
   // 获取hash值
   load_hash() {
     this._marketsService

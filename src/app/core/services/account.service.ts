@@ -1,37 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { HttpClient, HttpParams } from '@angular/common/http';
-
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-import * as CryptoJS from 'crypto-js';
 import { UserProfile, ForegtPasswordEmail } from '../models';
-
+import { AESService } from './aes.service';
 const GET_ACCESS_TOKEN_PATH = '/oauth2/get_access_token';
 const GET_PROFILE_PATH = '/account/get_profile';
 const UPDATE_PROFILE_PATH = '/account/update_profile';
 const FORGET_PASSWORD_EMAIL_SEND = '/service/reset_password';
 const CHANGE_PASSWORD = '/account/change_password';
-const aseKey = '1234567890123456';
 @Injectable()
 export class AccountService {
 
-  constructor(private _http: HttpClient, private _router: Router) { }
+  constructor(private _http: HttpClient, private _router: Router, private aesService: AESService) { }
 
   public getAccessToken(httpParams: Object): Observable<boolean> {
     const params = new HttpParams()
-        .set('appid', 'cisco')
-        .set('secret', '123456')
-        .set('grant_type', 'password');
-        var encryptPassword = CryptoJS.AES.encrypt(httpParams['password'], CryptoJS.enc.Utf8.parse(aseKey), {
-          mode: CryptoJS.mode.ECB,
-          padding: CryptoJS.pad.Pkcs7
-        }).toString();
-
+      .set('appid', 'cisco')
+      .set('secret', '123456')
+      .set('grant_type', 'password');
+    var encryptPassword = this.aesService.encrypt(httpParams['password']);
     return Observable.create((observer: Observer<boolean>) => {
       this._http
-        .post(GET_ACCESS_TOKEN_PATH, {'username':httpParams['email'],'password':encryptPassword},{ params })
+        .post(GET_ACCESS_TOKEN_PATH, { 'username': httpParams['email'], 'password': encryptPassword }, { params })
         .subscribe(
           resp => {
             localStorage.setItem('access_token', resp['access_token']);
@@ -62,9 +54,10 @@ export class AccountService {
   }
 
   public updateProfile(profile: UserProfile): Observable<UserProfile> {
+    var encryptData = this.aesService.encrypt(profile._toJSON());
     return Observable.create((observer: Observer<UserProfile>) => {
       this._http
-        .post(UPDATE_PROFILE_PATH, { data: profile._toJSON() })
+        .post(UPDATE_PROFILE_PATH, { data: encryptData })
         .subscribe(
           resp => {
             observer.next(<UserProfile>{});
@@ -90,10 +83,11 @@ export class AccountService {
     })
   }
 
-  public postForgetPasswordMail(email): Observable<ForegtPasswordEmail>{
-    return Observable.create((observer : Observer<ForegtPasswordEmail>) => {
+  public postForgetPasswordMail(email): Observable<ForegtPasswordEmail> {
+    var encryptData = this .aesService.encrypt(email)
+    return Observable.create((observer: Observer<ForegtPasswordEmail>) => {
       this._http
-        .post(FORGET_PASSWORD_EMAIL_SEND, email)
+        .post(FORGET_PASSWORD_EMAIL_SEND, encryptData)
         .subscribe(
           resp => {
             observer.next(<ForegtPasswordEmail>{});

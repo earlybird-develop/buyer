@@ -16,7 +16,7 @@ export class ComponentBase {
   public _show<T>(
     component: Type<T>,
     providers: ResolvedReflectiveProvider[] = [])
-  : void {
+    : void {
 
     if (!this.container) {
       const childComponent =
