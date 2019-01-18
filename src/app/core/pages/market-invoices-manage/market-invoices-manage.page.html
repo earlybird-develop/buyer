@@ -128,16 +128,16 @@
   <div class="market-stats">
     <div class="awarded">
       <div class="title">{{ 'buyer.pages.invoices.amount-ap' | translate }}</div>
-      <div class="amount">{{ marketStat?.availableAmount | currency: marketStat?.currencySign }}&nbsp;
+      <div class="amount">{{ availableAmount | currency: marketStat?.currencySign }}&nbsp;
       </div>
     </div>
     <div class="total-discount">
       <div class="title">{{ 'buyer.pages.invoices.inv-num' | translate }}</div>
-      <div class="amount">{{  marketStat?.invoiceCount}}&nbsp;</div>
+      <div class="amount">{{  invoiceCount}}&nbsp;</div>
     </div>
     <div class="average-discount">
       <div class="title">{{ 'buyer.pages.invoices.sup-num' | translate }}</div>
-      <div class="amount">{{ marketStat?.suppliersCount }}&nbsp;</div>
+      <div class="amount">{{ suppliersCount }}&nbsp;</div>
     </div>
   </div>
 
