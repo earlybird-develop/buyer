@@ -23,6 +23,9 @@ export class MarketInvoicesManagePage implements OnInit {
   public isStatusInvoice: boolean = false;
   public filterDate = [];
   public filterAmount = [];
+  public availableAmount:number;
+  public invoiceCount:number;
+  public suppliersCount:number;
   constructor(private _invoicesService: InvoicesService,
     private _route: ActivatedRoute,
     private _toastr: ToastrService) {
@@ -32,19 +35,18 @@ export class MarketInvoicesManagePage implements OnInit {
   ngOnInit() {
     this.load();
   }
-  public reloadMarketStat(): void {
-    this._invoicesService
-      .getMarketStat(this._marketId, this.filter)
-      .subscribe(
-        x => { this.marketStat = x, console.log(x) },
-        () => this._toastr.error('Internal server error')
-      );
+
+  public setMarksetStat(availableAmount:number,invoiceCount:number,suppliersCount:number):void{
+    this.availableAmount= availableAmount;
+    this.invoiceCount=invoiceCount;
+    this.suppliersCount=suppliersCount;
   }
+
   public load(): void {
     this._invoicesService
       .getMarketStat(this._marketId, this.filter)
       .subscribe(
-        x => { this.marketStat = x, console.log(x) },
+        x => { this.marketStat = x},
         () => this._toastr.error('Internal server error')
       );
 
@@ -78,19 +80,16 @@ export class MarketInvoicesManagePage implements OnInit {
   public toggleDpe(id: number, e: Event, check: boolean): void {
     this.filter.toggleDpe(id, e);
     this.filter.toggleDpe(id, e);
-    this.reloadMarketStat();
     if (check) {
       this.filterDate.push(id);
     } else {
       var index = this.filterDate.indexOf(id);
       this.filterDate.splice(index, 1);
     }
-
   }
 
   public toggleAmount(id: number, e: Event, checked: boolean): void {
     this.filter.toggleAmount(id, e);
-    this.reloadMarketStat();
     if (checked) {
       this.filterAmount.push(id);
     } else {
