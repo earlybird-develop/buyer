@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { Model } from 'tsmodels';
 import { Invoice, InvoicesFilter, MarketStat } from '../models';
-import { AESService } from './aes.service';
+
 
 const MARKET_STAT_PATH = '/invoice/get_market_stat';
 const GET_INVOICES_LIST_PATH = '/invoice/get_invoices_list';
@@ -14,7 +14,7 @@ const SYNC_INVOICES_PATH = '/invoice/sync_market_invoices';
 @Injectable()
 export class InvoicesService {
 
-  constructor(private _http: HttpClient, private aesService: AESService) { }
+  constructor(private _http: HttpClient) { }
 
   public getMarketStat(marketId: string, filter: InvoicesFilter)
     : Observable<MarketStat> {
@@ -80,10 +80,9 @@ export class InvoicesService {
     : Observable<boolean> {
     const params = new HttpParams().set('market_id', marketId);
     const body = { 'inv_id': ids, 'is_eligiable': type };
-    var encryptData = this.aesService.encrypt(body);
     return Observable.create((observer: Observer<boolean>) => {
       this._http
-        .post(SET_INVOICES_ELIGIABLE_PATH, encryptData, { params })
+        .post(SET_INVOICES_ELIGIABLE_PATH, body, { params })
         .subscribe(
           res => {
             if (res['code'] === 0) {

@@ -5,7 +5,6 @@ import { RegisteredEvent, Supplier, User } from '../models';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { SuppliersStat } from '../models';
-import { AESService } from './aes.service';
 const GET_SUPPLIER_STAT_PATH = '/supplier/get_supplier_stat';
 const GET_SUPPLIERS_LIST = '/supplier/get_supplier_list';
 const GET_SUPPLIER_USER_LIST = '/supplier/get_supplier_user_list';
@@ -13,7 +12,7 @@ const SET_SUPPLIER_ACTION = '/supplier/set_supplier_action';
 
 @Injectable()
 export class SuppliersService {
-  constructor(private _http: HttpClient, private aesService: AESService) { }
+  constructor(private _http: HttpClient) { }
   public getSuppliers(marketId: string): Observable<Supplier[]> {
     const params = new HttpParams().set('market_id', marketId);
     return Observable.create((observer: Observer<Supplier[]>) => {
@@ -67,12 +66,11 @@ export class SuppliersService {
   public setUserAction(event: RegisteredEvent, id: string)
     : Observable<any> {
     const params = new HttpParams().set('supplier_id', id);
-    var encryptData = this.aesService.encrypt(event._toJSON(['action_type', 'action_id']));
     return Observable.create((observer: Observer<any>) => {
       this._http
         .post(
           SET_SUPPLIER_ACTION,
-          encryptData,
+          event._toJSON(['action_type', 'action_id']),
           { params: params }
         )
         .subscribe(
