@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-import { AESService } from './aes.service';
-// tslint:disable-next-line:max-line-length
+
 const ResetPassword_Url = '/service/flush_password';
 
 @Injectable()
 export class ActivationAccountService {
 
-  // tslint:disable-next-line:max-line-length
-  constructor(private _http: HttpClient, private aesService: AESService) { }
+  constructor(private _http: HttpClient) { }
 
   public make(httpParams: Object): Observable<any> {
 
@@ -22,10 +20,9 @@ export class ActivationAccountService {
     const params = new HttpParams()
       .set('verify_code', httpParams['passwordInfo'].verify_code)
       .set('type', httpParams['passwordInfo'].type);
-    var encryptData = this.aesService.encrypt(data);
     return Observable.create((observer: Observer<any>) => {
       this._http
-        .post(ResetPassword_Url, encryptData, { params })
+        .post(ResetPassword_Url, data, { params })
         .subscribe(
           () => {
             observer.next(true);

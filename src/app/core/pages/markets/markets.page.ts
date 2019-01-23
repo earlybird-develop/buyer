@@ -106,9 +106,7 @@ export class MarketsPage implements OnInit {
     const initialState = {
       marketOrig: this.currentMarket
     };
-    // tslint:disable-next-line:max-line-length
     this.bsModalRef = this.modalService.show(MarketSettingComponent, Object.assign({ initialState }, { class: 'setting-modal' }));
-    // console.log(this.bsModalRef);
   }
 
   call() { }

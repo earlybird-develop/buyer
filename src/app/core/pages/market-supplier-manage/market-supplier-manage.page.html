@@ -42,16 +42,17 @@
   <table class="table table-hovered">
     <thead>
       <tr>
-        <!--<th>ID</th>-->
+        <th>No.</th>
         <th>{{ 'buyer.pages.supplier.list.supplier' | translate }}SUPPLIER</th>
         <th>{{ 'buyer.pages.supplier.list.vendor-code' | translate }}</th>
         <th>{{ 'buyer.pages.supplier.list.reg-user' | translate }}</th>
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let supplier of suppliers">
+      <ng-container *ngFor="let supplier of suppliers;let i = index">
         <tr [class.detailed]="supplier._showDetails" (click)="setSupplierUsers(supplier)">
           <!--<td>{{ supplier.id }}</td>-->
+          <td>{{ i+1}}</td>
           <td>{{ supplier.name }}</td>
           <td>{{ supplier.vendorCode }}</td>
           <td class="arrow">{{ supplier.usersCount }}</td>
