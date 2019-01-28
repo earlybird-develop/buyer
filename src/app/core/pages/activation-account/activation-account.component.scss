@@ -138,7 +138,14 @@
     margin-bottom: 20px;
     margin-top: 52px;
     display: flow-root;
-    
+    p{
+        font-size: 10px;
+    }
+    .privacy{
+        text-align: right;
+        padding-left: 100px; 
+        color: #24457C;
+    }
     .continue-btn{
         background-color: #589b3c;
         color: #fff !important;

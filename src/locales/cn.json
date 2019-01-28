@@ -246,7 +246,10 @@
         "check6": "密码和确认密码不一致"
       },
       "activation": {
-        "title": "账户激活"
+        "title": "账户激活",
+        "privacy":"EB-CF 隐私条款",
+        "agree":"同意",
+        "disagree":"不同意"
       },
       "forget-password-message": {
         "title": "检查电子邮件",

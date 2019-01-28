@@ -106,7 +106,7 @@ export class MarketsPage implements OnInit {
     const initialState = {
       marketOrig: this.currentMarket
     };
-    this.bsModalRef = this.modalService.show(MarketSettingComponent, Object.assign({ initialState }, { class: 'setting-modal' }));
+    this.bsModalRef = this.modalService.show(MarketSettingComponent, Object.assign({ class:'market-setting',initialState }, { class: 'setting-modal' }));
   }
 
   call() { }
