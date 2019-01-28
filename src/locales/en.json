@@ -252,7 +252,10 @@
         "check6": "Inconsistent password"
       },
       "activation": {
-        "title": "Activation Account"
+        "title": "Activation Account",
+        "privacy":"EB-CF Privacy",
+        "agree":"Agree",
+        "disagree":"Disagree"
       },
       "forget-password-message": {
         "title": "Check your email",

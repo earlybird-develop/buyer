@@ -232,6 +232,25 @@
         "back-to-login":"返回登录", 
         "continue":"继续"
       },
+      "reset": {
+        "title": "重置密码",
+        "password": "密码",
+        "check": "确认密码",
+        "hide": "隐藏",
+        "show": "显示",
+        "check1": "最少8个字符",
+        "check2": "包含最少1个数字",
+        "check3": "包含最少1个大写字母",
+        "check4": "包含最少1个小写字母",
+        "check5": "禁止非数字非字母",
+        "check6": "密码和确认密码不一致"
+      },
+      "activation": {
+        "title": "账户激活",
+        "privacy":"EB-CF 隐私条款",
+        "agree":"同意",
+        "disagree":"不同意"
+      },
       "forget-password-message": {
         "title": "检查电子邮件",
         "message": "如果与 <a class='emailLink' href=\"forgetmail: {{forgetmail}}\">{{forgetmail}}</a> 相链接的账户在我们的记录中, 我们就已发送了提供重置密码说明的电子邮件。如果您没有收到此电子邮件，. 请单击 <a class='emailLink' href=\"email: {{email}}\">此处</a> 以联系支持部门。",
