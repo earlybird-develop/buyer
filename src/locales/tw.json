@@ -178,6 +178,9 @@
           "supplier": "供应商",
           "vendor-code": "供应商编号",
           "reg-user": "已注册用户数",
+          "activation-status":"激活狀態",
+          "participation-status":"參與狀態",
+          "available-invoice":"有效發票",
           "sublist": {
             "contact": "联系人",
             "position": "职位",

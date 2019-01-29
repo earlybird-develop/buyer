@@ -2,49 +2,47 @@
   <div class="header">{{ 'buyer.pages.supplier.title' | translate }}</div>
 
   <div class="statistic">
-  <div class="stat">
-    <div class="title">{{ 'buyer.pages.supplier.total-sup' | translate }}</div>
-    <div class="value">{{ stat?.totalCount }}&nbsp;</div>
-    <div class="progress">
-      <div class="progress-bar"
-           *ngIf="stat"
-           [style.width]="calculatePersentage(stat?.totalApCount, stat?.totalCount)">
+    <div class="stat">
+      <div class="title">{{ 'buyer.pages.supplier.total-sup' | translate }}</div>
+      <div class="value">{{ stat?.totalCount }}&nbsp;</div>
+      <div class="progress">
+        <div class="progress-bar" *ngIf="stat" [style.width]="calculatePersentage(stat?.totalApCount, stat?.totalCount)">
+        </div>
       </div>
+      <div class="summary"><span>{{ stat?.totalApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
     </div>
-    <div class="summary"><span>{{ stat?.totalApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
-  </div>
-  <div class="stat blue">
-    <div class="title">{{ 'buyer.pages.supplier.reg-sup' | translate }}</div>
-    <div class="value">{{ stat?.registeredCount }}&nbsp;</div>
-    <div class="progress">
-      <div class="progress-bar"
-           *ngIf="stat"
-           [style.width]="calculatePersentage(stat?.registeredApCount, stat?.registeredCount )">
+    <div class="stat blue">
+      <div class="title">{{ 'buyer.pages.supplier.reg-sup' | translate }}</div>
+      <div class="value">{{ stat?.registeredCount }}&nbsp;</div>
+      <div class="progress">
+        <div class="progress-bar" *ngIf="stat" [style.width]="calculatePersentage(stat?.registeredApCount, stat?.registeredCount )">
+        </div>
       </div>
+      <div class="summary"><span>{{ stat?.registeredApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
     </div>
-    <div class="summary"><span>{{ stat?.registeredApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
-  </div>
-  <div class="stat green">
-    <div class="title">{{ 'buyer.pages.supplier.part-sup' | translate }}</div>
-    <div class="value">{{ stat?.participatedCount }}</div>
-    <div class="progress">
-      <div class="progress-bar"
-           *ngIf="stat"
-           [style.width]="calculatePersentage(stat?.participatedApCount, stat?.participatedCount )">
+    <div class="stat green">
+      <div class="title">{{ 'buyer.pages.supplier.part-sup' | translate }}</div>
+      <div class="value">{{ stat?.participatedCount }}</div>
+      <div class="progress">
+        <div class="progress-bar" *ngIf="stat" [style.width]="calculatePersentage(stat?.participatedApCount, stat?.participatedCount )">
+        </div>
       </div>
+      <div class="summary"><span>{{ stat?.participatedApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate
+        }}</div>
     </div>
-    <div class="summary"><span>{{ stat?.participatedApCount }}</span> {{ 'buyer.pages.supplier.with-ap' | translate }}</div>
   </div>
-</div>
 </div>
 
 <div class="list">
   <table class="table table-hovered">
     <thead>
       <tr>
-        <th>No.</th>
-        <th>{{ 'buyer.pages.supplier.list.supplier' | translate }}SUPPLIER</th>
+        <th style="width:2px">No.</th>
+        <th>{{ 'buyer.pages.supplier.list.supplier' | translate }}</th>
         <th>{{ 'buyer.pages.supplier.list.vendor-code' | translate }}</th>
+        <th>{{ 'buyer.pages.supplier.list.activation-status' | translate }}</th>
+        <th>{{ 'buyer.pages.supplier.list.participation-status' | translate }}</th>
+        <th>{{ 'buyer.pages.supplier.list.available-invoice' | translate }}</th>
         <th>{{ 'buyer.pages.supplier.list.reg-user' | translate }}</th>
       </tr>
     </thead>
@@ -52,16 +50,17 @@
       <ng-container *ngFor="let supplier of suppliers;let i = index">
         <tr [class.detailed]="supplier._showDetails" (click)="setSupplierUsers(supplier)">
           <!--<td>{{ supplier.id }}</td>-->
-          <td>{{ i+1}}</td>
+          <td style="width:2px">{{ i+1}}</td>
           <td>{{ supplier.name }}</td>
           <td>{{ supplier.vendorCode }}</td>
+          <td>{{ supplier.status == "0" ? "×":"√"  }}</td>
+          <td>{{ stat.participatedCount }}</td>
+          <td>{{stat.participatedCount }}</td>
           <td class="arrow">{{ supplier.usersCount }}</td>
         </tr>
         <tr class="details" *ngIf="supplier._showDetails">
-          <td colspan="4"
-              class="users-table-container"
-              [class.expand]="supplier.hasUserRegisterEvent()">
-            <table class="table users-table">
+          <td colspan="4" class="users-table-container" [class.expand]="supplier.hasUserRegisterEvent()">
+            <table class="table users-table" >
               <thead>
                 <tr>
                   <th>{{ 'buyer.pages.supplier.list.sublist.contact' | translate }}</th>
@@ -82,9 +81,7 @@
                   <td>{{ user.registeredStatus }}</td>
                   <td>{{ user.registeredTime }}</td>
                   <td class="invite-column">
-                    <a class="btn btn-primary invite-btn"
-                       *ngIf="user.hasRegisterEvent()"
-                       (click)="setUserAction(user, supplier.id)">
+                    <a class="btn btn-primary invite-btn" *ngIf="user.hasRegisterEvent()" (click)="setUserAction(user, supplier.id)">
                       {{ user.registeredEvent.label }}
                     </a>
                   </td>
