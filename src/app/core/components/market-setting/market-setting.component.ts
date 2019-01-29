@@ -43,8 +43,7 @@ export class MarketSettingComponent implements OnInit {
             market_cash: market.cash,
             expect_apr: market.expectApr,
             min_apr: market.minApr,
-            reserve_percentage: market.reservePercentage,
-            reconcilation_date: market.reconcilationDate
+            reserve_percentage: market.reservePercentage
           };
           let data = market.schedulesList;
           this.marketAllocates = JSON.parse(JSON.stringify(data));
@@ -97,8 +96,7 @@ export class MarketSettingComponent implements OnInit {
       market_cash: this.market.cash,
       expect_apr: this.market.expectApr,
       min_apr: this.market.minApr,
-      reserve_percentage: this.market.reservePercentage,
-      reconcilation_date: this.market.reconcilationDate
+      reserve_percentage: this.market.reservePercentage
     };
 
     let checkMarketSetting = JSON.stringify(this.marketSettings) == JSON.stringify(marketSettings)

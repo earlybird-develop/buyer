@@ -23,13 +23,13 @@ export class MarketSupplierManagePage implements OnInit {
     this._suppliersService
       .getSuppliers(this.marketId)
       .subscribe(
-        x => this.suppliers = x,
+        x =>{this.suppliers = x;console.log(x)} ,
         () => this._toastr.error('Internal server error')
       );
     this._suppliersService
       .getSuppliersStat(this.marketId)
       .subscribe(
-        x => this.stat = x,
+        x => {this.stat = x;console.log(x);},
         () => this._toastr.error('Internal server error')
       );
   }
