@@ -1,13 +1,49 @@
 :host {
-  bottom: 0;
+  border-top: 1px solid #ececec;
   display: block;
-  width: 100%;
+  background: #43464c
+}
+
+.menu {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+
+  li {
+    display: inline-block;
+    margin: 0 30px;
+
+    a {
+      color: #262626;
+      font-size: 13px;
+    }
+  }
 }
 
 footer {
-  background-color: #f5f6f7;
-  font-size: 14px;
-  height: 40px;
-  line-height: 40px;
+  color: rgba(255, 255, 255, 0.32);
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+.privacy{
+  color: rgba(255, 255, 255, 0.32);
+}
+footer div{
+  background: #43464c;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 13px;
   text-align: center;
+  width: 50%;
+  float:left;
+  padding: 10px 0 10px 0;
+}
+
+@media(max-width: 700px) {
+  .menu {
+    li {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
 }

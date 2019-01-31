@@ -8,7 +8,8 @@
       <div class="form-group">
         <label class="password" for="password">{{ 'buyer.pages.reset.password' | translate }}</label>
         <span class="red-color">*</span>
-        <input id="password" type="{{ btnType }}"  (input)="passwordChecking($event.target.value)" class="form-control" maxlength="15" >
+        <input id="password" type="{{ btnType }}" (input)="passwordChecking($event.target.value)" class="form-control"
+          maxlength="15">
         <div class="showHidenBtn">
           <input type="button" class="showHidenBox" (click)="check()" value="{{ 'buyer.pages.reset.'+btnValue | translate }}">
         </div>
@@ -36,7 +37,8 @@
         </div>
         <label class="password" for="check">{{ 'buyer.pages.reset.check' | translate }}</label>
         <span class="red-color">*</span>
-        <input id="check-password"  (input)="passwordMatching($event.target.value)" type="{{ btnType }}" class="form-control" maxlength="15">
+        <input id="check-password" (input)="passwordMatching($event.target.value)" type="{{ btnType }}" class="form-control"
+          maxlength="15">
         <div class="" [hidden]="passwordCheckedMatch">
           <div class="errorText">
             <img class="errorImg" src="../../../../assets/error.svg">
@@ -46,9 +48,10 @@
       </div>
       <div class="forgot">
         <div class="col">
-            <div class="row privacy">
-                <a style=" text-align: right">{{'buyer.pages.activation.privacy' | translate}}</a>
-              </div>
+          <div class="row privacy">
+            <p>{{'buyer.pages.activation.privacy-agree' | translate}}</p>
+            <a> {{'buyer.pages.activation.privacy' | translate}}</a>
+          </div>
           <button type="submit" class="btn-primary continue-btn">{{ 'buyer.pages.forget.continue' |
             translate }}</button>
           <button class="btn back-to-login" [routerLink]="['/signin']" href="javascript:void(0);">{{

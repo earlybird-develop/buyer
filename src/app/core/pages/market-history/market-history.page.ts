@@ -157,7 +157,11 @@ export class MarketHistoryPage implements OnInit {
     const history = this.awards
       .map(x => x._toJSON());
     // console.log(history);
-    const params = { useBom: false };
+    const params = {
+      useBom: false,
+      showLabels: true,
+      headers: ['average_apr', 'average_discount', 'average_dpe', 'award_id', 'award_date', 'discount_amount', 'invoice_amount', 'invoice_count', 'paid_amount']
+    };
     const csv = new Angular2Csv(history, 'History', params);
   }
 

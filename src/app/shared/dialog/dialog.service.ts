@@ -5,10 +5,9 @@ import { ComponentBase } from './component-base';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { DialogComponent } from './dialog.component';
-
+declare var Buffer: any;
 @Injectable()
 export class DialogService extends ComponentBase {
-
   constructor(componentFactoryResolver: ComponentFactoryResolver) {
     super(componentFactoryResolver);
   }
@@ -36,6 +35,12 @@ export class DialogService extends ComponentBase {
   }
 
   public confirm(text: string): Observable<boolean> {
+    var lang = localStorage.getItem('lang');
+    if (lang == 'cn') {
+      text = "这个市场状态是由供应商提供的。确定去改变？"
+    } else if (lang == 'tw' ) {
+      text = "這個市場狀態是由供應商提供的。確定去改變？"
+    }
     return this.show('confirm', text);
   }
 }

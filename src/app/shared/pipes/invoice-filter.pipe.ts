@@ -82,7 +82,7 @@ export class InvoiceFilter implements PipeTransform {
       }
       returnValue = temReturnValue;
     }
-    if (returnValue && returnValue.length > 0) {
+    if (returnValue) {
       var availableAmount, invoiceCount, supplierArray;
       invoiceCount = returnValue.length;
       availableAmount = 0;

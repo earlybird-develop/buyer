@@ -258,7 +258,8 @@
         "title": "Activation Account",
         "privacy":"EB-CF Privacy",
         "agree":"Agree",
-        "disagree":"Disagree"
+        "disagree":"Disagree",
+        "privacy-agree":"By clicking 'CONTINUE' you agree to EB-CF Privacy"
       },
       "forget-password-message": {
         "title": "Check your email",

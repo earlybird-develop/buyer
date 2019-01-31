@@ -252,7 +252,8 @@
         "title": "账户激活",
         "privacy":"EB-CF 隐私条款",
         "agree":"同意",
-        "disagree":"不同意"
+        "disagree":"不同意",
+        "privacy-agree":"点击继续按钮说明您同意我们的"
       },
       "forget-password-message": {
         "title": "检查电子邮件",
