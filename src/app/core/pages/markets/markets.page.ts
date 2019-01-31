@@ -98,9 +98,6 @@ export class MarketsPage implements OnInit, OnDestroy {
 
     this.refresh_data = false;
   }
-  ngOnDestroy() {
-    clearInterval(this._interval);
-  }
 
   openModalWithComponent() {
     const initialState = {
