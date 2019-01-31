@@ -1,4 +1,4 @@
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, OnDestroy, QueryList, ViewChildren } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { MarketsService } from '../../services';
 import { Market, Saler } from '../../models';
@@ -11,7 +11,7 @@ import { MarketSettingComponent } from '../../components/market-setting/market-s
   templateUrl: './markets.page.html',
   styleUrls: ['./markets.page.scss']
 })
-export class MarketsPage implements OnInit {
+export class MarketsPage implements OnInit, OnDestroy {
   public participation = 'all_on';
   public currentMarket: Market;
   public salers: Saler[];
@@ -134,5 +134,12 @@ export class MarketsPage implements OnInit {
         },
         error => this._toastr.error(error['statusText'])
       );
+  }
+
+  ngOnDestroy(){
+
+    //页面销毁的时候取消遍历器  #modified by loudon 2019-01-31
+    clearInterval(this._interval);
+
   }
 }

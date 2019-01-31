@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrentMarketService, MarketsService } from '../../services';
 import { CurrentMarket, CurrentMarketStat, SuppliersNetworkStat } from '../../models';
@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './market-current.page.html',
   styleUrls: ['./market-current.page.scss']
 })
-export class MarketCurrentPage implements OnInit {
+export class MarketCurrentPage implements OnInit, OnDestroy {
 
   private _marketId: string;
   public graphData: Object[] = [];
@@ -88,6 +88,7 @@ export class MarketCurrentPage implements OnInit {
     this.load_currentMarket();
     this.load_getMarketStat();
     this.load_getSupplierNetworkStat();
+
     this._interval = setInterval(
       () => {
         // this.load();
@@ -125,6 +126,7 @@ export class MarketCurrentPage implements OnInit {
                   this.refresh_data = false;
                 }
               } else {
+
                 this.current_hash.push(this._code);
                 this.current_hash[this._code] = hash['stat_hash'];
 
@@ -206,4 +208,12 @@ export class MarketCurrentPage implements OnInit {
       borderColor: '#000'
     });
   }
+
+  ngOnDestroy(){
+
+    //页面销毁的时候取消遍历器  #modified by loudon 2019-01-31
+    clearInterval(this._interval);
+
+  }
+
 }
