@@ -10,26 +10,33 @@ const GET_PROFILE_PATH = '/account/get_profile';
 const UPDATE_PROFILE_PATH = '/account/update_profile';
 const FORGET_PASSWORD_EMAIL_SEND = '/service/reset_password';
 const CHANGE_PASSWORD = '/account/change_password';
+
 @Injectable()
 export class AccountService {
 
   constructor(private _http: HttpClient, private _router: Router, private aesService: AESService) { }
 
   public getAccessToken(httpParams: Object): Observable<boolean> {
+
     const params = new HttpParams()
       .set('appid', 'cisco')
       .set('secret', '123456')
       .set('grant_type', 'password');
+
     var encryptPassword = this.aesService.encrypt(httpParams['password']);
+
     return Observable.create((observer: Observer<boolean>) => {
       this._http
         .post(GET_ACCESS_TOKEN_PATH, { 'username': httpParams['email'], 'password': encryptPassword }, { params })
         .subscribe(
           resp => {
-            localStorage.setItem('access_token', resp['access_token']);
-            localStorage.setItem('expire_time', resp['expire_time']);
-            localStorage.setItem('openid', resp['openid']);
-            localStorage.setItem('refresh_token', resp['refresh_token']);
+
+                localStorage.setItem('access_token', resp['access_token']);
+                localStorage.setItem('expire_time', resp['expire_time']);
+                localStorage.setItem('openid', resp['openid']);
+                localStorage.setItem('refresh_token', resp['refresh_token']);
+                localStorage.setItem('nonce', resp['nonce']);
+
             observer.next(true);
             observer.complete();
           },
@@ -37,6 +44,7 @@ export class AccountService {
         );
     });
   }
+
 
   public getProfile(): Observable<UserProfile> {
     return Observable.create((observer: Observer<UserProfile>) => {
