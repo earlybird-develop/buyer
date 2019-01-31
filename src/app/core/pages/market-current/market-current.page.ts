@@ -49,7 +49,6 @@ export class MarketCurrentPage implements OnInit {
             fontSize: 18,
             callback: function (dataLabel, index) {
               const dataValue = dataLabel / 1000;
-              // tslint:disable-next-line:max-line-length
               return dataLabel % 50000 === 0 ? (dataValue === 0 ? 0 : dataValue + 'k') : '';
             }
           },
@@ -65,7 +64,6 @@ export class MarketCurrentPage implements OnInit {
             max: 45,
             fontSize: 18,
             callback: function (dataLabel, index) {
-              // tslint:disable-next-line:max-line-length
               return dataLabel % 5 === 0 ? (dataLabel === 0 ? 0 : dataLabel + '%') : '';
             }
           },
@@ -113,16 +111,12 @@ export class MarketCurrentPage implements OnInit {
       .subscribe(
         resp => {
           if (resp.code === 1) {
-
-            // tslint:disable-next-line:max-line-length
             /*if (resp.data.length !== this.current_hash.length && this.current_hash.length > 0) {
               this.current_hash = [];
             }*/
 
             for (const hash of resp.data) {
-
               this._code = hash['cashpool_code'];
-
               if (this.current_hash.includes(this._code)) {  // 判断当前页面是否有该市场键
                 if (this.current_hash[this._code] !== hash['stat_hash']) {
                   this.current_hash[this._code] = hash['stat_hash'];

@@ -11,6 +11,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
+import * as CryptoJS from 'crypto-js';
+const aseKey = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG';
 
 @Injectable()
 export class AccessTokenInterceptor implements HttpInterceptor {
@@ -19,13 +21,32 @@ export class AccessTokenInterceptor implements HttpInterceptor {
 
   public intercept(request: HttpRequest<any>, next: HttpHandler)
     : Observable<HttpEvent<any>> {
-    request = request.clone({
-      url: '/rest' + request.url,
-      setParams: {
-        'access_token': localStorage.getItem('access_token'),
-        'openid': localStorage.getItem('openid')
-      }
-    });
+    // if (request.body) {
+    //   var encryptValue = this.encrypt(request.body);
+    //   request = request.clone({
+    //     url: '/rest' + request.url,
+    //     setParams: {
+    //       'access_token': localStorage.getItem('access_token'),
+    //       'openid': localStorage.getItem('openid')
+    //     },
+    //     body: {data:encryptValue}
+    //   });
+    // } else {
+      if(request.url.slice(1,7) == 'assets'){
+        request = request.clone({
+          url: request.url,
+          setParams:null
+        });
+      }else{
+        request = request.clone({
+          url: '/rest' + request.url,
+          setParams: {
+            'access_token': localStorage.getItem('access_token'),
+            'openid': localStorage.getItem('openid')
+          }
+        });
+      }  
+    // }
 
     return next.handle(request)
       .do(null, (err: any) => {
@@ -36,5 +57,25 @@ export class AccessTokenInterceptor implements HttpInterceptor {
           }
         }
       });
+  }
+
+  public encrypt(value: any) {
+    if (typeof value == 'object') {
+      value = JSON.stringify(value);
+    }
+    var encryptValue = CryptoJS.AES.encrypt(value, CryptoJS.enc.Utf8.parse(aseKey), {
+      mode: CryptoJS.mode.ECB,
+      padding: CryptoJS.pad.Pkcs7
+    }).toString();
+
+    return encryptValue;
+  }
+  public decrypt(encrypt: any) {
+    var decryptValue = CryptoJS.AES.decrypt(encrypt, CryptoJS.enc.Utf8.parse(aseKey), {
+      mode: CryptoJS.mode.ECB,
+      padding: CryptoJS.pad.Pkcs7
+    }).toString(CryptoJS.enc.Utf8);
+
+    return decryptValue;
   }
 }

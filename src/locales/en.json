@@ -178,6 +178,9 @@
           "supplier": "SUPPLIER",
           "vendor-code": "VENDOR CODE",
           "reg-user": "REGISTERED USER",
+          "activation-status":"ACTIVATION STATUS",
+          "participation-status":"PARTICIPATION STATUS",
+          "available-invoice":"AVAILABLE INVOICE",
           "sublist": {
             "contact": "CONTACT",
             "position": "POSITION",
@@ -252,7 +255,10 @@
         "check6": "Inconsistent password"
       },
       "activation": {
-        "title": "Activation Account"
+        "title": "Activation Account",
+        "privacy":"EB-CF Privacy",
+        "agree":"Agree",
+        "disagree":"Disagree"
       },
       "forget-password-message": {
         "title": "Check your email",

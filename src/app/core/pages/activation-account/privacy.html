@@ -1,0 +1,9 @@
+<ng-container class="privacy-container">
+
+    <textarea [(ngModel)]='privacyContent'> </textarea>
+    <div class="div-button">
+        <button class="agree-btn" (click)="agree()">{{'buyer.pages.activation.agree' | translate}}</button>
+        <button class="disagree-btn" (click)="bsModalRef.hide()">{{'buyer.pages.activation.disagree' | translate}}</button>
+    </div>
+
+</ng-container>

@@ -14,7 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SharedModule } from '../shared/shared.module';
-
+import {PrivacyModal} from './pages/activation-account/privacy';
 import {
   MarketsService,
   SuppliersService,
@@ -100,11 +100,13 @@ import {
     SigninPage,
     ForgetPasswordPage,
     ResetPasswordComponent,
-    ActivationAccountComponent
+    ActivationAccountComponent,
+    PrivacyModal
   ],
   entryComponents: [
     MarketHeaderComponent,
-    MarketSettingComponent
+    MarketSettingComponent,
+    PrivacyModal
   ]
 })
 export class CoreModule { }

@@ -1,10 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
+import { MarketInvoicesManagePage } from '../../core/pages/market-invoices-manage/market-invoices-manage.page'
 @Pipe({
   name: 'invoiceFilter',
   pure: false
 })
 export class InvoiceFilter implements PipeTransform {
+  constructor(private marketInvoice: MarketInvoicesManagePage) { }
+
   transform(items: any[], fieldDate: any[], fieldAmount: any[]): any[] {
     var returnValue = [];
     var startDate = new Date();
@@ -80,8 +82,33 @@ export class InvoiceFilter implements PipeTransform {
       }
       returnValue = temReturnValue;
     }
-
+    if (returnValue && returnValue.length > 0) {
+      var availableAmount, invoiceCount, supplierArray;
+      invoiceCount = returnValue.length;
+      availableAmount = 0;
+      supplierArray = [];
+      for (var r = 0; r < returnValue.length; r++) {
+        availableAmount = availableAmount + Number( returnValue[r]['invoiceAmount']);
+        if (r == 0) {
+          supplierArray.push(returnValue[r]['supplierName']);
+        } else {
+          if (this.addSupplier(returnValue[r]['supplierName'], supplierArray)) {
+            supplierArray.push(returnValue[r]['supplierName']);
+          }
+        }
+      }
+      this.marketInvoice.setMarksetStat(availableAmount, invoiceCount, supplierArray.length);
+    }
     return returnValue;
+  }
+  addSupplier(supplier: string, arr: any): boolean {
+    var returnBoolean = true;
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] == supplier) {
+        returnBoolean = false;
+      }
+    }
+    return returnBoolean
   }
   addDays(numDays: number) {
     var today = Date.now();

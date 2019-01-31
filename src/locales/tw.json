@@ -178,6 +178,9 @@
           "supplier": "供应商",
           "vendor-code": "供应商编号",
           "reg-user": "已注册用户数",
+          "activation-status":"激活狀態",
+          "participation-status":"參與狀態",
+          "available-invoice":"有效發票",
           "sublist": {
             "contact": "联系人",
             "position": "职位",
@@ -210,7 +213,7 @@
           "email": "应付部门电邮",
           "industry": "行业",
           "country": "国家",
-          "submit": "提高",
+          "submit": "提交",
           "lastName": "姓氏",
           "phone": "聯繫電話",
           "year": "财年截止日"
@@ -231,6 +234,25 @@
         },
         "back-to-login":"返回登录", 
         "continue":"继续"
+      },
+      "reset": {
+        "title": "重置密码",
+        "password": "密码",
+        "check": "确认密码",
+        "hide": "隐藏",
+        "show": "显示",
+        "check1": "最少8个字符",
+        "check2": "包含最少1个数字",
+        "check3": "包含最少1个大写字母",
+        "check4": "包含最少1个小写字母",
+        "check5": "禁止非数字非字母",
+        "check6": "密码和确认密码不一致"
+      },
+      "activation": {
+        "title": "账户激活",
+        "privacy":"EB-CF 隐私条款",
+        "agree":"同意",
+        "disagree":"不同意"
       },
       "forget-password-message": {
         "title": "检查电子邮件",
