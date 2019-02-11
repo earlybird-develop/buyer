@@ -35,7 +35,7 @@ export class AccessTokenInterceptor implements HttpInterceptor {
     //     body: {data:encryptValue}
     //   });
     // } else {
-        
+
       if(request.url.slice(1,7) == 'assets'){
 
         request = request.clone({
@@ -89,7 +89,7 @@ export class AccessTokenInterceptor implements HttpInterceptor {
               if( rep.status === 200){
                
                 // Decrypt every get data modified by loudon 2019-02-10
-				if( request.url.slice(1,7) == 'oauth2' && rep.body['code'] == 1 && rep.body['data'] != null && rep.body['data'].length > 0 ){
+				if( request.url.slice(6,12) == 'oauth2' && rep.body['code'] == 1 && rep.body['data'] != null && rep.body['data'].length > 0 ){
 
 					try{
 
