@@ -13,15 +13,12 @@ export class AESService {
     constructor() {
 
         //需要从配置文件中读取
-        this.appId = "wxb11529c136998cb6";
+        this.appId = "cisco";
         this.app_secret = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG";
 
-        //this.aesKey = new Buffer(this.app_secret + '=', 'base64');
 
         this.aesKey = CryptoJS.enc.Base64.parse( this.app_secret + '='  );
 
-        //this.aesKey = this.app_secret + '=';
-//            CryptoJS.enc.Base64.parse(this.app_secret + '=');
         this.iv = CryptoJS.lib.WordArray.create( CryptoJS.enc.Base64.parse( this.app_secret ).words, 16);
 
     }
@@ -67,31 +64,29 @@ export class AESService {
 
     private _decrypt(text: string){
 
-        let decryptResult;
+        let decryptResult = null;
         try {
 
+            //let bytes = CryptoJS.enc.Base64.parse(text);
             // 解密
-            let bytes = CryptoJS.AES.decrypt( text , this.aesKey, {
+            decryptResult = CryptoJS.AES.decrypt(text, this.aesKey, {
                 iv: this.iv,
                 mode: CryptoJS.mode.CBC,
                 padding: CryptoJS.pad.Pkcs7
             });
 
-            decryptResult = bytes.toString(CryptoJS.enc.Utf8);
+            if (decryptResult.sigBytes > 0 && decryptResult.sigBytes % 8 == 0){
+                decryptResult = decryptResult.toString(CryptoJS.enc.Utf8);
+            }else{
+                decryptResult = decryptResult.toString(CryptoJS.enc.Latin1);
+            }
 
-            let buff = Buffer(decryptResult);
+            let content = decryptResult.slice(20,decryptResult.length) ;
 
-            buff = this.decoder(buff);
+            //let len = content.slice(0,4).readUInt32BE(0);
 
-            if( buff.length < 16)
-                return null;
-
-            let content = buff.slice(16);
-
-            let len = content.slice(0,4).readUInt32BE(0);
-
-            let result = content.slice(4, len + 4).toString();
-            let appId = content.slice(len + 4).toString();
+            let result = content.slice(0, content.length-this.appId.length);
+            let appId = content.slice(- this.appId.length).toString();
 
             if (appId != this.appId)throw new Error('appId is invalid');
 
@@ -104,10 +99,11 @@ export class AESService {
 
         }
 
-
+		/*
         if (decryptResult.watermark.appid !== this.appId) {
             console.log('not auth');
         }
+		*/
 
         return decryptResult
 

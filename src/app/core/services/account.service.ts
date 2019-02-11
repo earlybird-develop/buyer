@@ -20,7 +20,7 @@ export class AccountService {
 
     const params = new HttpParams()
       .set('appid', 'cisco')
-      .set('secret', '123456')
+      .set('secret', 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG')
       .set('grant_type', 'password');
 
     var encryptPassword = this.aesService.encrypt(httpParams['password']);
@@ -31,14 +31,17 @@ export class AccountService {
         .subscribe(
           resp => {
 
-                localStorage.setItem('access_token', resp['access_token']);
-                localStorage.setItem('expire_time', resp['expire_time']);
-                localStorage.setItem('openid', resp['openid']);
-                localStorage.setItem('refresh_token', resp['refresh_token']);
-                localStorage.setItem('nonce', resp['nonce']);
+                localStorage.setItem('access_token', resp['data']['access_token']);
+                localStorage.setItem('expire_time', resp['data']['expire_time']);
+                localStorage.setItem('openid', resp['data']['openid']);
+                localStorage.setItem('refresh_token', resp['data']['refresh_token']);
+                localStorage.setItem('nonce', resp['data']['nonce']);
 
-            observer.next(true);
-            observer.complete();
+                //Get Signature For Authenticator modified by loudon 2019-02-10
+                localStorage.setItem('signature', this.aesService.getSignature(resp['data']['access_token'], resp['data']['expire_time'], resp['data']['nonce']));
+
+                observer.next(true);
+                observer.complete();
           },
           error => observer.error(error)
         );
