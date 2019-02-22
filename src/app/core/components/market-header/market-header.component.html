@@ -25,11 +25,13 @@
   </li>
 </ul>
 
-<!--<div class="info">-->
-  <!--<eb-timer></eb-timer>-->
-<!---->
-  <!--<div class="pay-date" tooltip="Next pay date : {{ payDate }}" placement="left">-->
-    <!--<img class="pointer" src="./assets/icons/calendar.svg">-->
-    <!--<span>Next pay date : {{ payDate }}</span>-->
-  <!--</div>-->
-<!--</div>-->
+<div class="info">
+    <span class="buyer-name">{{buyerName}}</span>
+
+    <div class="pay-date" tooltip="{{'buyer.pages.markets.list.pay-date' | translate}}" placement="bottom">
+        <img class="pointer" src="./assets/icons/calendar.svg">
+        <span>{{ payDate }}</span>
+    </div>
+
+    <eb-timer> </eb-timer>
+</div>

@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="right-side">
+    <img src="./assets/logo.png" alt="Early Bird">
+  </div>
+  <div class="content">
+    <div class="title">{{ 'buyer.pages.activation.title' | translate }}</div>
+    <form class="forgetpassword-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="password" for="password">{{ 'buyer.pages.reset.password' | translate }}</label>
+        <span class="red-color">*</span>
+        <input id="password" type="{{ btnType }}"  (input)="passwordChecking($event.target.value)" class="form-control" maxlength="15" >
+        <div class="showHidenBtn">
+          <input type="button" class="showHidenBox" (click)="check()" value="{{ 'buyer.pages.reset.'+btnValue | translate }}">
+        </div>
+        <div [hidden]="passwordChecked">
+          <div class="errorText" [hidden]="passwordCheckedSymbol">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check5' | translate }}
+          </div>
+          <div class="errorText" [hidden]="passwordCheckedLength">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check1' | translate }}
+          </div>
+          <div class="errorText" [hidden]="passwordCheckedUpperCase">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check3' | translate }}
+          </div>
+          <div class="errorText" [hidden]="passwordCheckedLowerCase">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check4' | translate }}
+          </div>
+          <div class="errorText" [hidden]="passwordCheckedNumber">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check2' | translate }}
+          </div>
+        </div>
+        <label class="password" for="check">{{ 'buyer.pages.reset.check' | translate }}</label>
+        <span class="red-color">*</span>
+        <input id="check-password"  (input)="passwordMatching($event.target.value)" type="{{ btnType }}" class="form-control" maxlength="15">
+        <div class="" [hidden]="passwordCheckedMatch">
+          <div class="errorText">
+            <img class="errorImg" src="../../../../assets/error.svg">
+            {{ 'buyer.pages.reset.check6' | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="forgot">
+        <div class="col">
+            <div class="row privacy">
+                <a style=" text-align: right">{{'buyer.pages.activation.privacy' | translate}}</a>
+              </div>
+          <button type="submit" class="btn-primary continue-btn">{{ 'buyer.pages.forget.continue' |
+            translate }}</button>
+          <button class="btn back-to-login" [routerLink]="['/signin']" href="javascript:void(0);">{{
+            'buyer.pages.forget.back-to-login' | translate }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

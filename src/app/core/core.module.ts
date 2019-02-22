@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreRoutingModule } from './core-routing.module';
-
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -15,9 +13,8 @@ import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
 import { SharedModule } from '../shared/shared.module';
-
+import {PrivacyModal} from './pages/activation-account/privacy';
 import {
   MarketsService,
   SuppliersService,
@@ -25,7 +22,10 @@ import {
   MarketHistoryService,
   CurrentMarketService,
   SubheaderService,
-  AccountService
+  AccountService,
+  ResetPasswordService,
+  ActivationAccountService,
+  AESService
 } from './services';
 
 import {
@@ -40,7 +40,9 @@ import {
   ChangePasswordPage,
   ProfilePage,
   SigninPage,
-  ForgetPasswordPage
+  ForgetPasswordPage,
+  ResetPasswordComponent,
+  ActivationAccountComponent
 } from './pages';
 
 import {
@@ -54,6 +56,7 @@ import {
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     RouterModule,
     NoopAnimationsModule,
@@ -75,7 +78,10 @@ import {
     CurrentMarketService,
     SuppliersService,
     SubheaderService,
-    AccountService
+    AccountService,
+    ResetPasswordService,
+    ActivationAccountService,
+    AESService
   ],
   declarations: [
     WrapperPage,
@@ -92,11 +98,15 @@ import {
     ChangePasswordPage,
     ProfilePage,
     SigninPage,
-    ForgetPasswordPage
+    ForgetPasswordPage,
+    ResetPasswordComponent,
+    ActivationAccountComponent,
+    PrivacyModal
   ],
   entryComponents: [
     MarketHeaderComponent,
-    MarketSettingComponent
+    MarketSettingComponent,
+    PrivacyModal
   ]
 })
 export class CoreModule { }

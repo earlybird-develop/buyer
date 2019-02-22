@@ -9,7 +9,6 @@ export class SearchFilterPipe implements PipeTransform {
     if (!items) {
       return [];
     }
-
     return items.filter(
       it => it[field].toString().toLowerCase().indexOf(value.toString().toLowerCase()) >= 0
     );

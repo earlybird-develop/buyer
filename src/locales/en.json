@@ -12,12 +12,16 @@
           "markets": "Markets"
         }
       },
+      "timer":{
+        "closed": "Market Closed",
+        "to_close": "To Market Clear"
+      },
       "market-header": {
         "menu": {
-          "invoiceManage": "Invoice Manage",
-          "currentMarket": "Current Market",
-          "historyMarket": "History Market",
-          "supplierManage": "Supplier Manage"
+          "invoiceManage": "Invoice",
+          "currentMarket": "Current",
+          "historyMarket": "History",
+          "supplierManage": "Supplier"
         }
       },
       "market-setting": {
@@ -25,6 +29,7 @@
         "edit": "Edit",
         "save": "Save",
         "cancel": "Cancel",
+        "exit": "Exit",
         "apr": "APR",
         "apr-d": "Desired APR",
         "apr-min": "Minimum APR",
@@ -32,7 +37,15 @@
         "npd": "NEXT PAYMENT DATE",
         "reserve-p": "RESERVE PERCENTAGE",
         "date": "DATE",
-        "ok": "OK"
+        "ok": "OK",
+        "schedule" : {
+          "title": "CASH SCHEDULE",
+          "label":"Schedule",
+          "amount": "Cash Amount",
+          "paydate": "Cash Date",
+          "status": "Status",
+          "btn_add": "Add"
+        }
       }
     },
     "pages": {
@@ -165,6 +178,9 @@
           "supplier": "SUPPLIER",
           "vendor-code": "VENDOR CODE",
           "reg-user": "REGISTERED USER",
+          "activation-status":"ACTIVATION STATUS",
+          "participation-status":"PARTICIPATION STATUS",
+          "available-invoice":"AVAILABLE INVOICE",
           "sublist": {
             "contact": "CONTACT",
             "position": "POSITION",
@@ -181,12 +197,18 @@
           "setting": "MARKET SETTING",
           "status": "STATUS",
           "market": "MARKET",
-          "cash": "CASH <br> AVAILABLE/TOTAL",
-          "ap": "A/P <br> ELIGIBLE/TOTAL",
+          "cash": "CASH AVAILABLE",
+          "ap": "A/P ELIGIBLE",
           "cash-dep": "CASH DEPLOYED",
           "income": "INCOME",
           "apr": "APR",
           "pay-date": "NEXT PAY DATE"
+        },
+        "schedule" : {
+          "paydate" : "Pay Date",
+          "amount" : "Amount",
+          "schedule" : "Schedule",
+          "addschedule" : "Add Schedule"
         }
       },
       "profile": {
@@ -218,6 +240,25 @@
         },
         "back-to-login":"Back to Log In", 
         "continue":"CONTINUE"
+      },
+      "reset": {
+        "title": "Reset Password",
+        "password": "Password",
+        "check": "Confirm Password",
+        "hide": "Hide",
+        "show": "Show",
+        "check1": "At least 8 characters",
+        "check2": "Contains at least 1 number",
+        "check3": "Contains at least 1 uppercase letter",
+        "check4": "Contains at least 1 lowercase letter",
+        "check5": "Prohibit non-numeric non-letters",
+        "check6": "Inconsistent password"
+      },
+      "activation": {
+        "title": "Activation Account",
+        "privacy":"EB-CF Privacy",
+        "agree":"Agree",
+        "disagree":"Disagree"
       },
       "forget-password-message": {
         "title": "Check your email",

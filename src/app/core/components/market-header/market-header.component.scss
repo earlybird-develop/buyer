@@ -12,19 +12,19 @@
 }
 
 .menu {
-  display: block;
+  display: flex;
   height: 50px;
   flex-grow: 1;
+  margin-left:20px;
 
   li {
     display: inline-block;
     height: 100%;
     line-height: 50px;
-    margin: 0 20px;
+    margin: 0 10px;
     font-size: 14px;
-    font-weight: 300;
     text-align: center;
-    width: 110px;
+    min-width: 70px;
 
     a {
       color: #fff !important;
@@ -34,6 +34,37 @@
       font-weight: 700;
     }
   }
+}
+
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  height: 57px;
+
+  .pay-date {
+    color: #fff;
+    font-size: 10px;
+    line-height: 57px;
+    font-weight: 700;
+    margin-right: 12px;
+  }
+  .buyer-name{
+      line-height:57px;
+      color:white;
+      padding-right:10px;
+      font-size:12px;
+      font-weight:500;
+  }
+
+  img {
+    height: 12px;
+    width: 12px;
+    margin-top: -5px;
+  }
+
 }
 
 @media(max-width: 1000px) {
@@ -46,7 +77,7 @@
   .menu li {
     font-size: 9px;
     margin: 0;
-    width: 70px;
+    min-width: 70px;
 
     &:first-child {
       margin-left: 10px;

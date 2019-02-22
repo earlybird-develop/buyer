@@ -10,3 +10,5 @@ export * from './profile/profile.page';
 export * from './change-password/change-password.page';
 export * from './signin/signin.page';
 export * from './forget-password/forget-password.page';
+export * from './reset-password/reset-password.component';
+export * from './activation-account/activation-account.component';

@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { HttpClient, HttpParams } from '@angular/common/http';
-
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-
 import { UserProfile, ForegtPasswordEmail } from '../models';
-
+import { AESService } from './aes.service';
 const GET_ACCESS_TOKEN_PATH = '/oauth2/get_access_token';
 const GET_PROFILE_PATH = '/account/get_profile';
 const UPDATE_PROFILE_PATH = '/account/update_profile';
@@ -17,32 +14,40 @@ const CHANGE_PASSWORD = '/account/change_password';
 @Injectable()
 export class AccountService {
 
-  constructor(private _http: HttpClient, private _router: Router) { }
+  constructor(private _http: HttpClient, private _router: Router, private aesService: AESService) { }
 
   public getAccessToken(httpParams: Object): Observable<boolean> {
+
     const params = new HttpParams()
-        .set('username', httpParams['email'])
-        .set('password', httpParams['password'])
-        .set('appid', 'cisco')
-        .set('secret', '123456')
-        .set('grant_type', 'password');
+      .set('appid', 'cisco')
+      .set('secret', 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG')
+      .set('grant_type', 'password');
+
+    var encryptPassword = this.aesService.encrypt(httpParams['password']);
 
     return Observable.create((observer: Observer<boolean>) => {
       this._http
-        .get(GET_ACCESS_TOKEN_PATH, { params })
+        .post(GET_ACCESS_TOKEN_PATH, { 'username': httpParams['email'], 'password': encryptPassword }, { params })
         .subscribe(
           resp => {
-            localStorage.setItem('access_token', resp['access_token']);
-            localStorage.setItem('expire_time', resp['expire_time']);
-            localStorage.setItem('openid', resp['openid']);
-            localStorage.setItem('refresh_token', resp['refresh_token']);
-            observer.next(true);
-            observer.complete();
+
+                localStorage.setItem('access_token', resp['data']['access_token']);
+                localStorage.setItem('expire_time', resp['data']['expire_time']);
+                localStorage.setItem('openid', resp['data']['openid']);
+                localStorage.setItem('refresh_token', resp['data']['refresh_token']);
+                localStorage.setItem('nonce', resp['data']['nonce']);
+
+                //Get Signature For Authenticator modified by loudon 2019-02-10
+                localStorage.setItem('signature', this.aesService.getSignature(resp['data']['access_token'], resp['data']['expire_time'], resp['data']['nonce']));
+
+                observer.next(true);
+                observer.complete();
           },
           error => observer.error(error)
         );
     });
   }
+
 
   public getProfile(): Observable<UserProfile> {
     return Observable.create((observer: Observer<UserProfile>) => {
@@ -88,8 +93,8 @@ export class AccountService {
     })
   }
 
-  public postForgetPasswordMail(email): Observable<ForegtPasswordEmail>{
-    return Observable.create((observer : Observer<ForegtPasswordEmail>) => {
+  public postForgetPasswordMail(email): Observable<ForegtPasswordEmail> {
+    return Observable.create((observer: Observer<ForegtPasswordEmail>) => {
       this._http
         .post(FORGET_PASSWORD_EMAIL_SEND, email)
         .subscribe(

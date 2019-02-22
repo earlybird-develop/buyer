@@ -1,175 +1,180 @@
+:host {
+  display: block;
+  padding: 0 70px;
+}
+
 .top-head-table-chart{
-  margin-top: 10px;
-    box-shadow: 0px 0px 4px 2px rgba(0,0,0, 0.10)
+  margin-top: 20px;
+  //box-shadow: 0px 0px 4px 2px rgba(0,0,0, 0.10)
+
 }
 
-sub {
-  color: #707070;
-  display: inline-block;
-  font-size: 20px;
-  font-weight: 500;
-  bottom: 0;
-}
 
-.progress{
-  width: 35%;
-  height: 5px;
-}
-
-.progress-bar{
-  width: none;
-  border-radius: 10px;
-  background: #333;
-}
-
-.heading {
-  
-  font-size: 14px;
-  color: #333;
-  font-weight: 800;
-  width: 100%;
-  display: inline-block;
-  padding: 10px;
-  line-height: 1.7;
-
+.header {
+  font-size: 17px;
+  font-weight:500;
+  line-height: 35px;
+  padding-top: 10px;
+  border-bottom: 1px solid #EFEFEF;
   img {
     display: block;
     float: left;
     height: 24px;
+    margin-top:5px;
     margin-right: 10px;
     width: 24px;
   }
 }
 
 .statistic {
+  margin-top: 21px;
+  margin-left: -1rem; 
   display: flex;
-  border-bottom: 2px solid #EFEFEF;
-  border-top: 2px solid #EFEFEF;
-  
-  .total{
-    margin: 0;
-    padding: 0;
-  }
+  justify-content: space-between;
 
-  .clearing { 
-    .value {
-      .amount {
-        color: #6AA443;
+  .stat {
+    font-weight:400;
+    box-sizing: border-box;
+    background-color: rgba(244, 244, 244, .36);
+    padding: 10px 0;
+    padding-left: 10px;
+    margin-left: 8px;
+    border: 1px solid rgba(202, 206, 213, .36);
+    min-width: 33.33333%;
+    font-size: 14px;
 
-        sub{
-          color: #6AA443;
-        }
+    &.second-stat {
+      padding: 10px 24px!important;
+      .value{
+        font-size:36px!important;
       }
     }
-  }
+    &.red {
+      .value {
+        color: #D73B36;
+      }
+      .progress-bar {
+        background-color: #D73B36 !important;
+      }
+    }
 
-  .title {
-    color: #333;
-    font-size: 14px;
-    font-weight: bold;
-  }
+    &.blue {
+      .value {
+        color: #4f7dc9;
+      }
 
-  .value {
-    align-items: stretch;
-    display: flex;
+      .progress-bar {
+        background-color: #7096d3 !important;
+      }
+    }
 
-    .amount {
-      align-items: center;
+    &.green {
+      .value {
+        color: #469117;
+      }
+
+      .progress-bar {
+        background-color: #69a643 !important;
+      }
+    }
+
+    .title {
+      color: #43425d;
+      font-size: 16px;
+      font-weight:500;
+      padding-bottom:10px
+    }
+
+    .value {
+      align-items: stretch;
       display: flex;
-      color: #333;
-      font-size: 36px;
-      font-weight: 700;
-      margin-right: 5px;
+
+      .amount {
+        align-items: center;
+        display: flex;
+        font-size: 24px;
+        font-weight: 700;
+        width: 75%;
+        span {
+          color: #333;
+          margin-top:12px;
+        }
+      }
+
+      .numbers {
+        color: #333;
+        margin-top:5px;
+        text-align:center;
+      }
+
+      .numbers-desc {
+        color: #333;
+        margin-top:5px;
+        min-width: 60px;
+      }
     }
 
-    .numbers {
+    .subvalue {
       color: #333;
-      font-size: 14px;
-      margin-right: 5px;
+      font-size:13px;
+      padding-bottom:5px;
     }
 
-    .numbers-desc {
+    span {
       color: #333;
-      font-size: 14px;
+      font-size:15px;
+      font-weight: 500;
     }
   }
 
-  .subvalue {
-    color: #333;
-    font-size: 14px;
+  .progress{
+    width: 35%;
+    height: 5px;
+    .progress-bar{
+      //width: none;
+      border-radius: 10px;
+      background: #333;
+    }
   }
-}
 
-.non-clearing .amount {
-  color: #D73B36 !important;
-  
-  sub{
-    color:#D73B36;
-  }
 }
 
 .market-stat {
   width: 100%;
+  margin-top:20px;
 
-  thead {
+   .row {
+     margin-left:0px!important;
+     margin-right:0px!important;
+     text-align:center!important;
+   }
+  .row-header {
+    margin-left: 0px !important;
     background-color: #f5f6fa;
-    border-bottom: none;
+    font-size: 11px;
+    height:48px;
+    line-height:48px;
+    color:#9eabb1;
 
-    tr {
-      th {
-        padding: 20px 0;
-
-        &:first-child {
-          padding-left: 25px;
-        }
-      }
-    }
+  }
+  .row-line {
+      border-bottom: 1px solid #EFEFEF;
   }
 
-  tr {
-    td:first-child {
-      padding-left: 25px;
-    }
+  .row-content {
+      font-size: 13px;
+      height:41px;
+      line-height: 41px;
   }
 
-  td {
-    font-size: 12px;
-    width: 12.5%;
+
+  .col-label {
+    text-align:left!important;
+
   }
+
 }
 
-.statistic-block {
-
-  .title{
-    margin-bottom: 8px;
-  }
-
-  .summary{
-    font-size: 14px;
-  }
-  
-  .value {
-    font-weight: bold;
-    font-size: 24px;
-  }
-
-  .blue-color{
-    color : #1FADCD!important
-  }
-
-  .green-color{
-    color : #6AA443!important
-  }
-
-  .bar-padding{
-   
-    margin-bottom: 5px;
-  }
-  .mg-55{
-    margin-left: 55px
-  }
-  
-}
 
 .chart {
     width: 100%;
@@ -177,7 +182,7 @@ sub {
     background-color: #fff;
     padding: 6px;
     margin: 0;
-    padding-top: 30px;
+    padding-top: 18px;
 }
 
 .numbers-mobile {
@@ -211,7 +216,7 @@ sub {
       color: #4d4f5c;
       display: flex;
       padding: 0 47px;
-      font-size: 12px;
+      font-size: 13px;
       justify-content: space-between;
       height: 41px;
 
@@ -299,6 +304,26 @@ sub {
 canvas.chartjs-render-monitor.income-apr-chart {
   width: 100% !important;
   height: 300px !important;
+}
+
+
+sub {
+  color: #707070;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  bottom: 0;
+}
+
+.progress{
+  width: 35%;
+  height: 5px;
+}
+
+.progress-bar{
+  //width: none;
+  border-radius: 10px;
+  background: #333;
 }
 
 @media(max-width: 1300px) {

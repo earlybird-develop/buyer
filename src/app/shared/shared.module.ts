@@ -9,6 +9,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { TimerComponent } from './timer/timer.component';
 import { FooterComponent } from './footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { TimerService } from './timer/timer.service';
 import {
@@ -20,7 +21,8 @@ import { InlineEditComponent } from './inline-edit/inline-edit.component';
 import {
   SearchFilterPipe,
   CapitalizePipe,
-  KeysPipe
+  KeysPipe,
+  InvoiceFilter
 } from './pipes';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -34,7 +36,8 @@ import { CustomSelectComponent } from './custom-select/custom-select.component';
     PopoverModule.forRoot(),
     TooltipModule.forRoot(),
     BsDropdownModule.forRoot(),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    TranslateModule
   ],
   declarations: [
     CheckboxComponent,
@@ -43,7 +46,7 @@ import { CustomSelectComponent } from './custom-select/custom-select.component';
     InlineEditComponent,
     FooterComponent,
     DialogComponent,
-
+    InvoiceFilter,
     SearchFilterPipe,
     CapitalizePipe,
     KeysPipe,
@@ -60,7 +63,7 @@ import { CustomSelectComponent } from './custom-select/custom-select.component';
     InlineEditComponent,
     FooterComponent,
     CustomSelectComponent,
-
+    InvoiceFilter,
     SearchFilterPipe,
     CapitalizePipe,
     KeysPipe

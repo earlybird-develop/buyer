@@ -3,8 +3,6 @@ import { Observer } from 'rxjs/Observer';
 import { HistoryMarket, Award } from '../models';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpParams } from '@angular/common/http';
-
-
 const MARKET_HISTORY_STAT_PATH = '/history/get_market_stat';
 const HISTORY_AWARDED_LIST = '/history/get_awarded_list';
 const DOWNLOAD_AWARDED_DETAILS = '/history/download_awarded_detail';
@@ -17,7 +15,6 @@ export class MarketHistoryService {
 
   public get(id: string, filter: Object): Observable<HistoryMarket> {
     let params = new HttpParams().set('market_id', id);
-
     Object.keys(filter)
       .filter(x => !!filter[x])
       .forEach(key => params = params.set(key, filter[key]));
@@ -67,7 +64,7 @@ export class MarketHistoryService {
   }
 
   public downloadAwardedDetailsCsv(id: string)
-  : Observable<string> {
+    : Observable<string> {
     const params = new HttpParams()
       .set('award_id', id)
       .set('type', 'csv');
@@ -83,7 +80,7 @@ export class MarketHistoryService {
   }
 
   public downloadAwardedDetailsExcel(id: string)
-  : Observable<any> {
+    : Observable<any> {
 
     const params = new HttpParams()
       .set('award_id', id)

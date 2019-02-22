@@ -5,3 +5,6 @@ export * from './market-history.service';
 export * from './current-market.service';
 export * from './subheader.service';
 export * from './account.service';
+export * from './reset-password.service';
+export * from './activation-account.service';
+export * from './aes.service';

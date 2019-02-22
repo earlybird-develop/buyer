@@ -1,31 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { CurrentMarketService } from '../../services';
-
-import {
-  CurrentMarket,
-  CurrentMarketStat,
-  SuppliersNetworkStat
-} from '../../models';
+import { CurrentMarketService, MarketsService } from '../../services';
+import { CurrentMarket, CurrentMarketStat, SuppliersNetworkStat } from '../../models';
 import { ToastrService } from 'ngx-toastr';
-
 
 @Component({
   selector: 'eb-market-current',
   templateUrl: './market-current.page.html',
   styleUrls: ['./market-current.page.scss']
 })
-export class MarketCurrentPage implements OnInit {
+export class MarketCurrentPage implements OnInit, OnDestroy {
 
   private _marketId: string;
-
   public graphData: Object[] = [];
-
   public currentMarket: CurrentMarket;
   public currentMarketStat: CurrentMarketStat;
   public supplierNetworkStat: SuppliersNetworkStat;
-
+  private refresh_time = 5000;// 页面重新读取数据时间
+  private _interval: any;
+  private refresh_data = false;
+  private current_hash = [];
+  private _code: string;
   // Chart configuration
   public barChartType = 'bar';
   public barChartLabels: string[] = [];
@@ -53,9 +48,12 @@ export class MarketCurrentPage implements OnInit {
             max: 250000,
             fontSize: 18,
             callback: function (dataLabel, index) {
-              let dataValue = dataLabel / 1000;
+              const dataValue = dataLabel / 1000;
               return dataLabel % 50000 === 0 ? (dataValue === 0 ? 0 : dataValue + 'k') : '';
             }
+          },
+          gridLines: {
+            drawOnChartArea: false
           }
         },
         {
@@ -68,6 +66,9 @@ export class MarketCurrentPage implements OnInit {
             callback: function (dataLabel, index) {
               return dataLabel % 5 === 0 ? (dataLabel === 0 ? 0 : dataLabel + '%') : '';
             }
+          },
+          gridLines: {
+            drawOnChartArea: false
           }
         }
       ]
@@ -76,34 +77,104 @@ export class MarketCurrentPage implements OnInit {
 
   constructor(private _currentMarketService: CurrentMarketService,
     private _route: ActivatedRoute,
-    private _toastr: ToastrService) {
+    private _toastr: ToastrService,
+    private _marketsService: MarketsService) {
     this._marketId = this._route.parent.snapshot.params.id;
   }
 
   ngOnInit() {
+    this.load_hash();
+    this.load_getMarketGraph();
+    this.load_currentMarket();
+    this.load_getMarketStat();
+    this.load_getSupplierNetworkStat();
 
-    this._currentMarketService
-      .getMarketGraph(this._marketId)
+    this._interval = setInterval(
+      () => {
+        // this.load();
+        this.load_hash();
+
+        if (this.refresh_data) {
+          this.load_currentMarket();
+          this.load_getMarketGraph();
+          this.load_getMarketStat();
+          this.load_getSupplierNetworkStat();
+        }
+        // console.log('1');
+      }
+      , this.refresh_time
+    );
+  }
+  // 获取hash值
+  load_hash() {
+    this._marketsService
+      .getHashList([this._marketId])
       .subscribe(
-        x => this.chartHandler(x),
-        () => this._toastr.error('Internal server error')
-      );
+        resp => {
+          if (resp.code === 1) {
+            /*if (resp.data.length !== this.current_hash.length && this.current_hash.length > 0) {
+              this.current_hash = [];
+            }*/
 
+            for (const hash of resp.data) {
+              this._code = hash['cashpool_code'];
+              if (this.current_hash.includes(this._code)) {  // 判断当前页面是否有该市场键
+                if (this.current_hash[this._code] !== hash['stat_hash']) {
+                  this.current_hash[this._code] = hash['stat_hash'];
+                  this.refresh_data = true;
+                } else {
+                  this.refresh_data = false;
+                }
+              } else {
+
+                this.current_hash.push(this._code);
+                this.current_hash[this._code] = hash['stat_hash'];
+
+                if (!this.refresh_data) {
+                  this.refresh_data = true;
+                }
+              }
+            }
+          } else {
+            this._toastr.warning(resp.msg);
+          }
+
+        }
+        , error => {
+          this._toastr.error('Internal server error');
+        }
+      );
+  }
+
+  // 获取当前市场
+  load_currentMarket() {
     this._currentMarketService
       .getMarket(this._marketId)
       .subscribe(
         res => this.currentMarket = res,
         () => this._toastr.error('Internal server error')
       );
+  }
 
+  load_getMarketGraph() {
+    this._currentMarketService
+      .getMarketGraph(this._marketId)
+      .subscribe(
+        x => this.chartHandler(x),
+        () => this._toastr.error('Internal server error')
+      );
+  }
 
+  load_getMarketStat() {
     this._currentMarketService
       .getMarketStat(this._marketId)
       .subscribe(
         res => this.currentMarketStat = res,
         () => this._toastr.error('Internal server error')
       );
+  }
 
+  load_getSupplierNetworkStat() {
     this._currentMarketService
       .getSupplierNetworkStat(this._marketId)
       .subscribe(
@@ -137,4 +208,12 @@ export class MarketCurrentPage implements OnInit {
       borderColor: '#000'
     });
   }
+
+  ngOnDestroy(){
+
+    //页面销毁的时候取消遍历器  #modified by loudon 2019-01-31
+    clearInterval(this._interval);
+
+  }
+
 }

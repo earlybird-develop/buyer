@@ -18,13 +18,6 @@
       &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.industry' | translate }} <span class="required">*</span>
       <input type="text" [(ngModel)]="user.industry" name="industry">
     </label>
-    <label>
-      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.country' | translate }} <span class="required">*</span>
-      <input type="text" [(ngModel)]="user.country" name="country">
-    </label>
-    <button type="submit" class="btn btn-primary internal-submit-btn" *ngIf="user">
-      {{ 'buyer.pages.profile.labels.submit' | translate }}
-    </button>
   </div>
 
   <div>
@@ -40,11 +33,21 @@
       &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.year' | translate }} <span class="required">*</span>
       <input type="text" [(ngModel)]="user.fiscalyear" name="fiscalyear">
     </label>
+    <label>
+      &nbsp;&nbsp;&nbsp;{{ 'buyer.pages.profile.labels.country' | translate }} <span class="required">*</span>
+      <input type="text" [(ngModel)]="user.country" name="country">
+    </label>
+
+    <button type="submit" class="btn btn-primary internal-submit-btn" *ngIf="user">
+      {{ 'buyer.pages.profile.labels.submit' | translate }}
+    </button>
     <!--<label>-->
     <!--&nbsp;&nbsp;&nbsp;Company Website <span class="required">*</span>-->
     <!--<input type="text">-->
     <!--</label>-->
   </div>
+
+
 </form>
 
 <button type="submit"

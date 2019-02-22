@@ -25,7 +25,7 @@ export class InlineEditComponent implements ControlValueAccessor {
 
   @Input()
   public placeholder = '';
-
+  
   @Output('change')
   public change: EventEmitter<number> = new EventEmitter();
 

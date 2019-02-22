@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { ToastrService } from 'ngx-toastr';
-
 import { SuppliersService } from '../../services';
 import { Supplier, SuppliersStat, User } from '../../models';
-
 
 @Component({
   selector: 'eb-market-supplier-manage',
@@ -13,7 +10,6 @@ import { Supplier, SuppliersStat, User } from '../../models';
   styleUrls: ['./market-supplier-manage.page.scss']
 })
 export class MarketSupplierManagePage implements OnInit {
-
   public stat: SuppliersStat;
   public marketId: string;
   public suppliers: Supplier[] = [];
@@ -24,19 +20,16 @@ export class MarketSupplierManagePage implements OnInit {
 
   ngOnInit() {
     this.marketId = this._route.parent.snapshot.params.id;
-
     this._suppliersService
       .getSuppliers(this.marketId)
       .subscribe(
-        x => this.suppliers = x,
+        x =>{this.suppliers = x;console.log(x)} ,
         () => this._toastr.error('Internal server error')
       );
-
-
     this._suppliersService
       .getSuppliersStat(this.marketId)
       .subscribe(
-        x => this.stat = x,
+        x => {this.stat = x;console.log(x);},
         () => this._toastr.error('Internal server error')
       );
   }
@@ -45,6 +38,10 @@ export class MarketSupplierManagePage implements OnInit {
     if (supplier._showDetails) {
       supplier.clearUsers();
     } else {
+        for (let i = 0; i < this.suppliers.length; i++) {
+            this.suppliers[i]._showDetails = false;
+            this.suppliers[i].clearUsers();
+        }
       this._suppliersService
         .getSupplierUsers(supplier.id, this.marketId)
         .subscribe(
@@ -52,7 +49,6 @@ export class MarketSupplierManagePage implements OnInit {
           () => this._toastr.error('Internal server error')
         );
     }
-
     supplier._showDetails = !supplier._showDetails;
   }
 

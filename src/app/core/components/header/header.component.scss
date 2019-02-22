@@ -2,6 +2,25 @@
   display: block;
 }
 
+.btn {
+  line-height: 0;
+}
+
+.btn a{
+  color: #fff !important;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+
+.btn.btn-primary {
+    background-color: #4cb0f9 !important;
+    color: rgb(231, 219, 219) !important;
+    padding: 0 10px;
+    height: 28px;
+    margin-right: 15px;
+}
+
 header {
   background: linear-gradient(135deg, #24457c, #24457c, #3D7AB3, #3D79B2);
   box-shadow: 0 0 4px #000;
@@ -10,7 +29,7 @@ header {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 1;
 
   .container {
     //border-bottom: 1px solid rgba(255, 255, 255, .25);
@@ -23,18 +42,18 @@ header {
       box-sizing: border-box;
       float: left;
       height: 100%;
-      padding-top: 12px;
+      padding-top: 20px;
       width: 75px;
 
       img {
-        width: 65px;
+        width: 165px;
       }
     }
   }
 
   .controls {
     position: relative;
-    width: 75%;
+    width: 70%;
 
     .user-menu {
       align-items: center;
@@ -57,7 +76,7 @@ header {
         a {
           color: #fff !important;
           cursor: pointer;
-          font-size: 13px;
+          font-size: 14px;
           text-decoration: none;
 
           .small-down {
@@ -110,7 +129,8 @@ header {
 
         a {
           color: #fff !important;
-          font-size: 13px;
+          font-size: 14px;
+          font-weight: 500;
           text-decoration: none;
         }
       }

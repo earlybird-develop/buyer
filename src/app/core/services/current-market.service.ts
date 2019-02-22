@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-
 import { Model } from 'tsmodels';
 import { Award, CurrentMarket, SuppliersNetworkStat } from '../models';
 import { CurrentMarketStat } from '../models';
-
 
 const GET_MARKET_STAT_PATH = '/market/get_market_stat';
 const GET_MARKET_CURRENT_STAT_PATH = '/market/get_market_current_stat';
@@ -51,7 +48,7 @@ export class CurrentMarketService {
   }
 
   public getSupplierNetworkStat(marketId: string)
-  : Observable<SuppliersNetworkStat> {
+    : Observable<SuppliersNetworkStat> {
     const params = new HttpParams().set('market_id', marketId);
 
     return Observable.create((observer: Observer<SuppliersNetworkStat>) => {
@@ -69,11 +66,9 @@ export class CurrentMarketService {
 
   public getMarketGraph(id: string, filter?: Object): Observable<Award[]> {
     const params = new HttpParams().set('market_id', id);
-
     // todo : enable : broken backend
     // Object.keys(filter)
     //   .forEach(key => params = params.set(key, filter[key]));
-
     return Observable.create((observer: Observer<Award[]>) => {
       this._http
         .get(GET_MARKET_GRAPH_PATH, { params: params })
